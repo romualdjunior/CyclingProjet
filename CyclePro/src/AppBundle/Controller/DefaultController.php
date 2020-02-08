@@ -15,7 +15,11 @@ class DefaultController extends Controller
     {
         // replace this example code with whatever you need
         //juste pour tester le smodifications du projet
+
         //maintenant je veux travailler rapidement que dire merci
+
+        //moi je veux travailler rapidemnt que dire merci infiniment 
+
         return $this->render('baseAdmin.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
