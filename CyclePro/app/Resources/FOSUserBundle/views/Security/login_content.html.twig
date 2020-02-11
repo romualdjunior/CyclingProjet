@@ -1,0 +1,54 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+<div class="modal" id="signin">
+    <div class="cy_signin">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="cy_sign_img">
+                    <img src="{{ asset('Frontend/images/popup.jpg') }}" alt="popup" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="cy_sign_form">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h1>Sign In</h1>
+                    <form action="{{ path("fos_user_security_check") }}" method="post">
+                        {% if csrf_token %}
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                        {% endif %}
+                        <input type="text"  class="form-control"  placeholder="Username"   id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+                        <input type="password" placeholder="Password" class="form-control" id="password" name="_password" required="required" autocomplete="current-password" />
+                    <div class="forget_password">
+                        <div class="remember_checkbox">
+                            <label>Keep me signed in
+                                <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                            </label>
+                        </div>
+                        <a href="#">Forgot Password ?</a>
+                    </div>
+                        <input type="submit" class="cy_button" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% block javascripts2 %}
+    <script type="text/javascript">
+        setTimeout(() => {
+            $('#signin').modal('show');
+        }, 1000);
+
+    </script>
+{% endblock %}
+
+
+
+

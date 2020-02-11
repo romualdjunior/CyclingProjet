@@ -20,7 +20,7 @@ class DefaultController extends Controller
 
         //moi je veux travailler rapidemnt que dire merci infiniment 
 
-        return $this->render('baseAdmin.html.twig', [
+        return $this->render('base.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
