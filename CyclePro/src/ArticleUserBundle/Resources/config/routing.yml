@@ -1,0 +1,7 @@
+article_user_homepage:
+    path:     /readArticle
+    defaults: { _controller: ArticleUserBundle:Default:read }
+single_article_user:
+    path:     /singleArticle/{id}
+    defaults: { _controller: ArticleUserBundle:Default:readsingle }
+

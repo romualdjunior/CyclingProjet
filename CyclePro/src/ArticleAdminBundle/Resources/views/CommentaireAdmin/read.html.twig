@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>
+        Commentaire    </title>
+</head>
+<body>
+<table border="1px">
+
+    <th>
+    <td><b>titre de l'article</b></td>
+    <td><b>Commentaire</b></td>
+    <td><b>Date création</b></td>
+    <td><b>likes</b></td>
+    <td><b>Supprimer</b></td>
+    </th>
+
+    {% for i in commentaire %}
+        <tr>
+            <td></td>
+            <td>{{ i.article.titre }}</td>
+            <td>{{ i.contenue }}</td>
+            <td>{{ i.dateComt | date }}</td>
+            <td>{{ i.likes }}</td>
+            <td><a href="{{ path("delete_comt",{"id":i.id})}}"> Supprimer</a></td>
+        </tr>
+    {% endfor %}
+
+
+</table>
+</body>
+</html>
+
