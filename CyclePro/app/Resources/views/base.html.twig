@@ -39,7 +39,10 @@ Author: Kamleshyadav
         <link href="{{ asset('Frontend/js/plugin/revolution/css/settings.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('Frontend/js/plugin/revolution/css/layers.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('Frontend/js/plugin/revolution/css/navigation.css') }}" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="{{ asset('Frontend/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('Backoffice/css/toastr.css') }}">
+            <link rel="stylesheet" href="{{ asset('Frontend/css/style.css') }}">
+
+
         {% endblock %}
     </head>
     <body>
@@ -116,8 +119,14 @@ Author: Kamleshyadav
             </div>
             <!-- sign icons -->
             <div class="cy_sign_wrapper">
-                <h2 class="signin"><i class="fa fa-sign-in" aria-hidden="true"></i><a href="#signin" data-toggle="modal">Sign In</a></h2>
-                <h2 class="signup"><i class="fa fa-user-plus" aria-hidden="true"></i><a href="#signup" data-toggle="modal">Sign Up</a></h2>
+            {% if is_granted('ROLE_USER') %}
+                <h2 class="signin"><i class="fa fa-sign-in" aria-hidden="true"></i><a href="{{ path('fos_user_security_logout') }}" >Log out</a></h2>
+                <h2 class="signup"><i class="fa fa-user-plus" aria-hidden="true"></i><a href="{{ path('fos_user_profile_edit') }}" >Prof</a></h2>
+            {% else %}
+                <h2 class="signin"><i class="fa fa-sign-in" aria-hidden="true"></i><a href="{{ path('fos_user_security_login') }}" >Sign In</a></h2>
+                <h2 class="signup"><i class="fa fa-user-plus" aria-hidden="true"></i><a href="{{ path('fos_user_registration_register') }}" >Sign Up</a></h2>
+            {% endif %}
+
             </div>
             <!-- sign in modal -->
         {% block SignIn%}
@@ -304,6 +313,10 @@ Author: Kamleshyadav
             <script src="{{asset('Frontend/js/plugin/revolution/js/revolution.extension.kenburn.min.js')}}"></script>
             <script src="{{asset('Frontend/js/jquery.nice-select.min.js')}}"></script>
             <script src="{{asset('Frontend/js/custom.js')}}"></script>
+            <script src="{{ asset('Backoffice/js/toastr.js') }}"></script>
+            <script>
+            </script>
+
         {% endblock %}
     </body>
 </html>

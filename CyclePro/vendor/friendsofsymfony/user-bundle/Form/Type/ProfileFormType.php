@@ -59,6 +59,8 @@ class ProfileFormType extends AbstractType
             ),
             'attr' => array(
                 'autocomplete' => 'current-password',
+                'class'=>"form-control",
+                "placeholder"=>"password"
             ),
         ));
     }
@@ -101,8 +103,10 @@ class ProfileFormType extends AbstractType
     protected function buildUserForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle'))
-            ->add('email', EmailType::class, array('label' => 'form.email', 'translation_domain' => 'FOSUserBundle'))
+            ->add('username', null, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle',
+                "attr"=>['placeholder'=>"username","class"=>"form-control"]))
+            ->add('email', EmailType::class, array('label' => 'form.username', 'translation_domain' => 'FOSUserBundle',
+                "attr"=>['placeholder'=>"username","class"=>"form-control"]))
         ;
     }
 }

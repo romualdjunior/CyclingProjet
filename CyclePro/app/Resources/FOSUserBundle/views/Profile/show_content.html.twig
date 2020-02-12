@@ -1,0 +1,41 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="modal" id="signin">
+    <div class="cy_signin">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="cy_sign_img">
+                    <img src="{{ asset('Frontend/images/popup.jpg') }}" alt="popup" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="cy_sign_form">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h1>Votre Profile</h1>
+                    <div class="fos_user_user_show" class="mt-3">
+                        <div>{{ 'profile.show.username'|trans }}: {{ user.username }}</div>
+                        <div>{{ 'profile.show.email'|trans }}: {{ user.email }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% block javascripts2 %}
+
+    <script type="text/javascript">
+        setTimeout(() => {
+            $('#signin').modal('show');
+
+        }, 1000);
+
+    </script>
+{% endblock %}
+
+
+
+
