@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: "@CommandeBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -79,3 +80,18 @@ fos_user:
     from_email:
         address: "badiaa.bouhdid@esprit.tn"
         sender_name: "badi3a"
+payum:
+    security:
+        token_storage:
+            CommandeBundle\Entity\PaymentToken: { doctrine: orm }
+
+    storages:
+       CommandeBundle\Entity\Payment: { doctrine: orm }
+
+    gateways:
+        paypal_express_checkout:
+            factory: paypal_express_checkout
+            username:  romualdmotcheho_api1.yahoo.com
+            password:  3PZ2YUUSZNWKP44R
+            signature: AJGNZ4CfKBZXDrzG0vCoTfw2mZHWAEfTArQt5BSLmv9HUg-OmxUPbWXQ
+            sandbox: true

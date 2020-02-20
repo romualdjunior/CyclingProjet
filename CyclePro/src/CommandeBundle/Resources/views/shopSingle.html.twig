@@ -1,0 +1,502 @@
+{% extends "base.html.twig" %}
+{% block banner  %}
+    <!--Banner section start-->
+    <div class="cy_bread_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h1>shop single</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <!-- shop section start -->
+    <div class="cy_shop_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12 push-lg-4">
+                    <div class="cy_shop_single_page">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="woocommerce-product-gallery">
+                                    <div id="sync1" class="owl-carousel owl-theme">
+                                        <div class="item">
+                                            <div class="cy_product_img">
+                                                <img  src="{{ asset('Frontend/images/store/2.jpg') }}" alt="product" class="img-fluid">
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="cy_product_img">
+                                                <img  src="{{ asset('Frontend/images/store/5.jpg') }}" alt="product" class="img-fluid">
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="cy_product_img">
+                                                <img  src="{{ asset('Frontend/images/store/1.jpg') }}" alt="product" class="img-fluid">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="sync2" class="owl-carousel owl-theme">
+                                        <div class="item">
+                                            <div class="cy_product_thumbnail">
+                                                <img id="1" etat="vendre" alt="product thumbnail" src="{{ asset('Frontend/images/cart/1.jpg') }}" class="img-fluid">
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="cy_product_thumbnail">
+                                                <img id="2" etat="louer" alt="product thumbnail" src="{{ asset('Frontend/images/cart/2.jpg') }}" class="img-fluid">
+                                            </div>
+                                        </div>
+                                        <div class="item">
+                                            <div class="cy_product_thumbnail">
+                                                <img id="3" etat="vendre" alt="product thumbnail" src="{{ asset('Frontend/images/cart/3.jpg') }}" class="img-fluid">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="summary entry-summary">
+                                    <h1 class="product_title">Road Bicycle</h1>
+                                    <h4 class="product-price-amount">$2500</h4>
+                                    <p class="woocommerce-product-detail">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                    <div class="quantity">
+                                        <input type="number" min="0" value="1">
+                                        <button id="panier"  class="cy_button">Add </button>
+                                        <button id="location"  style="display: none;"class="cy_button">Rent</button>
+                                    </div>
+                                    <div id="locationForm" style="display:none; margin-top:12px;">
+                                        <label for="">date de Debut </label>
+                                        <input id="dateDebut" class="form-control" style="width:50%;" placeholder="dd/mm/yyyy" type="date">
+                                        <label for="">date de fin </label>
+                                        <input class="form-control" style="width:50%;" id="dateFin"  placeholder="dd/mm/yyyy" type="date">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="woocommerce-tabs">
+                                    <ul class="tabs">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" href="#discription"  data-toggle="tab">Discription</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#review" data-toggle="tab">Reviews(0)</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade show active" id="discription">
+                                            <h3>Discription</h3>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="review">
+                                            <div class="woocommerce-Reviews">
+                                                <div class="comments">
+                                                    <h2 class="woocommerce-Reviews-title">Reviews</h2>
+                                                    <p class="woocommerce-noreviews">There are no reviews yet.</p>
+                                                </div>
+                                                <div class="review_form_wrapper">
+                                                    <div class="comment-respond">
+                                                        <span class="comment-reply-title">Be the first to review “Modern Chairs”</span>
+                                                        <form class="comment-form">
+                                                            <p class="review_message">
+                                                                <span>Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
+                                                            </p>
+                                                            <div class="comment-form-rating">
+                                                                <label for="rating">Your rating</label>
+                                                                <p class="stars">
+                                                                    <span><i class="fa fa-star-o" href="#"></i><i class="fa fa-star-o" href="#"></i><i class="fa fa-star-o" href="#"></i><i class="fa fa-star-o" href="#"></i><i class="fa fa-star-o" href="#"></i></span>
+                                                                </p>
+                                                            </div>
+                                                            <p>
+                                                                <textarea name="comment" placeholder="Review*"></textarea>
+                                                            </p>
+                                                            <p>
+                                                                <input name="author" type="text" value="" placeholder="Name*">
+                                                            </p>
+                                                            <p>
+                                                                <input  name="email" type="email" value="" placeholder="Email*">
+                                                            </p>
+                                                            <p class="form-submit">
+                                                                <blutton class="cy_button">Submit</blutton>
+                                                            </p>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cy_store_slider">
+                        <div class="cy_related_product">
+                            <h2>Related Products</h2>
+                        </div>
+                        <div class="owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="cy_store_box">
+                                    <div class="cy_store_img">
+                                        <a href="shop_single.html"><img src="{{ asset('Frontend/images/store/1.jpg') }}" alt="store" class="img-fluid"></a>
+                                        <div class="cy_store_img_overlay">
+                                            <p>Sale</p>
+                                        </div>
+                                    </div>
+                                    <div class="cy_store_data">
+                                        <div class="cy_store_text">
+                                            <h3><a href="shop_single.html">Road Bicycles</a></h3>
+                                            <ul>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
+                                            </ul>
+                                        </div>
+                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>$2500</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="cy_store_box">
+                                    <div class="cy_store_img">
+                                        <a href="shop_single.html"><img src="{{ asset('Frontend/images/store/2.jpg') }}" alt="store" class="img-fluid"></a>
+                                    </div>
+                                    <div class="cy_store_data">
+                                        <div class="cy_store_text">
+                                            <h3><a href="shop_single.html">Road Bicycles</a></h3>
+                                            <ul>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            </ul>
+                                        </div>
+                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>$2500</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="cy_store_box">
+                                    <div class="cy_store_img">
+                                        <a href="shop_single.html"><img src="{{ asset('Frontend/images/store/3.jpg') }}" alt="store" class="img-fluid"></a>
+                                    </div>
+                                    <div class="cy_store_data">
+                                        <div class="cy_store_text">
+                                            <h3><a href="shop_single.html">Road Bicycles</a></h3>
+                                            <ul>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                            </ul>
+                                        </div>
+                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>$2500</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="cy_store_box">
+                                    <div class="cy_store_img">
+                                        <a href="shop_single.html"><img src="{{ asset('Frontend/images/store/4.jpg') }}" alt="store" class="img-fluid"></a>
+                                        <div class="cy_store_img_overlay">
+                                            <p>Sale</p>
+                                        </div>
+                                    </div>
+                                    <div class="cy_store_data">
+                                        <div class="cy_store_text">
+                                            <h3><a href="shop_single.html">Road Bicycles</a></h3>
+                                            <ul>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
+                                            </ul>
+                                        </div>
+                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>$2500</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="cy_store_box">
+                                    <div class="cy_store_img">
+                                        <a href="shop_single.html"><img src="{{ asset('Frontend/images/store/5.jpg') }}" alt="store" class="img-fluid"></a>
+                                    </div>
+                                    <div class="cy_store_data">
+                                        <div class="cy_store_text">
+                                            <h3><a href="shop_single.html">Road Bicycles</a></h3>
+                                            <ul>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                            </ul>
+                                        </div>
+                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>$2500</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 pull-lg-8">
+                    <div class="cy_shop_sidebar">
+                        <div class="widget woocommerce widget_product_search">
+                            <form class="search-form">
+                                <div class="input-group">
+                                    <input type="text" value="" name="s" class="form-control" placeholder="Search">
+                                    <span class="cy_search_btn">
+                                        <button class="btn btn-search" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="widget woocommerce widget_category">
+                            <h3 class="woocommerce_widget_title">Categories</h3>
+                            <ul>
+                                <li>
+                                    <label>Road Bicycles (245)
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>Flat Bar Road Bikes (346)
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>Touring Bicycles (604)
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>Hybrid Bicycles (338)
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>Cross Bikes (130)
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>Freight Bicycles (372)
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>Helmet (742)
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>Bike Bag (810)
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="widget woocommerce widget_price">
+                            <h3 class="woocommerce_widget_title">Price</h3>
+                            <div id="slider-range">
+                            </div>
+                            <div class="cy_range">
+                                <input type="text" id="amount" readonly>
+                            </div>
+                        </div>
+                        <div class="widget woocommerce widget_availability">
+                            <h3 class="woocommerce_widget_title">Availability</h3>
+                            <ul>
+                                <li>
+                                    <label>In Stock (2045)
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>All Items (3141)
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="widget woocommerce widget_color">
+                            <h3 class="woocommerce_widget_title">Color</h3>
+                            <ul>
+                                <li>
+                                    <label>White
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>Black
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>Red
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>Brown
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>Navy
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>Blue
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>Grey
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>Green
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="widget woocommerce widget_size">
+                            <h3 class="woocommerce_widget_title">Size</h3>
+                            <ul>
+                                <li>
+                                    <label>Small (214)
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>Medium (410)
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>Large (874)
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label>Extra Large (621)
+                                        <input type="checkbox">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        var louer=false;
+        var id=1;
+        var quantite=1;
+        function controlDeSaisi(){
+            let dateDebut=$("#dateDebut").val();
+            let dateFin=$("#dateFin").val();
+            let jourDebut=dateDebut.split("-")[0];
+            let moisDebut=dateDebut.split("-")[1];
+            let anneeDebut=dateDebut.split("-")[2];
+            let jourFin=dateFin.split("-")[0];
+            let moisFin=dateFin.split("-")[1];
+            let anneeFin=dateFin.split("-")[2];
+
+            if(typeof jourDebut =="undefined" ||  typeof anneeDebut =="undefined" || typeof moisDebut =="undefined")
+            {
+                $("#dateDebut").css("border","1px solid red");
+                $("#dateDebut").after("<p class='erreur' style='color:red;'> Erreur de saisie </p>");
+                return false;
+            }
+            else if(typeof jourFin =="undefined" ||  typeof anneeFin =="undefined" || typeof moisFin =="undefined"){
+                $("#dateFin").css("border","1px solid red");
+                $("#dateFin").after("<p class='erreur' style='color:red;'> Erreur de saisie </p>");
+                return false;
+            }
+            else {
+                $("#dateDebut").css("border","1px solid #464a4c");
+                $("#dateFin").css("border","1px solid #464a4c");
+                $(".erreur").remove();
+                return true;
+            }
+
+        }
+        $("#panier").click(function(){
+            quantite=$(".quantity").children("input").val();
+            if(louer==true) {
+                if (controlDeSaisi())
+                {
+                    $.ajax({
+                        type: "get",
+                        url: "{{path("ajouterLocation")}}",
+                        data: {
+                            dateDebut:$("#dateDebut").val(),
+                            dateFin:$("#dateFin").val(),
+                            idProduit:id,
+                            quantite:quantite
+                        },
+                        success: function (response) {
+                            // alert(response);
+                        }
+                    });
+                    window.location.href=Routing.generate("ajoutPanier",{id:id,quantite:quantite});
+                }
+
+            }
+           else window.location.href=Routing.generate("ajoutPanier",{id:id,quantite:quantite});
+        })
+        $(".cy_product_thumbnail").click(function () {
+            id=$(this).children("img").attr("id");
+            if ($(this).children("img").attr("etat")=="louer"){
+                $("#location").show();
+                louer=true;
+            }
+            else {
+                louer=false;
+                $("#location").hide();
+                $("#locationForm").hide("slow");
+            }
+        })
+        $("#location").click(function () {
+            $("#locationForm").show("slow");
+        })
+    </script>
+{% endblock %}
+

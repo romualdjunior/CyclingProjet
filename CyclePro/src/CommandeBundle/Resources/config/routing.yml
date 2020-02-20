@@ -1,0 +1,94 @@
+commande_homepage:
+    path:     /
+    defaults: { _controller: CommandeBundle:Default:index }
+ajoutPanier:
+    path:     /ajoutPanier
+    defaults: { _controller: CommandeBundle:Default:ajoutPanier }
+    options:
+        expose: true
+
+afficherPanier:
+    path:     /afficherPanier
+    defaults: { _controller: CommandeBundle:Default:afficherPanier }
+    options:
+        expose: true
+
+supprimerPanier:
+    path:     /supprimerPanier/{id}
+    defaults: { _controller: CommandeBundle:Default:supprimerPanier }
+    options:
+        expose: true
+
+pageProduit:
+    path:     /pageProduit/
+    defaults: { _controller: CommandeBundle:Default:afficherProduit }
+    options:
+        expose: true
+
+afficherAdresse:
+    path:     /pageAdresse/
+    defaults: { _controller: CommandeBundle:Commande:afficherAdresse }
+    options:
+        expose: true
+
+ajouterAdresse:
+    path:     /ajouterAdresse/
+    defaults: { _controller: CommandeBundle:Commande:ajouterAdresse }
+    options:
+        expose: true
+
+ajouterCommande:
+    path:     /ajouterCommande/
+    defaults: { _controller: CommandeBundle:Commande:ajouterCommande }
+    options:
+        expose: true
+
+ajouterLignePanier:
+    path:     /ajouterLignePanier/
+    defaults: { _controller: CommandeBundle:Commande:ajouterLignePanier }
+    options:
+        expose: true
+
+afficherCommandePanier:
+    path:     /afficherCommandePanier/
+    defaults: { _controller: CommandeBundle:Commande:afficherCommandePanier }
+    options:
+        expose: true
+
+supprimerAdresse:
+    path:     /supprimerAdresse/{id}
+    defaults: { _controller: CommandeBundle:Commande:supprimerAdresse }
+    options:
+        expose: true
+ajouterLocation:
+    path:     /ajouterLocation
+    defaults: { _controller: CommandeBundle:Commande:ajouterLocation }
+    options:
+        expose: true
+
+ajouterPenalite:
+    path:     /ajouterPenalite
+    defaults: { _controller: CommandeBundle:Commande:ajouterPenalite }
+    options:
+        expose: true
+
+preparerPaiement:
+    path:     /preparerPaiement
+    defaults: { _controller: CommandeBundle:Payment:prepare }
+    options:
+         expose: true
+afficherPaiement:
+    path:     /afficherPaiement
+    defaults: { _controller: CommandeBundle:Commande:afficherPaiement }
+    options:
+        expose: true
+afficherPenalite:
+    path:     /afficherPenalite
+    defaults: { _controller: CommandeBundle:Commande:afficherPenalite }
+    options:
+        expose: true
+filtreCommandePanier:
+    path:     /filtreCommandePanier
+    defaults: { _controller: CommandeBundle:Commande:filtreCommandePanier }
+    options:
+         expose: true

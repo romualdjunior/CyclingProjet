@@ -20,7 +20,7 @@ class DefaultController extends Controller
 
         //moi je veux travailler rapidemnt que dire merci infiniment 
 
-        return $this->render('home.html.twig', [
+        return $this->render('@Commande\shopSingle.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }

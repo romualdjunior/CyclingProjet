@@ -1,0 +1,109 @@
+{% extends "baseAdmin.html.twig" %}
+{% block banner  %}
+    <!--Banner section start-->
+    <div class="cy_bread_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h1>Historique</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{%  block content %}
+    <div class="container-fluid page-body-wrapper">
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-12 grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Basic Sortable Table</h4>
+                                <div class="row">
+                                    <div id="order-listing_filter" class="dataTables_filter"><label><input id="search" type="search" class="form-control" placeholder="Search" aria-controls="order-listing"></label></div>
+                                    <div class="table-sorter-wrapper col-lg-12 table-responsive">
+                                        <table id="sortable-table-1" class="table">
+                                            <thead>
+                                            <tr>
+                                                <th class="sortStyle">id<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">quantite<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">idCommande<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">Etat<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">nomProduit<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">imageProduit<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">adresseLivraison<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">nom<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">modifier<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">annuler<i class="icon-arrow-down"></i></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for panier in lignePaniers  %}
+                                                <tr>
+                                                    <td>{{panier.id}}</td>
+                                                    <td>{{panier.quantite}}</td>
+                                                    <td>{{panier.commande.id}}</td>
+                                                    <td>{{panier.commande.Etat}}</td>
+                                                    <td>{{panier.produit.nom}}</td>
+                                                    <td><img src="{{asset(panier.produit.image)}}"></td>
+                                                    <td>{{panier.commande.adresse.adresseLivraison}}</td>
+                                                    <td>{{panier.commande.user.username}}</td>
+                                                    <td class="sortStyle"><a href="" class="badge badge-info">modifier</a></td>
+                                                    <td class="sortStyle"><a href="" class="badge badge-danger">supprimer</a></td>
+
+                                                </tr>
+                                            {% endfor %}
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts  %}
+{{ parent() }}
+<script>
+$(function(){
+    $("#search").keydown(function () {
+        $.ajax({
+            type: "get",
+            url: "{{path("filtreCommandePanier")}}",
+            data: {
+                mot:$(this).val()
+            },
+            success: function (response) {
+                console.log(response);
+                let content="";
+                $("table").html("");
+                response.lignePanier.forEach(element => {
+                    content+="<tr>" +
+                        "<td>"+element.id+"</td>" +
+                        "<td>"+element.quantite+"</td>" +
+                        "<td>"+element.idCommande+"</td>" +
+                        "<td>"+element.etat+"</td>" +
+                        "<td>"+element.nom+"</td>" +
+                        "<td>"+element.image+"</td>" +
+                        "<td>"+element.adresseLivraison+"</td>" +
+                        "<td>"+element.username+"</td>" +
+                        '<td class="sortStyle"><a href="" class="badge badge-info">modifier</a></td>'+
+                    '<td class="sortStyle"><a href="" class="badge badge-danger">supprimer</a></td>'+
+                        "</tr>"
+                });
+                $("table").html(content);
+
+            }
+        });
+        });
+})
+</script>
+{%  endblock   %}

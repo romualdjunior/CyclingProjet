@@ -1,0 +1,77 @@
+{% extends "baseAdmin.html.twig" %}
+{% block banner  %}
+    <!--Banner section start-->
+    <div class="cy_bread_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h1>Historique</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{%  block content %}
+    <div class="container-fluid page-body-wrapper">
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="row">
+                    <div class="col-12 grid-margin">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Basic Sortable Table</h4>
+                                <div class="row">
+                                    <div class="table-sorter-wrapper col-lg-12 table-responsive">
+                                        <table id="sortable-table-1" class="table">
+                                            <thead>
+                                            <tr>
+                                                <th class="sortStyle">id<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">duree(H)<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">Prix à Payer<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">Nom Produit<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">imageProduit<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">utilisateur<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">Date Debut<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">Date Fin<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">modifier<i class="icon-arrow-down"></i></th>
+                                                <th class="sortStyle">annuler<i class="icon-arrow-down"></i></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for penalite in penalites  %}
+                                                <tr>
+                                                    <td>{{penalite.id}}</td>
+                                                    <td>{{penalite.duree}}</td>
+                                                    <td>{{penalite.prix}}</td>
+                                                    <td>{{penalite.location.produit.nom}}</td>
+                                                    <td><img src="{{asset(penalite.location.produit.image)}}"> </td>
+                                                    <td>{{penalite.location.user.username}}</td>
+                                                    <td>{{penalite.location.dateDebut}}</td>
+                                                    <td>{{penalite.location.dateFin}}</td>
+                                                    <td class="sortStyle"><a href="" class="badge badge-info">modifier</a></td>
+                                                    <td class="sortStyle"><a href="" class="badge badge-danger">supprimer</a></td>
+
+                                                </tr>
+                                            {% endfor %}
+
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
+{% block javascript  %}
+{{ parent() }}
+<scrip>
+
+</scrip>
+{%  endblock   %}

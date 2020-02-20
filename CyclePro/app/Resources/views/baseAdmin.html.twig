@@ -201,6 +201,8 @@
         <!-- endinject -->
 <!-- Custom js for this page-->
 <script src="{{ asset('Backoffice/js/form-addons.js') }}"></script>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
 
         <!-- End custom js for this page-->
 
