@@ -92,3 +92,10 @@ filtreCommandePanier:
     defaults: { _controller: CommandeBundle:Commande:filtreCommandePanier }
     options:
          expose: true
+imprimerFacture:
+    path:     /imprimerFacture/{id}
+    defaults: { _controller: CommandeBundle:Commande:imprimerFacture }
+
+afficherReceipt:
+    path:     /afficherReceipt
+    defaults: { _controller: CommandeBundle:Commande:afficherReceipt }

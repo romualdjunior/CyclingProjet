@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new CommandeBundle\CommandeBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Payum\Bundle\PayumBundle\PayumBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+
 
         ];
 

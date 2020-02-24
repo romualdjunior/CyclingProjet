@@ -49,7 +49,7 @@
                                                     <td><img src="{{asset(panier.produit.image)}}"></td>
                                                     <td>{{panier.commande.adresse.adresseLivraison}}</td>
                                                     <td>{{panier.commande.user.username}}</td>
-                                                    <td class="sortStyle"><a href="" class="badge badge-info">modifier</a></td>
+                                                    <td class="sortStyle"><a href="{{path('ajouterAdresse')}}" class="badge badge-info">modifier</a></td>
                                                     <td class="sortStyle"><a href="" class="badge badge-danger">supprimer</a></td>
 
                                                 </tr>
@@ -84,7 +84,7 @@ $(function(){
             success: function (response) {
                 console.log(response);
                 let content="";
-                $("table").html("");
+                $("tbody").html("");
                 response.lignePanier.forEach(element => {
                     content+="<tr>" +
                         "<td>"+element.id+"</td>" +
@@ -99,7 +99,7 @@ $(function(){
                     '<td class="sortStyle"><a href="" class="badge badge-danger">supprimer</a></td>'+
                         "</tr>"
                 });
-                $("table").html(content);
+                $("tbody").html(content);
 
             }
         });

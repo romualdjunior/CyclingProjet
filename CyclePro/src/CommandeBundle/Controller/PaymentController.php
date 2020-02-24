@@ -35,7 +35,7 @@ class PaymentController extends Controller
             $captureToken = $this->get('payum')->getTokenFactory()->createCaptureToken(
                 $gatewayName,
                 $payment,
-                'afficherCommandePanier' // the route to redirect after capture
+                'afficherReceipt' // the route to redirect after capture
             );
 
             return $this->redirect($captureToken->getTargetUrl());

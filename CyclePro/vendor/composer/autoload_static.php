@@ -78,6 +78,11 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
         array (
             'League\\Uri\\' => 11,
         ),
+        'K' => 
+        array (
+            'Knp\\Snappy\\' => 11,
+            'Knp\\Bundle\\SnappyBundle\\' => 24,
+        ),
         'I' => 
         array (
             'Incenteev\\ParameterHandler\\' => 27,
@@ -251,6 +256,14 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
             3 => __DIR__ . '/..' . '/league/uri-manipulations/src',
             4 => __DIR__ . '/..' . '/league/uri-parser/src',
             5 => __DIR__ . '/..' . '/league/uri-schemes/src',
+        ),
+        'Knp\\Snappy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-snappy/src/Knp/Snappy',
+        ),
+        'Knp\\Bundle\\SnappyBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-snappy-bundle',
         ),
         'Incenteev\\ParameterHandler\\' => 
         array (

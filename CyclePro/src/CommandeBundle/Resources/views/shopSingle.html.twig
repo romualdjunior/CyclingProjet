@@ -498,5 +498,10 @@
             $("#locationForm").show("slow");
         })
     </script>
+    <script>
+        {% if connexion is defined and connexion=="true" %}
+        toastr.success("Bienvenue {{ app.user.username }}. Comment vous portez vous aujourd'hui?" );
+        {% endif %}
+    </script>
 {% endblock %}
 

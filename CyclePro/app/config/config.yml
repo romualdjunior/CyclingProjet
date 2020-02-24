@@ -95,3 +95,17 @@ payum:
             password:  3PZ2YUUSZNWKP44R
             signature: AJGNZ4CfKBZXDrzG0vCoTfw2mZHWAEfTArQt5BSLmv9HUg-OmxUPbWXQ
             sandbox: true
+
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        options:
+            no-outline: true
+            page-size: LETTER
+            # Recommended to set UTF-8 as default encoding 🙂
+            encoding: UTF-8
+    image:
+        enabled:    true
+        binary:     /usr/local/bin/wkhtmltoimage #"\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\"" for Windows users
+        options:    []

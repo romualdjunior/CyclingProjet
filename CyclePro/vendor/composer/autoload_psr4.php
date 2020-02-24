@@ -38,6 +38,8 @@ return array(
     'Payum\\Bundle\\PayumBundle\\' => array($vendorDir . '/payum/payum-bundle'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
     'League\\Uri\\' => array($vendorDir . '/league/uri-components/src', $vendorDir . '/league/uri-hostname-parser/src', $vendorDir . '/league/uri-interfaces/src', $vendorDir . '/league/uri-manipulations/src', $vendorDir . '/league/uri-parser/src', $vendorDir . '/league/uri-schemes/src'),
+    'Knp\\Snappy\\' => array($vendorDir . '/knplabs/knp-snappy/src/Knp/Snappy'),
+    'Knp\\Bundle\\SnappyBundle\\' => array($vendorDir . '/knplabs/knp-snappy-bundle'),
     'Incenteev\\ParameterHandler\\' => array($vendorDir . '/incenteev/composer-parameter-handler'),
     'Http\\Promise\\' => array($vendorDir . '/php-http/promise/src'),
     'Http\\Message\\' => array($vendorDir . '/php-http/message/src', $vendorDir . '/php-http/message-factory/src'),

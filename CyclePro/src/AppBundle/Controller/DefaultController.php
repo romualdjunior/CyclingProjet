@@ -34,7 +34,7 @@ class DefaultController extends Controller
             return $this->render("homeAdmin.html.twig",array("connexion"=>"true"));
         }
         else if($authChecker->isGranted("ROLE_USER")){
-            return $this->render("home.html.twig",array("connexion"=>"true"));
+            return $this->render("@Commande/shopSingle.html.twig",array("connexion"=>"true"));
         }
         else {
             return $this->render("@FOSUser/Security/login.html.twig");

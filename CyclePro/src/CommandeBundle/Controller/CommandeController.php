@@ -14,6 +14,7 @@ use Monolog\Processor\UidProcessor;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class CommandeController extends Controller
 {
@@ -157,6 +158,32 @@ class CommandeController extends Controller
         $tab=$em->getRepository(Commande::class)->findCommandePanier($mot);
        return new JsonResponse(array("lignePanier"=>$tab));
     }
+
+    public function imprimerFactureAction($id){
+        $em=$this->getDoctrine()->getManager();
+        $commande=$em->getRepository(Commande::class)->find($id);
+        $snappy = $this->get('knp_snappy.pdf');
+
+        $html = $this->renderView('@Commande/facture.html.twig', array(
+            //..Send some data to your view if you need to //
+            'commande' => $commande
+
+        ));
+
+        $filename = 'myFirstSnappyPDF';
+
+        return new Response(
+            $snappy->getOutputFromHtml($html),
+            200,
+            array(
+                'Content-Type'          => 'application/pdf',
+                'Content-Disposition'   => 'inline; filename="'.$filename.'.pdf"'
+            )
+        );
+    }
+public function afficherReceiptAction(){
+        return $this->render("@Commande/receipt.html.twig");
+}
 
 
 }
