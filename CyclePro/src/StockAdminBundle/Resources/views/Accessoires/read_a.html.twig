@@ -1,0 +1,87 @@
+{% extends 'baseAdmin.html.twig' %}
+{% block content %}
+
+
+        <div class="content-wrapper">
+
+
+
+            <h4 >Liste des Accessoires</h4>
+
+            <div class="row">
+
+                <div class="col-12 table-responsive">
+
+
+                    <div id="order-listing_wrapper"
+                         class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                        <div class="row"><div class="col-sm-12 col-md-6">
+                                <div class="dataTables_length" id="order-listing_length">
+                                    <label>Afficher
+                                        <select name="order-listing_length" aria-controls="order-listing" class="form-control">
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                            <option value="-1">All</option>
+                                        </select>lignes
+                                    </label>
+                                </div></div>
+                            <div class="col-sm-12 col-md-6">
+                                <div id="order-listing_filter" class="dataTables_filter">
+                                    <label>
+                                        <input type="search" class="form-control" placeholder="Search" aria-controls="order-listing">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table id="order-listing" class="table dataTable no-footer"
+                                       role="grid" aria-describedby="order-listing_info">
+                                    <thead>
+                                    <tr role="row">
+
+                                        <th  >PHOTO</th>
+                                        <th  >nom</th>
+                                        <th  >marque</th>
+                                        <th  >categorie</th>
+                                        <th  >prix</th>
+                                        <th  >description</th>
+                                        <th  >Option</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                    {% for i in ACs %}
+
+                                            <tr role="row" class="odd">
+
+                                                <td><img src="{{ asset('Frontend/images/store/'~i.photoA) }}"></td>
+                                                <td>{{ i.nom }}</td>
+                                                <td>{{ i.marque }}</td>
+                                                <td>{{ i.categorie }}</td>
+                                                <td>{{ i.prix }}</td>
+                                                <td>{{ i.description }}</td>
+
+
+                                                <td><a  class="badge badge-success" href="{{ path('updateA',{'id':i.id}) }}">Modifier</a></td>
+                                                <td><a class="badge badge-danger"  href="{{ path('deleteA',{'id':i.id}) }}">supprimer</a></td>
+
+
+
+                                            </tr>
+
+
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

@@ -58,6 +58,11 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
         'M' => 
         array (
             'Monolog\\' => 8,
+            'Mgilet\\NotificationBundle\\' => 26,
+        ),
+        'K' => 
+        array (
+            'Knp\\Bundle\\PaginatorBundle\\' => 27,
         ),
         'I' => 
         array (
@@ -193,6 +198,14 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
+        'Mgilet\\NotificationBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mgilet/notification-bundle',
+        ),
+        'Knp\\Bundle\\PaginatorBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle',
+        ),
         'Incenteev\\ParameterHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
@@ -249,6 +262,13 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
             'Twig_' => 
             array (
                 0 => __DIR__ . '/..' . '/twig/twig/lib',
+            ),
+        ),
+        'K' => 
+        array (
+            'Knp\\Component' => 
+            array (
+                0 => __DIR__ . '/..' . '/knplabs/knp-components/src',
             ),
         ),
         'D' => 

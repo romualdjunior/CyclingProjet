@@ -1,0 +1,100 @@
+{%extends "baseAdmin.html.twig" %}
+{% block content %}
+
+    {{ form_start(form) }}
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: center">Ajouter Accessoires</h4>
+                <form class="form-sample">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+
+                                <div class="col-sm-9">
+                                    {{ form_row(form.nom, {'attr':{'class':'form-control'}}) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+
+                                <div class="col-sm-9">
+                                    {{ form_row(form.marque, {'attr':{'class':'form-control'}}) }}                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+
+                                <div class="col-sm-9">
+                                    {{ form_row(form.prix, {'attr':{'class':'form-control'}}) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+
+                                <div class="col-sm-9">
+                                    {{ form_row(form.categorie, {'attr':{'class':'form-control'}}) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+
+                                <div class="col-sm-9">
+                                    {{ form_row(form.description, {'attr':{'class':'form-control'}}) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+
+                                <div class="col-sm-9">
+                                    <div class="dropify-wrapper">
+                                        <div class="dropify-message"><span class="file-icon">
+
+                                            </span> <p>Drag and drop a file here or click</p>
+                                            <p class="dropify-error">Ooops, something wrong appended.</p></div>
+                                        <div class="dropify-loader"></div><div class="dropify-errors-container"><ul></ul></div>
+                                        <input type="file" name="photoV" id="photoV" class="dropify">
+                                        <button type="button" class="dropify-clear">Remove</button><div class="dropify-preview">
+                                            <span class="dropify-render"></span><div class="dropify-infos"><div class="dropify-infos-inner">
+                                                    <p class="dropify-filename"><span class="file-icon"></span>
+                                                        <span class="dropify-filename-inner"></span></p>
+                                                    <p class="dropify-infos-message">Drag and drop or click to replace</p>
+                                                </div></div></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group row">
+
+                                <div class="col-sm-9">
+                                    <button type="submit" class="btn btn-primary mr-2">Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                        {{ form_end(form) }}
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ asset('Backoffice/../../js/select2.js') }}"></script>
+
+
+
+{% endblock %}

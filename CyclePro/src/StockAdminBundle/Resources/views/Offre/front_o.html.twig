@@ -1,0 +1,50 @@
+{% extends 'home.html.twig' %}
+{% block content %}
+    <!--Store section start-->
+    <div class="cy_store_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h1 class="cy_heading">promotion</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="cy_store_slider">
+                        <div class="owl-carousel owl-theme">
+                            {% for i in offres %}
+
+                                <div class="item">
+
+                                    <div class="cy_store_box">
+
+                                        <div class="cy_store_img">
+
+                                            <a href="shop_single.html"><img src="{{ asset('Frontend/images/store/'~i.velo.photoV) }}" alt="store" class="img-fluid"></a>
+                                            <div class="cy_store_img_overlay" style="background-color: red">
+                                                <strong><p style="color: white">{{ i.pourcentage }}%</p></strong>
+                                            </div>
+                                        </div>
+                                        <div class="cy_store_data">
+                                            <div class="cy_store_text">
+                                                <h3><a href="shop_single.html">{{ i.velo.marque }}</a></h3>
+                                                <span >
+
+                                                      <h5 style="color: red"><strike>{{ i.velo.prixAchat }}DT</strike></h5>
+                                                  </span>
+
+                                            </div>
+                                            <a href="cart.html" class="cy_button"  data-hover="Add to Cart"><span>{{ i.velo.soldee }}DT</span></a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

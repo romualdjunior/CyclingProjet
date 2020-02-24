@@ -57,8 +57,11 @@ Author: Kamleshyadav
                             <div class="col-lg-12 col-md-12">
                                 <div class="cy_top_detail">
                                     <ul>
+
                                         <li><a href="#">EMAIL: Info@yourmail.com</a></li>
+
                                         <li>PHONE: 18009001010</li>
+
                                         <li>
                                             <ul>
                                                 <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -68,6 +71,7 @@ Author: Kamleshyadav
                                                 <li><a href="#"><i class="fa fa-tumblr" aria-hidden="true"></i></a></li>
                                             </ul>
                                         </li>
+
                                         <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                 <span>2</span></a>
                                             <ul class="cart_box">
@@ -110,6 +114,44 @@ Author: Kamleshyadav
                                                 </li>
                                             </ul>
                                         </li>
+
+
+
+                                        <li class="cart"><a href="#"><i class="fa fa-bell" aria-hidden="true"></i>
+                                                <span>
+                                                    {% if app.user != null %}
+                                                    {{ mgilet_notification_count(app.user) }}
+                                                    {% endif %}
+                                                </span></a>
+                                            <ul class="cart_box">
+                                                <li>
+                                                    <div class="cart_section">
+
+
+
+                                                            <h8>
+                                                                {% if app.user != null %}
+                                                                    {{ mgilet_notification_render(app.user) }}
+                                                                {% endif %}
+
+                                                            </h8>
+
+
+                                                        <a class="cart_delete"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                                    </div>
+                                                </li>
+
+                                                <li>
+                                                    <div class="cart_section">
+                                                        <a href="cart.html" class="cy_button">view cart</a>
+                                                        <a href="checkout.html" class="cy_button">Checkout</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li></li>
+
+
                                     </ul>
                                 </div>
                             </div>
@@ -166,8 +208,8 @@ Author: Kamleshyadav
                                         </li>
                                         <li class="dropdown"><a href="javascript:;">pages</a>
                                             <ul class="sub-menu">
-                                                <li><a href="">shop</a></li>
-                                                <li><a href="">shop single</a></li>
+                                                <li><a href="{{ path('listeVelo') }}">shop</a></li>
+                                                <li><a href="{{ path('shopS') }}">shop single</a></li>
                                                 <li><a href="">cart</a></li>
                                                 <li><a href="">checkout</a></li>
                                                 <li><a href="">404</a></li>
