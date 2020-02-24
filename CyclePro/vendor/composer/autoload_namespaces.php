@@ -7,7 +7,13 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Twig_' => array($vendorDir . '/twig/twig/lib'),
+<<<<<<< HEAD
     'Knp\\Component' => array($vendorDir . '/knplabs/knp-components/src'),
+=======
+    'Payum\\Paypal\\ExpressCheckout\\Nvp' => array($vendorDir . '/payum/paypal-express-checkout-nvp'),
+    'Payum\\Core\\' => array($vendorDir . '/payum/core'),
+    'JsonpCallbackValidator' => array($vendorDir . '/willdurand/jsonp-callback-validator/src'),
+>>>>>>> 2f80d3a0efbc662ced15ac6df6180f93fc682c9f
     'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),
     'Doctrine\\DBAL\\' => array($vendorDir . '/doctrine/dbal/lib'),
     'Doctrine\\Common\\Inflector\\' => array($vendorDir . '/doctrine/inflector/lib'),

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 stock_front:
     resource: "@StockFrontBundle/Resources/config/routing.yml"
     prefix:   /
@@ -5,14 +6,28 @@ stock_front:
 stock_admin:
     resource: "@StockAdminBundle/Resources/config/routing.yml"
     prefix:   /stock
+=======
+commande:
+    resource: "@CommandeBundle/Resources/config/routing.yml"
+    prefix:   /commande
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+>>>>>>> 2f80d3a0efbc662ced15ac6df6180f93fc682c9f
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+payum_all:
+    resource: "@PayumBundle/Resources/config/routing/all.xml"
 
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
 
+<<<<<<< HEAD
 mgilet_notification:
     resource: "@MgiletNotificationBundle/Controller/"
     prefix: /notifications
+=======
+>>>>>>> 2f80d3a0efbc662ced15ac6df6180f93fc682c9f

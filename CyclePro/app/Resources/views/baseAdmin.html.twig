@@ -180,8 +180,10 @@
                         <a href="" class="nav-link"><i class="link-icon icon-book-open"></i><span class="menu-title">Vente et Location</span><i class="menu-arrow"></i></a>
                         <div class="submenu">
                             <ul class="submenu-item">
-                                <li class="nav-item"><a class="nav-link" href=""> commandes</a></li>
-                                <li class="nav-item"><a class="nav-link" href="">statistiques  </a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('afficherCommandePanier') }}"> CommandePanier</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('afficherPenalite') }}">Penalites  </a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('afficherPaiement') }} ">Paiements  </a></li>
+
                             </ul>
                         </div>
                     </li>
@@ -237,6 +239,8 @@
         <!-- endinject -->
 <!-- Custom js for this page-->
 <script src="{{ asset('Backoffice/js/form-addons.js') }}"></script>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
 
         <!-- End custom js for this page-->
 
