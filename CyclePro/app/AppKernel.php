@@ -24,6 +24,13 @@ class AppKernel extends Kernel
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
             new FOS\MessageBundle\FOSMessageBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new ReclamationUserBundle\ReclamationUserBundle(),
+            new ReclamationAdminBundle\ReclamationAdminBundle(),
+            new StockAdminBundle\StockAdminBundle(),
+            new StockFrontBundle\StockFrontBundle(),
+            new Mgilet\NotificationBundle\MgiletNotificationBundle(),
+            new CommandeBundle\CommandeBundle(),
+            new Payum\Bundle\PayumBundle\PayumBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

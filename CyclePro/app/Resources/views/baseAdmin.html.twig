@@ -9,7 +9,10 @@
     <title> {% block title %} CyclePro {% endblock  %}</title>
     <!-- plugins:css -->
     {% block stylesheet %}
-
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <link rel="stylesheet" href="path/to/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('Backoffice/vendors/iconfonts/simple-line-icon/css/simple-line-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('Backoffice/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css') }}">
     <link rel="stylesheet" href="{{ asset('Backoffice/vendors/css/vendor.bundle.base.css') }}">
@@ -59,9 +62,39 @@
                             </div>
                         </div>
                     </form>-->
+
                     <ul class="navbar-nav navbar-nav-right mr-0 ml-auto">
                         <li class="nav-item nav-profile dropdown">
+
+
+                            <a href="#" data-toggle="dropdown" id="profileDropdown"><i class='fas fa-bell'
+                                                                                       style='font-size:30px;color:white'></i>
+
+                                <span class="nav-profile-name">
+                                            <span style="position: absolute;
+                                      top: -10px;
+                                      right: -10px;
+                                      padding: 4px 7px;
+                                      border-radius: 60%;
+                                      background: red;
+                                      color: white" >{{ mgilet_notification_count(app.user) }}    </span></a>
+
+                                </span></a>
+
+                                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+<div >
+                                        {{ mgilet_notification_render(app.user) }}
+</div>
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+
+                                </div>
+
+                        </li>
+                        <li class="nav-item nav-profile dropdown">
                             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+
+
                                 <img src="https://via.placeholder.com/39x39" alt="profile" />
                                 <span class="nav-profile-name">
                                     {% if is_granted('ROLE_ADMIN') %}
@@ -95,16 +128,20 @@
             <div class="container">
                 <ul class="nav page-navigation">
                     <li class="nav-item">
-                        <a href="" class="nav-link"><i class="link-icon icon-screen-desktop"></i><span class="menu-title">Tableau de bord</span></a>
+                        <a href="{{ path('readFRONT') }}" class="nav-link"><i class="link-icon icon-screen-desktop"></i><span class="menu-title">affichage sur front</span></a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="" class="nav-link"><i class="link-icon icon-book-open"></i><span class="menu-title">Produits</span><i class="menu-arrow"></i></a>
+                        <a href="" class="nav-link"><i class="link-icon icon-book-open"></i><span class="menu-title">velos</span><i class="menu-arrow"></i></a>
                         <div class="submenu">
                             <ul class="submenu-item">
-                                <li class="nav-item"><a class="nav-link" href=""> Ajouter produit</a></li>
-                                <li class="nav-item"><a class="nav-link" href="">Afficher produits</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('createV') }}"> Ajouter velo</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('readV') }}">Afficher velos</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('createO') }}"> Cree Offre</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('readO') }}">Afficher Offres</a></li>
                             </ul>
+
+
                         </div>
                     </li>
 
@@ -112,11 +149,11 @@
 
 
                     <li class="nav-item">
-                        <a href="" class="nav-link"><i class="link-icon icon-book-open"></i><span class="menu-title">Categorie</span><i class="menu-arrow"></i></a>
+                        <a href="" class="nav-link"><i class="link-icon icon-book-open"></i><span class="menu-title">Accessoires</span><i class="menu-arrow"></i></a>
                         <div class="submenu">
                             <ul class="submenu-item">
-                                <li class="nav-item"><a class="nav-link" href=""> Ajouter Categorie</a></li>
-                                <li class="nav-item"><a class="nav-link" href="">Afficher Categorie</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('createA') }}"> Ajouter Accessoires</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('readA') }}">Afficher Accessoires</a></li>
                             </ul>
                         </div>
                     </li>
@@ -136,7 +173,8 @@
                         <a href="" class="nav-link"><i class="link-icon icon-book-open"></i><span class="menu-title">Fournisseur</span><i class="menu-arrow"></i></a>
                         <div class="submenu">
                             <ul class="submenu-item">
-                                <li class="nav-item"><a class="nav-link" href=""> Ajouter fournisseur</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('createF') }}"> Ajouter fournisseur</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('readF') }}"> Affichier fournisseur</a></li>
                             </ul>
                         </div>
                     </li>
@@ -144,8 +182,10 @@
                         <a href="" class="nav-link"><i class="link-icon icon-book-open"></i><span class="menu-title">Vente et Location</span><i class="menu-arrow"></i></a>
                         <div class="submenu">
                             <ul class="submenu-item">
-                                <li class="nav-item"><a class="nav-link" href=""> commandes</a></li>
-                                <li class="nav-item"><a class="nav-link" href="">statistiques  </a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('afficherCommandePanier') }}"> CommandePanier</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('afficherPenalite') }}">Penalites  </a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ path('afficherPaiement') }} ">Paiements  </a></li>
+
                             </ul>
                         </div>
                     </li>
@@ -175,11 +215,9 @@
     </nav>
 
     {% endblock  %}
-<pre>
+<div>
 
-
-
-</pre>
+</div>
     {% block content %}
 
         {# votre code à entrer ici#}
@@ -203,11 +241,18 @@
         <!-- endinject -->
 <!-- Custom js for this page-->
 <script src="{{ asset('Backoffice/js/form-addons.js') }}"></script>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
 
         <!-- End custom js for this page-->
 
     {% endblock  %}
 </div>
+
+    <div>
+
+</div>
+
 </body>
 
 </html>

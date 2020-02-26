@@ -1,0 +1,67 @@
+{%  extends "@ReclamationUser/Default/index.html.twig" %}
+{% block content %}
+
+
+
+
+
+
+
+    <h1 align="center"> Liste des Responsables </h1>
+
+
+    <div id="js-grid" class="jsgrid" style="position: relative; height: 700px; width: 100%;">
+    <div class="jsgrid-grid-header jsgrid-header-scrollbar">
+
+                <table class="jsgrid-table">
+                    <tr class="jsgrid-header-row">
+
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 100px;">Id responsable</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 100px;">Nom </th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 73px;">Prénom</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 83px;">cin</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 80px;">email</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 80px;">Tel</th>
+
+
+
+
+                </th>
+                <button class="jsgrid-button jsgrid-mode-button jsgrid-insert-mode-button" href="@ReclamationUser/Responsable/ajoutResp.html.twig"></button>
+
+            </tr>
+
+
+            <tr class="jsgrid-insert-row" style="display: none;">
+                <td class="jsgrid-cell" style="width: 150px;"><input type="text"></td>
+                <td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">
+                    <input type="number"></td><td class="jsgrid-cell" style="width: 200px;">
+                    <input type="text"></td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">
+
+
+            </tr>
+        </table>
+    </div>
+    <div class="jsgrid-alt-row" style="height: 309.625px;">
+    <table class="jsgrid-table"><tr class="jsgrid-row">
+            {% for responsable in responsables %}
+        <tr>
+            <td class="jsgrid-cell jsgrid-align-right" style="width: 150px;"> {{ responsable.id}}</td>
+            <td class="jsgrid-cell  jsgrid-align-center" style="width: 120px;">{{ responsable.nom}}</td>
+            <td class="jsgrid-cell  jsgrid-align-center" style="width: 86px;">{{ responsable.prenom}}</td>
+            <td class="jsgrid-cell" style="width: 86px;">{{ responsable.cin }}</td>
+            <td class="jsgrid-cell  jsgrid-align-center" style="width: 86px;">{{ responsable.email}} </td>
+            <td class="jsgrid-cell jsgrid-align-right" style="width: 86px;">{{ responsable.tel }}</td>
+            <td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;">
+            <td> <a href="{{ path('reclamation_deleteResp',{'idResponsable':responsable.id}) }}"><button> <input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></button></a>
+                <a href="{{ path('reclamation_updateResp',{'idResponsable':responsable.id}) }}"><button> <input class="jsgrid-button jsgrid-edit-button" type="button" title="Edit"></button></a></td>
+        </tr>
+
+        {% endfor %}
+
+
+    </table>
+
+
+
+{% endblock %}

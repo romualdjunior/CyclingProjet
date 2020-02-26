@@ -1,0 +1,102 @@
+{% extends 'baseAdmin.html.twig' %}
+{% block content %}
+    {% for j in fournisseurs %}
+
+    <div class="content-wrapper">
+
+
+
+        <h4 >Liste des Velos{{ j.raisonSociale }}</h4>
+
+        <div class="row">
+
+            <div class="col-12 table-responsive">
+
+
+                <div id="order-listing_wrapper"
+                     class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                    <div class="row"><div class="col-sm-12 col-md-6">
+                            <div class="dataTables_length" id="order-listing_length">
+                                <label>Afficher
+                                    <select name="order-listing_length" aria-controls="order-listing" class="form-control">
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="15">15</option>
+                                        <option value="-1">All</option>
+                                    </select>lignes
+                                </label>
+                            </div></div>
+                        <div class="col-sm-12 col-md-6">
+                            <div id="order-listing_filter" class="dataTables_filter">
+                                <label>
+                                    <input type="search" class="form-control" placeholder="Search" aria-controls="order-listing">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="order-listing" class="table dataTable no-footer"
+                                   role="grid" aria-describedby="order-listing_info">
+                                <thead>
+                                <tr role="row">
+                                    <th  >id</th>
+                                    <th  >PHOTO</th>
+                                    <th  >marque</th>
+                                    <th  >couleur</th>
+                                    <th  >categorie</th>
+                                    <th  >taille</th>
+                                    <th  >nbrDePlace</th>
+                                    <th  >description</th>
+                                    <th >qtEnStock</th>
+                                    <th  >qtStockSecurite</th>
+                                    <th >type</th>
+                                    <th >prixAchat</th>
+                                    <th  >prixLocH</th>
+                                    <th  >Etat</th>
+                                    <th  >Option</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+
+                                {% for i in velos %}
+                                    {% if( i.fournisseur.raisonSociale==j.raisonSociale) %}
+                                    <tr role="row" class="odd">
+                                        <td>{{ i.id }}</td>
+                                        <td><img src="{{ asset('Frontend/images/store/'~i.photoV) }}"></td>
+                                        <td>{{ i.marque }}</td>
+                                        <td>{{ i.couleur }}</td>
+                                        <td>{{ i.categorie }}</td>
+                                        <td>{{ i.taille }}</td>
+                                        <td>{{ i.nbrDePlace }}</td>
+                                        <td>{{ i.description }}</td>
+                                        <td>{{ i.qtEnStock }}</td>
+                                        <td>{{ i.qtStockSecurite }}</td>
+                                        <td>{{ i.type }}</td>
+                                        <td>{{ i.prixAchat }}</td>
+                                        <td>{{ i.prixLocH }}</td>
+                                        <td>{{ i.etat }}</td>
+
+
+                                        <td><a  class="badge badge-success" href="{{ path('updateV',{'id':i.id}) }}">Modifier</a></td>
+                                        <td><a class="badge badge-danger"  href="{{ path('deleteV',{'id':i.id}) }}">supprimer</a></td>
+
+
+
+                                    </tr>
+
+                                    {% endif %}
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}

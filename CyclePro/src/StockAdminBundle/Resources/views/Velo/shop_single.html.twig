@@ -1,0 +1,158 @@
+{% extends 'home.html.twig' %}
+{% block content %}
+<div class="cy_shop_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-md-12 push-lg-2">
+                <div class="cy_shop_single_page">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="woocommerce-product-gallery">
+                                <div id="sync1" class="owl-carousel owl-theme">
+                                    <div class="item">
+                                        <div class="cy_product_img">
+                                            <img src="{{ asset('Frontend/images/store/'~velo.photoV) }}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="cy_product_img">
+                                            <img src="{{ asset('Frontend/images/store/'~velo.photoV1) }}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="cy_product_img">
+                                            <img src="{{ asset('Frontend/images/store/'~velo.photoV2) }}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="cy_product_img">
+                                            <img src="{{ asset('Frontend/images/store/'~velo.photoV3) }}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="sync2" class="owl-carousel owl-theme">
+                                    <div class="item">
+                                        <div class="cy_product_thumbnail">
+                                            <img src="{{ asset('Frontend/images/store/'~velo.photoV) }}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="cy_product_thumbnail">
+                                            <img src="{{ asset('Frontend/images/store/'~velo.photoV1) }}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="cy_product_thumbnail">
+                                            <img src="{{ asset('Frontend/images/store/'~velo.photoV2) }}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="cy_product_thumbnail">
+                                            <img src="{{ asset('Frontend/images/store/'~velo.photoV3) }}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="summary entry-summary">
+                                {% if (velo.soldee==0) %}
+                                <h1 class="product_title">{{ velo.marque }}</h1>
+                                <h4 class="product-price-amount">{{ velo.prixAchat }}DT</h4>
+                                <p class="woocommerce-product-detail">{{ velo.description }}.</p>
+                                <div class="quantity">
+                                    <input type="number" min="0" value="1">
+                                    <a href="cart.html" class="cy_button">Ajouter au Panier</a>
+                                </div>
+                                {% else  %}
+                                <h1 class="product_title">{{ velo.marque }}</h1>
+                                <h7 style="background-color: red ; color: white " >{{ (velo.prixAchat - velo.soldee)*100/velo.prixAchat }}%</h7>
+                                <h5 style="color: red"><strike>{{ velo.prixAchat }}DT</strike></h5>
+                                <h4 class="product-price-amount">{{ velo.soldee }}DT</h4>
+                                <p class="woocommerce-product-detail">{{ velo.description }}.</p>
+                                <div class="quantity">
+                                    <input type="number" min="0" value="1">
+                                    <a href="cart.html" class="cy_button">Ajouter au Panier</a>
+                                </div>
+                                {% endif  %}
+                            </div>
+                            </div>
+
+                    </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="woocommerce-tabs">
+                                <ul class="tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#description"  data-toggle="tab">Description</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#Caracteristiques"  data-toggle="tab">Caracteristiques</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                     <div role="tabpanel" class="tab-pane fade show active" id="description">
+                                        <h3>Description</h3>
+                                        <p>{{ velo.description }}</p>
+                                     </div>
+                                     <div role="tabpanel" class="tab-pane fade" id="Caracteristiques">
+                                        <h3>Caracteristiques</h3>
+                                        <p>{{ velo.Caracteristiques }}</p>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                         <div class="cy_store_wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <h1 class="cy_heading">to our store</h1>
+                        </div></div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="cy_store_slider">
+                                <div class="owl-carousel owl-theme">
+                                    {% for i in velos %}
+                                        <div class="item">
+                                            <div class="cy_store_box">
+                                                <div class="cy_store_img">
+                                                    <a href="{{ path('showVelo', {'id': i.id}) }}"><img src="{{ asset('Frontend/images/store/'~i.photoV) }}" alt="store" class="img-fluid"></a>
+                                                    <div class="cy_store_img_overlay">
+                                                        <p>{{ i.marque }}</p>
+                                                    </div></div>
+                                                <div class="cy_store_data">
+                                                    {% if (i.soldee==0) %}
+                                                    <div class="cy_store_text">
+                                                        <h3><a href="{{ path('showVelo', {'id': i.id}) }}">{{ i.taille }}</a></h3>
+                                                    </div>
+                                                    <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>{{ i.prixAchat }}</span></a>
+                                    {% else  %}
+                                        <div class="cy_store_text">
+                                            <h3><a href="{{ path('showVelo', {'id': i.id}) }}">{{ i.taille }}</a></h3>
+                                        </div>
+                                        <h7 style="background-color: red ; color: white " > {{ (i.prixAchat - i.soldee)*100/i.prixAchat }}% </h7>
+                                            <h5 style="color: red"><strike>{{ i.prixAchat }}DT</strike></h5>
+                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>{{ i.soldee }}DT</span></a>
+                                                    {% endif  %}
+                                        </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

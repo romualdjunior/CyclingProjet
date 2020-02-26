@@ -1,0 +1,96 @@
+{%  extends "@ReclamationUser/Default/index.html.twig" %}
+{% block content %}
+
+
+
+    <h1 align="center"> Liste des réclamations </h1>
+
+
+
+
+
+    <div id="js-grid" class="jsgrid" style="position: relative; height: 700px; width: 100%;">
+    <div class="jsgrid-grid-header jsgrid-header-scrollbar">
+        <table class="jsgrid-table">
+            <tr class="jsgrid-header-row">
+
+
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 50px;">Id reclamation</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 50px;">id client</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width:50px;">Nom client </th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width:50px;">Prénom client</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 50px;">date</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 50px;">raison</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 45px;">type
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 45px;">Email
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 50px;"></th>
+
+
+
+            </tr>
+
+
+            <tr class="jsgrid-insert-row" style="display: none;">
+                <td class="jsgrid-cell" style="width: 150px;"><input type="text"></td>
+                <td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">
+                    <input type="number"></td><td class="jsgrid-cell" style="width: 200px;">
+                    <input type="text"></td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">
+
+
+            </tr>
+        </table>
+    </div>
+    <div class="jsgrid-alt-row" style="height: 309.625px;">
+    <table class="jsgrid-table" border="3"><tr class="jsgrid-row" >
+            {% for reclamation in reclamations %}
+        <tr>
+            <td class="jsgrid-cell jsgrid-align-right" style="width: 200px;"> {{ reclamation.id}}</td>
+            <td class="jsgrid-cell jsgrid-align-center" style="width: 200px;">{{ reclamation.idClient }}</td>
+            <td class="jsgrid-cell  jsgrid-align-center" style="width: 130px;">{{ reclamation.nomClient}}</td>
+            <td class="jsgrid-cell  jsgrid-align-center" style="width: 160px;">{{ reclamation.prenomClient}}</td>
+            <td class="jsgrid-cell jsgrid-align-right" style="width: 150px;">{{ reclamation.date|date('d F Y') }}</td>
+            <td class="jsgrid-cell jsgrid-align-center" style="width: 180px;">{{ reclamation.raison }}</td>
+            <td class="jsgrid-cell jsgrid-align-center" style="width: 150px;">{{reclamation.type }}</td>
+            <td class="jsgrid-cell jsgrid-align-center" style="width: 150px;">{{reclamation.email }}</td>
+
+
+
+
+
+            <td>
+                <a href="{{ path('reclamation_ajoutTrait',{'idResponsable':reclamation.id}) }}"><button> <input class="jsgrid-button jsgrid-edit-button" type="button" title="Traiter"></button></a>
+                <a  href="{{ path('reclamation_sendMail')}}"> <input type="submit" value="Mail" class="btn btn-success"/></a></td>
+
+        </tr>
+
+        {% endfor %}
+
+
+    </table>
+
+
+</div>
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .btn {
+            background-color: DodgerBlue;
+            border: none;
+            color: white;
+            padding: 12px 16px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* Darker background on mouse-over */
+        .btn:hover {
+            background-color: RoyalBlue;
+        }
+    </style>
+
+
+{% endblock %}

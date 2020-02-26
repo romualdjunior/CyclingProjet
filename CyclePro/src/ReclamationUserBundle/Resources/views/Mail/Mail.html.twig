@@ -1,0 +1,83 @@
+{%  extends "@ReclamationUser/Default/index.html.twig" %}
+{% block content %}
+
+{% set flashbag_notices = app.session.flashbag.get('notice') %}
+{%  if flashbag_notices is not empty %}
+<ul class="msg">
+    {% for notice in flashbag_notices %}
+    <li>  {{ notice  }}</li>
+
+    {% endfor %}
+</ul>
+{% endif %}
+
+<div class="navbar navbar-inverse ">
+        <div class="navbar-brand" align="center">
+
+            <h1 align=" center"> Send Mail </h1>
+         </div>
+</div>
+
+{{ form_start (f) }}
+
+
+
+<div class="card">
+    <div class="card-body">
+
+
+
+
+
+        <div class="form-group row">
+            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Mail</label>
+            <div class="col-sm-9">
+                {{ form_widget(f.mail,{'attr':{'class':'form-control','placeholder': "Last name" , 'type' : "text" }}) }}
+
+            </div>
+
+        </div>
+
+
+
+
+        <div class="form-group row">
+            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Subject</label>
+            <div class="col-sm-9">
+                {{ form_widget(f.subject,{'attr':{'class':'form-control' ,'placeholder': "First name" , 'type' : "text"} }) }}
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+        <div class="form-group row">
+            <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Objet</label>
+            <div class="col-sm-9">
+                {{ form_widget(f.objet,{'attr':{'class':'form-control'  ,'placeholder': "Tel" , 'type' : "tel"}}) }}
+
+            </div>
+
+        </div>
+
+
+</div></div>
+        {{ form_widget(f) }}
+
+
+
+
+<table>
+<tr>
+    <td><input type="submit" value="Envoyer" class="btn btn-success"/></td>
+</tr>
+</table>
+{{ form_end(f) }}
+{% endblock %}
+
+

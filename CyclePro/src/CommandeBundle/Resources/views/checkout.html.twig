@@ -1,0 +1,223 @@
+{% extends "base.html.twig" %}
+
+{% block banner %}
+    <!--Banner section start-->
+    <div class="cy_bread_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h1>checkout</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <!-- checkout section start -->
+    <div class="cy_checkout_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-12 offset-lg-2">
+                    <div class="cy_checkout_box">
+                        <ul id="progressbar">
+                            <li class="active">Billing Details</li>
+                            <li>Payment</li>
+                            <li>Receipt</li>
+                        </ul>
+                        <div class="woocommerce-billing-fields step">
+                            {{ form_start(form,{'attr':{"id":"checkout"}}) }}
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        {{ form_widget(form.prenom,{'attr':{'class':'form-control' ,'placeholder': "First name" , 'type' : "text","name":"prenom"} }) }}
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        {{ form_widget(form.nom,{'attr':{'class':'form-control' ,'placeholder': "Name" , 'type' : "text","name":"nom"} }) }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        {{ form_widget(form.phone,{'attr':{'class':'form-control' ,'placeholder': "Phone" , 'type' : "text","name":"phone"} }) }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        {{ form_widget(form.email,{'attr':{'class':'form-control' ,'placeholder': "email" , 'type' : "text","name":"email"} }) }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        {{ form_widget(form.pays,{'attr':{'class':'form-control',"name":"pays" } }) }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+
+                                        {{ form_widget(form.etat,{'attr':{'class':'form-control',"name":"etat" } }) }}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+
+                                        {{ form_widget(form.ville,{'attr':{'class':'form-control',"name":"ville" } }) }}
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        {{ form_widget(form.pincode,{'attr':{'class':'form-control',"placeholder":"pincode","name":"pincode" } }) }}
+
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12">
+                                    <div class="form-group">
+                                        {{ form_widget(form.adresseLivraison,{'attr':{'class':'form-control',"placeholder":"Adress de Livraison","name":"adresseLivraison" } }) }}
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group checkbox">
+                                <label>Ship To This Address
+                                    {#<input type="checkbox">
+                                    <span class="checkmark"></span>#}
+                                </label>
+                            </div>
+                            <input type="submit" class="cy_button" value="ajouter"></input>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+        {% block javascripts %}
+            {{ parent() }}
+            <script>
+                $(function () {
+                   $.validator.setDefaults({
+                        errorClass: 'invalid-feedback',
+                        highlight: function(element) {
+                            $(element).addClass('is-invalid');
+                        },
+                        unhighlight: function(element) {
+                            $(element).removeClass('is-invalid');
+                        },
+                        errorPlacement: function(error, element) {
+                            if (element.prop('type') === 'text' || element.prop('type') === 'mail' || element.prop('type') === 'password') {
+                                element.after(error);
+                            } else if (element.prop('type') === 'radio') {
+                                element.parent().parent().after(error);
+                            }
+                        }
+                    });
+
+                    $.validator.addMethod('strongPassword', function(value, element) {
+                        return this.optional(element) ||
+                            value.length >= 6 &&
+                            /\d/.test(value) &&
+                            /[a-z]/i.test(value);
+                    }, '6 caractères au moins avec au moins 1 chiffre');
+
+                    $.validator.addMethod("specialChars", function(value, element) {
+                        var regex = new RegExp("^[a-zA-Z0-9éèà]+$");
+                        var key = value;
+
+                        if (!regex.test(key)) {
+                            return false;
+                        }
+                        return true;
+                    }, "Pas de caractères spéciaux");
+
+                    $.validator.addMethod("phoneNumberControl", function(value, element) {
+                        var regex = new RegExp("^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$");
+                        var key = value;
+
+                        if (!regex.test(key)) {
+                            return false;
+                        }
+                        return true;
+                    }, "écriver un numéro conforme svp");
+
+                    $.validator.addMethod("pinCodeControl", function(value, element) {
+                        var regex = new RegExp("^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3}$");
+                        var key = value;
+
+                        if (!regex.test(key)) {
+                            return false;
+                        }
+                        return true;
+                    }, "écriver un code postal  conforme svp");
+                    var isOneFieldEmpty = false;
+                    var submit = false;
+
+                    $("#checkout").validate({
+                        onkeyup: (element) => {
+                            $(element).valid();
+                        },
+                        rules: {
+                            'commandebundle_adresse[email]': {
+                                required: true,
+                                email: true,
+                            },
+                            'commandebundle_adresse[prenom]': {
+                                required: true,
+                                nowhitespace: true,
+                                specialChars: true,
+                            },
+                            'commandebundle_adresse[nom]': {
+                                required: true,
+                                nowhitespace: true,
+                                specialChars: true,
+                            },
+                            "commandebundle_adresse[phone]": {
+                                required: true,
+                                phoneNumberControl:true
+                            },
+                            "commandebundle_adresse[pincode]": {
+                                required: true,
+                                pinCodeControl:true
+                            },
+                            "commandebundle_adresse[adresseLivraison]":{
+                                required: true,
+
+                            }
+                        },
+                        messages: {
+                            'commandebundle_adresse[email]': {
+                                required: 'ce champ est requis.',
+                                email: 'entrez une adresse mail valide',
+                            },
+                            'commandebundle_adresse[nom]': {
+                                required: 'ce champ est requis',
+                                nowhitespace: "pas d'espace svp",
+                            },
+                            'commandebundle_adresse[prenom]': {
+                                required: 'ce champ est requis',
+                                nowhitespace: "pas d'espace svp",
+                            },
+                            "commandebundle_adresse[phone]": {
+                                required: "vous devez remplir"
+                            },
+                            "commandebundle_adresse[pincode]": {
+                                required: "vous devez remplir",
+
+                            },
+                            "commandebundle_adresse[adresseLivraison]":{
+                                required: "vous devez remplir"
+                            }
+                        },
+                        submitHandler: function(form) {
+                            form.submit();
+                        }
+                    })
+                })
+            </script>
+        {% endblock %}
+
+

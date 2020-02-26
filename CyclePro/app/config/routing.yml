@@ -9,13 +9,39 @@ article_admin:
 fos_message:
     resource: "@FOSMessageBundle/Resources/config/routing.xml"
     prefix: /message
+reclamation_admin:
+    resource: "@ReclamationAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+reclamation_user:
+    resource: "@ReclamationUserBundle/Resources/config/routing.yml"
+    prefix:   /glob
+
+stock_front:
+    resource: "@StockFrontBundle/Resources/config/routing.yml"
+    prefix:   /
+
+stock_admin:
+    resource: "@StockAdminBundle/Resources/config/routing.yml"
+    prefix:   /stock
+
+commande:
+    resource: "@CommandeBundle/Resources/config/routing.yml"
+    prefix:   /commande
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+payum_all:
+    resource: "@PayumBundle/Resources/config/routing/all.xml"
 
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
 
-fos_js_routing:
-    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+mgilet_notification:
+    resource: "@MgiletNotificationBundle/Controller/"
+    prefix: /notifications
