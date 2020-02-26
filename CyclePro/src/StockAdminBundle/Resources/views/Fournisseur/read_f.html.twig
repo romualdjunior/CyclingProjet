@@ -1,0 +1,49 @@
+{% extends 'baseAdmin.html.twig' %}
+{% block content %}
+    <div class="content-wrapper">
+
+
+        <h4 >Liste des FOURNISSEUR</h4>
+        <div class="row">
+            <div class="col-12 table-responsive">
+                <div id="order-listing_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="order-listing_length"><label>Afficher <select name="order-listing_length" aria-controls="order-listing" class="form-control"><option value="5">5</option><option value="10">10</option><option value="15">15</option><option value="-1">All</option></select> lignes</label></div></div><div class="col-sm-12 col-md-6"><div id="order-listing_filter" class="dataTables_filter"><label><input type="search" class="form-control" placeholder="Search" aria-controls="order-listing"></label></div></div></div><div class="row"><div class="col-sm-12"><table id="order-listing" class="table dataTable no-footer" role="grid" aria-describedby="order-listing_info">
+                                <thead>
+                                <tr role="row">
+                                    <th  >raison sociale</th>
+                                    <th  >matricule</th>
+                                    <th >addresse</th>
+                                    <th>mail</th>
+                                    <th >telephone</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for i in fournisseurs %}
+                                    <tr role="row" class="odd">
+
+                                        <td>{{ i.raisonSociale }}</td>
+                                        <td>{{ i.matricule }}</td>
+                                        <td>{{ i.addresse }}</td>
+                                        <td>{{ i.mail }}</td>
+                                        <td>{{ i.telephone }}</td>
+
+
+                                        <td><a  class="badge badge-success" href="{{ path('updateF',{'id':i.id}) }}">Modifier</a></td>
+                                        <td><a class="badge badge-danger"  href="{{ path('deleteF',{'id':i.id}) }}">supprimer</a></td>
+
+
+
+
+
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

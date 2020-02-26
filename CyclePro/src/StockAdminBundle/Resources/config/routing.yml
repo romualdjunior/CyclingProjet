@@ -1,0 +1,128 @@
+stock_admin_homepage:
+    path:     /
+    defaults: { _controller: StockAdminBundle:Default:index }
+
+createV:
+    path:     /Velo/create
+    defaults: { _controller: StockAdminBundle:Velo:createV }
+
+
+readV:
+    path:     /Velo/read
+    defaults: { _controller: StockAdminBundle:Velo:readV }
+
+deleteV:
+    path:     /Velo/delete/{{id}}
+    defaults: { _controller: StockAdminBundle:Velo:deleteV }
+
+updateV:
+    path:     /Velo/update/{{id}}
+    defaults: { _controller: StockAdminBundle:Velo:updateV }
+
+
+createF:
+    path:     /Fournisseur/create
+    defaults: { _controller: StockAdminBundle:Fournisseur:creatF }
+
+
+readF:
+    path:     /Fournisseur/read
+    defaults: { _controller: StockAdminBundle:Fournisseur:readF }
+
+deleteF:
+    path:     /Fournisseur/delete/{{id}}
+    defaults: { _controller: StockAdminBundle:Fournisseur:deleteF }
+
+updateF:
+    path:     /Fournisseur/update/{{id}}
+    defaults: { _controller: StockAdminBundle:Fournisseur:updateF }
+
+readFRONT:
+    path:     /Velo/readFR
+    defaults: { _controller: StockAdminBundle:Velo:readFRONT }
+
+listeVelo:
+    path:     /shop
+    defaults: { _controller: StockAdminBundle:Velo:listeVelos }
+
+asc:
+    path:     /shop/asc
+    defaults: { _controller: StockAdminBundle:Velo:asc }
+
+desc:
+    path:     /shop/desc
+    defaults: { _controller: StockAdminBundle:Velo:desc }
+
+createOA:
+    path:     /OffreA/create
+    defaults: { _controller: StockAdminBundle:OffreA:createOA }
+readOA:
+    path:     /Offre/read
+    defaults: { _controller: StockAdminBundle:OffreA:readOA }
+
+deleteOA:
+    path:     /OffreA/delete/{{id}}
+    defaults: { _controller: StockAdminBundle:OffreA:deleteOA }
+
+updateOA:
+    path:     /OffreA/update/{{id}}
+    defaults: { _controller: StockAdminBundle:OffreA:updateOA }
+
+readFRONTOFFREA:
+    path:     /OffreA/readFRO
+    defaults: { _controller: StockAdminBundle:OffreA:readFRONTOFFREA }
+
+createO:
+    path:     /Offre/create
+    defaults: { _controller: StockAdminBundle:Offre:createO }
+readO:
+    path:     /Offre/read
+    defaults: { _controller: StockAdminBundle:Offre:readO }
+
+deleteO:
+    path:     /Offre/delete/{{id}}
+    defaults: { _controller: StockAdminBundle:Offre:deleteO }
+
+updateO:
+    path:     /Offre/update/{{id}}
+    defaults: { _controller: StockAdminBundle:Offre:updateO }
+
+readFRONTOFFRE:
+    path:     /Offre/readFRO
+    defaults: { _controller: StockAdminBundle:Offre:readFRONTOFFRE }
+shopS:
+    path:     /Velo/shops
+    defaults: { _controller: StockAdminBundle:Velo:shopS }
+
+showVelo:
+    path:     /Velo/{{id}}
+    defaults: { _controller: StockAdminBundle:Velo:showVelo }
+    options:
+        expose: true
+
+
+createA:
+    path:     /Accessoires/create
+    defaults: { _controller: StockAdminBundle:Accessoires:createA }
+
+
+readA:
+    path:     /Accessoires/read
+    defaults: { _controller: StockAdminBundle:Accessoires:readA }
+
+deleteA:
+    path:     /Accessoires/delete/{{id}}
+    defaults: { _controller: StockAdminBundle:Accessoires:deleteA }
+
+updateA:
+    path:     /Accessoires/update/{{id}}
+    defaults: { _controller: StockAdminBundle:Accessoires:updateA }
+listeAC:
+    path:     /shop/Accessoires
+    defaults: { _controller: StockAdminBundle:Accessoires:listeAC }
+showAC:
+    path:     /Accessoires/{id}
+    defaults: { _controller: StockAdminBundle:Accessoires:showAC }
+filtre:
+    path:     /Velo/filtre/
+    defaults: { _controller: StockAdminBundle:Velo:filtre }

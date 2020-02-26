@@ -5,6 +5,11 @@ imports:
     - { resource: "@ReclamationUserBundle/Resources/config/services.yml" }
     - { resource: "@ReclamationAdminBundle/Resources/config/services.yml" }
 
+    - { resource: "@StockAdminBundle/Resources/config/services.yml" }
+    - { resource: "@StockFrontBundle/Resources/config/services.yml" }
+
+    - { resource: "@CommandeBundle/Resources/config/services.yml" }
+
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
@@ -87,3 +92,46 @@ fos_user:
     from_email:
         address: "badiaa.bouhdid@esprit.tn"
         sender_name: "badi3a"
+knp_paginator:
+    page_range: 5                       # number of links showed in the pagination menu (e.g: you have 10 pages, a page_range of 3, on the 5th page you'll see links to page 4, 5, 6)
+    default_options:
+        page_name: page                 # page query parameter name
+        sort_field_name: sort           # sort field query parameter name
+        sort_direction_name: direction  # sort direction query parameter name
+        distinct: true                  # ensure distinct results, useful when ORM queries are using GROUP BY statements
+        filter_field_name: filterField  # filter field query parameter name
+        filter_value_name: filterValue  # filter value query parameter name
+    template:
+        pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v3_pagination.html.twig'     # sliding pagination controls template
+        sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # sort link template
+        filtration: '@KnpPaginator/Pagination/filtration.html.twig'  # filters template
+
+payum:
+    security:
+        token_storage:
+            CommandeBundle\Entity\PaymentToken: { doctrine: orm }
+
+    storages:
+       CommandeBundle\Entity\Payment: { doctrine: orm }
+
+    gateways:
+        paypal_express_checkout:
+            factory: paypal_express_checkout
+            username:  romualdmotcheho_api1.yahoo.com
+            password:  3PZ2YUUSZNWKP44R
+            signature: AJGNZ4CfKBZXDrzG0vCoTfw2mZHWAEfTArQt5BSLmv9HUg-OmxUPbWXQ
+            sandbox: true
+
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     "\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltopdf.exe\""
+        options:
+            no-outline: true
+            page-size: LETTER
+            # Recommended to set UTF-8 as default encoding 🙂
+            encoding: UTF-8
+    image:
+        enabled:    true
+        binary:     /usr/local/bin/wkhtmltoimage #"\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\"" for Windows users
+        options:    []

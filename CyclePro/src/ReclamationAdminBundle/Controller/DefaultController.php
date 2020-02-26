@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('ReclamationAdminBundle:Default:index.html.twig');
+        return $this->render('@ReclamationAdmin/Default/index.html.twig');
     }
 }
