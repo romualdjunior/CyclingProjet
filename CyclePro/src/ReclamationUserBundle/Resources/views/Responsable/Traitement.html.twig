@@ -1,0 +1,203 @@
+{%  extends "@ReclamationUser/Default/index.html.twig" %}
+{% block content %}
+
+    {{ form_start(formT) }}
+
+    <h1 align="center">Traiter une Reclamation </h1>
+    <div class="card">
+        <div class="card-body">
+
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Nom client</label>
+                <div class="col-sm-9">
+                    {{ form_widget(formT.nomCli,{'attr':{'class':'form-control' ,'placeholder': "First name" , 'type' : "text"} }) }}
+
+                </div>
+
+            </div>
+
+
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Prenom client</label>
+                <div class="col-sm-9">
+                    {{ form_widget(formT.prenomCli,{'attr':{'class':'form-control','placeholder': "Last name" , 'type' : "text" }}) }}
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Tel</label>
+                <div class="col-sm-9">
+                    {{ form_widget(formT.tel,{'attr':{'class':'form-control'  ,'placeholder': "Tel" , 'type' : "tel"}}) }}
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Adresse</label>
+                <div class="col-sm-9">
+                    {{ form_widget(formT.adresse,{'attr':{'class':'form-control','placeholder': "Adresse" , 'type' : "text" }}) }}
+
+                </div>
+
+            </div>
+
+
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Date</label>
+                <div class="col-sm-9">
+                    {{ form_widget(formT.date,{'attr':{'class':'form-control','placeholder': "Date" , 'type' : "date" }}) }}
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Raison</label>
+                <div class="col-sm-9">
+                    {{ form_widget(formT.raison,{'attr':{'class':'form-control' ,'placeholder': "Reason" , 'type' : "text"}}) }}
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Détails</label>
+                <div class="col-sm-9">
+                    {{ form_widget(formT.details,{'attr':{'class':'form-control' ,'placeholder': "Details" , 'type' : "text" }}) }}
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Réference Vélo</label>
+                <div class="col-sm-9">
+                    {{ form_widget(formT.refVelo,{'attr':{'class':'form-control' ,'placeholder': "Reference" , 'type' : "number" }}) }}
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Id Client</label>
+                <div class="col-sm-9">
+                    {{ form_widget(formT.idCli,{'attr':{'class':'form-control' ,'placeholder': "Client id" , 'type' : "number" }}) }}
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Id Reclamation</label>
+                <div class="col-sm-9">
+                    {{ form_widget(formT.idReclamation,{'attr':{'class':'form-control' ,'placeholder': "Reclamation id" , 'type' : "number" }}) }}
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                    {{ form_widget(formT.email,{'attr':{'class':'form-control' ,'placeholder': "Email" , 'type' : "number" }}) }}
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Type</label>
+                <div class="col-sm-9">
+                    {{ form_widget(formT.type,{'attr':{'class':'form-control' ,'placeholder': "Type" , 'type' : "number" }}) }}
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Etat </label>
+                <div class="col-sm-9">
+                    {{ form_widget(formT.etat,{'attr':{'class':'form-control' ,'placeholder': "Etat" , 'type' : "number" }}) }}
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Cout</label>
+                <div class="col-sm-9">
+                    {{ form_widget(formT.cout,{'attr':{'class':'form-control' ,'placeholder': "cout" , 'type' : "number" }}) }}
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Responsable</label>
+                <div class="col-sm-9">
+                    {{ form_widget(formT.Responsable,{'attr':{'class':'form-control' ,'placeholder': "Responsable " , 'type' : "number" }}) }}
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+            <button type="submit" class="btn btn-primary mr-2" onclick="">Submit</button>
+            <button class="btn btn-light" href="@ReclamationUser/Responsable/ajoutTrait.html.twig">Cancel</button>
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    {{ form_end(formT) }}
+
+
+{% endblock %}
+
+
+

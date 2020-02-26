@@ -150,7 +150,7 @@ Author: Kamleshyadav
                             <div class="cy_menu">
                                 <nav>
                                     <ul>
-                                        <li><a href="" class="active">home</a></li>
+                                        <li><a href="" class="">home</a></li>
                                         <li><a href="">about</a></li>
                                         <li class="dropdown"><a href="javascript:;">event</a>
                                             <ul class="sub-menu">
@@ -174,7 +174,7 @@ Author: Kamleshyadav
                                             </ul>
                                         </li>
                                         <li><a href="">gallery</a></li>
-                                        <li><a href="">contact us</a></li>
+                                        <li><a href="{{ path ('reclamation_ajoutRec') }}"  class="active"  >Reclamation</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -198,6 +198,11 @@ Author: Kamleshyadav
         {% block content %}
               {#  Contenu pour chaque page   #}
         {% endblock %}
+
+
+
+
+
 
         {% block footer %}
             <!--Footer section start-->
@@ -292,6 +297,12 @@ Author: Kamleshyadav
                 </div>
             </div>
         {% endblock %}
+
+
+
+
+
+
 
         {% block javascripts %}
             <!--scripts start-->

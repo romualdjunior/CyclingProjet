@@ -1,0 +1,94 @@
+{%  extends "@ReclamationUser/Default/index.html.twig" %}
+{% block content %}
+
+    {{ form_start(form) }}
+
+    <h1 align="center">Modifier un Responsable </h1>
+    <div class="card">
+        <div class="card-body">
+
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Nom</label>
+                <div class="col-sm-9">
+                    {{ form_widget(form.nom,{'attr':{'class':'form-control' ,'placeholder': "First name" , 'type' : "text"} }) }}
+
+                </div>
+
+            </div>
+
+
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Prenom</label>
+                <div class="col-sm-9">
+                    {{ form_widget(form.prenom,{'attr':{'class':'form-control','placeholder': "Last name" , 'type' : "text" }}) }}
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Cin</label>
+                <div class="col-sm-9">
+                    {{ form_widget(form.cin,{'attr':{'class':'form-control'  ,'placeholder': "cin" , 'type' : "tel"}}) }}
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Tel</label>
+                <div class="col-sm-9">
+                    {{ form_widget(form.tel,{'attr':{'class':'form-control','placeholder': "Tel" , 'type' : "text" }}) }}
+
+                </div>
+
+            </div>
+
+
+
+
+            <div class="form-group row">
+                <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                    {{ form_widget(form.email,{'attr':{'class':'form-control','placeholder': "email" , 'type' : "text" }}) }}
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <button type="submit" class="btn btn-primary mr-2" onclick="">Submit</button>
+            <button class="btn btn-light" href="@ReclamationUser/Responsable/ajoutResp.html.twig">Cancel</button>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    {{ form_end(form) }}
+
+
+{% endblock %}
+
+
+

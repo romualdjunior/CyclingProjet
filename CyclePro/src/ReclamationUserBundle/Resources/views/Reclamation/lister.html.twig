@@ -1,0 +1,72 @@
+{%  extends "@ReclamationUser/Default/index.html.twig" %}
+{% block content %}
+
+
+
+<h1 align="center"> Liste des réclamations </h1>
+
+    <div id="js-grid" class="jsgrid" style="position: relative; height: 700px; width: 100%;">
+    <div class="jsgrid-grid-header jsgrid-header-scrollbar">
+        <table class="jsgrid-table">
+            <tr class="jsgrid-header-row">
+
+
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 100px;">Id reclamation</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 100px;">Nom client </th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width:100px;">Prénom client</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 80px;">tel</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 80px;">adresse</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 80px;">date</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 80px;">raison</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 70px;">détails</th>
+
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 80px;">Réf vélo</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 80px;">id client</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 80px;">email</th>
+                <th class="jsgrid-header-cell jsgrid-header-sortable" style="width: 50px;">type</th>
+
+
+            </tr>
+
+
+            <tr class="jsgrid-insert-row" style="display: none;">
+                <td class="jsgrid-cell" style="width: 150px;"><input type="text"></td>
+                <td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">
+                    <input type="number"></td><td class="jsgrid-cell" style="width: 200px;">
+                    <input type="text"></td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">
+
+
+            </tr>
+        </table>
+    </div>
+    <div class="jsgrid-alt-row" style="height: 309.625px;">
+    <table class="jsgrid-table" border="3"><tr class="jsgrid-row" >
+            {% for reclamation in reclamations %}
+        <tr>
+            <td class="jsgrid-cell jsgrid-align-right" style="width: 150px;"> {{ reclamation.id}}</td>
+            <td class="jsgrid-cell  jsgrid-align-center" style="width: 170px;">{{ reclamation.nomClient}}</td>
+            <td class="jsgrid-cell  jsgrid-align-center" style="width: 220px;">{{ reclamation.prenomClient}}</td>
+            <td class="jsgrid-cell" style="width: 120px;">{{ reclamation.tel }}</td>
+            <td class="jsgrid-cell  jsgrid-align-center" style="width: 150px;">{{ reclamation.adresse}} </td>
+            <td class="jsgrid-cell jsgrid-align-right" style="width: 195px;">{{ reclamation.date|date('d F Y') }}</td>
+            <td class="jsgrid-cell jsgrid-align-center" style="width: 150px;">{{ reclamation.raison }}</td>
+            <td class="jsgrid-cell jsgrid-align-center" style="width: 170px;">{{ reclamation.Details }}</td>
+            <td class="jsgrid-cell jsgrid-align-center" style="width: 190px;">{{ reclamation.RefVelo }}</td>
+            <td class="jsgrid-cell jsgrid-align-center" style="width: 200px;">{{ reclamation.idClient }}</td>
+            <td class="jsgrid-cell jsgrid-align-center" style="width: 150px;">{{ reclamation.email }}</td>
+            <td class="jsgrid-cell jsgrid-align-center" style="width: 150px;">{{reclamation.type }}</td>
+
+
+
+            <td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;">
+            <td> <a href="{{ path('reclamation_deleteRec',{'id':reclamation.id}) }}"><button> <input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></button></a>
+                <a href="{{ path('reclamation_updateRec',{'id':reclamation.id}) }}"><button> <input class="jsgrid-button jsgrid-edit-button" type="button" title="Edit"></button></a></td>
+        </tr>
+
+        {% endfor %}
+
+
+    </table>
+
+
+{% endblock %}

@@ -1,3 +1,11 @@
+reclamation_admin:
+    resource: "@ReclamationAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+reclamation_user:
+    resource: "@ReclamationUserBundle/Resources/config/routing.yml"
+    prefix:   /glob
+
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
 

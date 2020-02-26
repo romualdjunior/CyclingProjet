@@ -1,0 +1,3 @@
+reclamation_admin_homepage:
+    path:     /
+    defaults: { _controller: ReclamationAdminBundle:Default:index }
