@@ -9,5 +9,32 @@ namespace StockAdminBundle\Repository;
  * repository methods below.
  */
 class AccessoiresRepository extends \Doctrine\ORM\EntityRepository
-{
+{public function findASCA(){
+    $qb = $this->createQueryBuilder('p')
+        ->orderBy('p.prix', 'ASC');
+    $query = $qb->getQuery();
+
+    return $query->execute();
+}
+
+    public function findDESCA(){
+        $qb = $this->createQueryBuilder('p')
+            ->orderBy('p.prix', 'DESC');
+        $query = $qb->getQuery();
+
+        return $query->execute();
+    }
+    public function findAC($tab){
+        $dql="select a from StockAdminBundle:Accessoires a WHERE";
+        $val=0;
+        foreach ($tab as $key=>$critere) {
+            if(!empty($critere) and $key=="categorie")
+            {
+                $dql.=" a.categorie like '%$critere%'";
+                $val=1;
+            }
+        }
+        $query=$this->getEntityManager()->createQuery($dql);
+        return $query->getArrayResult();
+    }
 }

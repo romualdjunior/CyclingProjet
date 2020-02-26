@@ -36,7 +36,7 @@ class OffreController extends Controller
 
         $manager = $this->get('mgilet.notification');
         $notif = $manager->createNotification('consulter la liste de promotion');
-        $notif->setMessage('This a notification.');
+        $notif->setMessage('');
 
         $users = $em->getRepository(User::class)->findAll();
 
@@ -67,6 +67,7 @@ class OffreController extends Controller
 
         $offre=$em->getRepository(Offre::class)->findAll();
         $velo=$em->getRepository(Velo::class)->findAll();
+
 
         return $this->render('@StockAdmin/Offre/read_o.html.twig', array('offres'=>$offre, 'velos'=>$velo
             // ...

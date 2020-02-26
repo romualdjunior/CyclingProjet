@@ -24,6 +24,7 @@ class VeloRepository extends \Doctrine\ORM\EntityRepository
 
         return $query->execute();
     }
+
     public function findVelo($tab){
     $dql="select a from StockAdminBundle:Velo a WHERE";
             $val=0;
