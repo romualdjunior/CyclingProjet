@@ -14,7 +14,7 @@ class AccessoiresType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('marque')->add('categorie',ChoiceType::class,array(
+        $builder->add('nom')->add('marque')->add('Caracteristiques')->add('qtEnStock')->add('categorie',ChoiceType::class,array(
             'choices' => array(
                 'Remorques & Poussettes' => 'Remorques & Poussettes',
                 'Eclairage' => 'Eclairage', 'Compteurs' => 'Compteurs',

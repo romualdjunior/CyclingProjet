@@ -12,7 +12,7 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="cy_store_slider">
                         <div class="owl-carousel owl-theme">
-                            {% for i in offres %}
+                            {% for i in offresA %}
 
                                 <div class="item">
 
@@ -20,21 +20,21 @@
 
                                         <div class="cy_store_img">
 
-                                            <a href="{{ path('showVelo', {'id': i.velo.id}) }}"><img src="{{ asset('Frontend/images/store/'~i.velo.photoV) }}" alt="store" class="img-fluid"></a>
+                                            <a href="{{ path('showAC', {'id': i.Accessoires.id}) }}"><img src="{{ asset('Frontend/images/store/'~i.Accessoires.photoA) }}" alt="store" class="img-fluid"></a>
                                             <div class="cy_store_img_overlay" style="background-color: red">
-                                                <strong><p style="color: white">{{ i.pourcentage }}%</p></strong>
+                                                <strong><p style="color: white">{{ i.poucentage }}%</p></strong>
                                             </div>
                                         </div>
                                         <div class="cy_store_data">
                                             <div class="cy_store_text">
-                                                <h3><a href="{{ path('showVelo', {'id': i.velo.id}) }}">{{ i.velo.marque }}</a></h3>
+                                                <h3><a href="{{ path('showAC', {'id': i.Accessoires.id}) }}">{{ i.Accessoires.marque }}</a></h3>
                                                 <span >
 
-                                                      <h5 style="color: red"><strike>{{ i.velo.prixAchat }}DT</strike></h5>
+                                                      <h5 style="color: red"><strike>{{ i.Accessoires.prix }}DT</strike></h5>
                                                   </span>
 
                                             </div>
-                                            <a href="cart.html" class="cy_button"  data-hover="Add to Cart"><span>{{ i.velo.soldee }}DT</span></a>
+                                            <a href="cart.html" class="cy_button"  data-hover="Add to Cart"><span>{{ i.Accessoires.soldee }}DT</span></a>
                                         </div>
 
                                     </div>

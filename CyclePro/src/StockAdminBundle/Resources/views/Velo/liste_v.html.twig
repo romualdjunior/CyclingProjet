@@ -20,8 +20,6 @@
                                 </div>
                             </div>
 
-
-
                             {% for i in velos %}
 
                                 <div class="col-lg-6 col-md-6 item">
@@ -31,10 +29,6 @@
 
 
                                         <a href="{{ path('showVelo', {'id': i.id}) }}">
-
-
-
-
                                             <img src="{{ asset('Frontend/images/store/'~i.photoV) }}" class="img-fluid">
                                         </a>
                                     </div>
@@ -42,7 +36,7 @@
                                         {% if (i.soldee==0) %}
 
                                         <div class="cy_store_text">
-                                            <h3><a href="{{ path('shopS') }}">{{ i.marque }}</a></h3>
+                                            <h3><a href="{{ path('showVelo', {'id': i.id}) }}">{{ i.marque }}</a></h3>
                                             <ul>
                                                 <li><i class="fa fa-star" aria-hidden="true"></i></li>
                                                 <li><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -56,7 +50,7 @@
                                           {% else  %}
 
                                               <div class="cy_store_text">
-                                                  <h3><a href="{{ path('shopS') }}">{{ i.marque }}</a></h3>
+                                                  <h3><a href="{{ path('showVelo', {'id': i.id}) }}">{{ i.marque }}</a></h3>
                                                   <h7 style="background-color: red ; color: white " >{{ (i.prixAchat - i.soldee)*100/i.prixAchat }}%</h7>
                                                   <span >
 
@@ -109,43 +103,43 @@
                             <h3 class="woocommerce_widget_title">Categories</h3>
                             <ul>
                                 <li>
-                                    <label>Vélos de route
+                                    <label class="categorie" contenu="Vélos de route">Vélos de route
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
                                 <li>
-                                    <label>Vélos de route Flat Bar
+                                    <label class="categorie" contenu="Vélos de route Flat Bar">Vélos de route Flat Bar
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
                                 <li>
-                                    <label>Vélos de tourisme
+                                    <label class="categorie" contenu="Vélos de tourisme">Vélos de tourisme
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
                                 <li>
-                                    <label>Vélos hybrides
+                                    <label class="categorie"  contenu="Vélos hybrides">Vélos hybrides
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
                                 <li>
-                                    <label>Vélos Cross
+                                    <label class="categorie"  contenu="Vélos Cross">Vélos Cross
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
                                 <li>
-                                    <label>Vélos de transport
+                                    <label class="categorie"  contenu="Vélos de transport">Vélos de transport
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
                                 <li>
-                                    <label>Autres
+                                    <label class="categorie"  contenu="Autres">Autres
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
@@ -196,49 +190,49 @@
                             <h3 class="woocommerce_widget_title">Couleur</h3>
                             <ul>
                                 <li>
-                                    <label>blanc
+                                    <label class="couleur" contenu="blanc">blanc
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
                                 <li>
-                                    <label>noir
+                                    <label class="couleur" contenu="noir">noir
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
                                 <li>
-                                    <label>rouge
+                                    <label class="couleur" contenu="rouge">rouge
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
                                 <li>
-                                    <label>marron
+                                    <label class="couleur" contenu="marron">marron
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
                                 <li>
-                                    <label>Navy
+                                    <label class="couleur" contenu="Navy">Navy
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
                                 <li>
-                                    <label>Bleu
+                                    <label class="couleur" contenu="Bleu">Bleu
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
                                 <li>
-                                    <label>gris
+                                    <label class="couleur" contenu="gris">gris
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
                                 <li>
-                                    <label>vert
+                                    <label class="couleur" contenu="vert">vert
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
@@ -249,25 +243,25 @@
                             <h3 class="woocommerce_widget_title">taille</h3>
                             <ul>
                                 <li>
-                                    <label>petit
+                                    <label class="taille" contenu="petit">petit
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
                                 <li>
-                                    <label>moyen
+                                    <label class="taille" contenu="moyen">moyen
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
                                 <li>
-                                    <label>grand
+                                    <label class="taille" contenu="grand">grand
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
                                 </li>
                                 <li>
-                                    <label>tres grand
+                                    <label class="taille" contenu="tres grand">tres grand
                                         <input type="checkbox">
                                         <span class="checkmark"></span>
                                     </label>
@@ -279,4 +273,81 @@
             </div>
         </div>
     </div>
+{% endblock %}
+{% block javascripts %}
+ {{ parent() }}
+<script>
+    $(function(){
+        let tab={
+            categorie:"",
+            taille:"",
+            couleur:""
+        };
+        $('[type="checkbox" ]').click(function(){
+            if($(this).parent().attr("class")=="categorie")
+                tab.categorie=$(this).parent().attr("contenu");
+         else  if($(this).parent().attr("class")=="taille")
+                tab.taille=$(this).parent().attr("contenu");
+            else  if($(this).parent().attr("class")=="couleur")
+                tab.couleur=$(this).parent().attr("contenu");
+          $.ajax({
+              type:"get",
+              url:"{{ path('filtre') }}",
+              data:{
+                  tab:tab,
+              },
+              success:function(response){
+                  console.log(response);
+                  $(".col-lg-6.col-md-6.item").remove();
+                  let content="";
+
+                  response.criteres.forEach(element=>{
+                      content+= '<div class="col-lg-6 col-md-6 item">' +
+                          '<div class="cy_store_box">'+
+                          '<div class="cy_store_img">'+
+                          '<a href="'+Routing.generate('showVelo',{id:element.id})+'">'+
+                          '<img src="../../Frontend/images/store/'+element.photoV+'" class="img-fluid">'+
+                          '</a>'+
+                          '</div>'+
+                          '<div class="cy_store_data">';
+
+                      if (element.solde == 0) {
+                      content+= '<div class="cy_store_text">'+
+                              '<h3><a href="'+Routing.generate('showVelo',{id:element.id})+'">'+element.marque+'</a></h3>'+
+                          '<ul>'+
+                          '<li><i class="fa fa-star" aria-hidden="true"></i></li>'+
+                          '<li><i class="fa fa-star" aria-hidden="true"></i></li>'+
+                          '<li><i class="fa fa-star" aria-hidden="true"></i></li>'+
+                          '<li><i class="fa fa-star" aria-hidden="true"></i></li>'+
+                          '<li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>'+
+                          '</ul>'+
+                          '</div>'+
+                          '<p> '+element.description+'</p>'+
+                          '<a href="cart.html" class="cy_button"  data-hover="Add to Cart"><span > '+element.prixAchat+'DT </span></a>';
+                      }
+
+
+                      else {
+                          content+='<div class="cy_store_text">'+
+                              '<h3><a href="'+Routing.generate('showVelo',{id:element.id})+'">'+element.marque+'</a></h3>'+
+                          '<h7 style="background-color: red ; color: white " >'+(element.prixAchat-element.soldee)*100/element.prixAchat+'%</h7>'+
+
+                          '<span >'+
+
+                              '<h5 style="color: red"><strike>'+element.prixAchat+'DT</strike></h5>'+
+                          '</span>'+
+
+                          '</div>'+
+                          '<p> '+element.description+' </p>'+
+                          '<a href="cart.html" class="cy_button" style="background-color:red" data-hover="Add to Cart"><span >'+
+                              '<STRONG>'+element.soldee+'DT</STRONG> </span></a>';
+                      }
+                      content+='</div> </div> </div>';
+                  })
+                  $(".col-lg-6.col-md-6.col-sm-5.col-7").after(content);
+              }
+          })
+        })
+    })
+</script>
 {% endblock %}

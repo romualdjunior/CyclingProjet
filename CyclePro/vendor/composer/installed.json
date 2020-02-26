@@ -2715,7 +2715,6 @@
         ]
     },
     {
-<<<<<<< HEAD
         "name": "knplabs/knp-components",
         "version": "v1.3.10",
         "version_normalized": "1.3.10.0",
@@ -2900,11 +2899,6 @@
         "name": "monolog/monolog",
         "version": "1.25.3",
         "version_normalized": "1.25.3.0",
-=======
-        "name": "php-http/message-factory",
-        "version": "v1.0.2",
-        "version_normalized": "1.0.2.0",
->>>>>>> 2f80d3a0efbc662ced15ac6df6180f93fc682c9f
         "source": {
             "type": "git",
             "url": "https://github.com/php-http/message-factory.git",

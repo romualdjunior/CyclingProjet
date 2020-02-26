@@ -24,4 +24,29 @@ class VeloRepository extends \Doctrine\ORM\EntityRepository
 
         return $query->execute();
     }
+    public function findVelo($tab){
+    $dql="select a from StockAdminBundle:Velo a WHERE";
+            $val=0;
+        foreach ($tab as $key=>$critere) {
+            if(!empty($critere) and $key=="categorie")
+            {
+                $dql.=" a.categorie like '%$critere%'";
+                $val=1;
+            }
+            if(!empty($critere)and $key=="taille"){
+                if($val==1)
+                    $dql.="and";
+                $dql.=" a.taille like '%$critere%'";
+                $val=1;
+            }
+            if(!empty($critere) and $key=="couleur"){
+                if($val==1)
+                    $dql.="and";
+                $dql.=" a.couleur like '%$critere%'";
+            }
+
+        }
+        $query=$this->getEntityManager()->createQuery($dql);
+        return $query->getArrayResult();
+    }
 }

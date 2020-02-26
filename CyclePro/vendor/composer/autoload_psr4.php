@@ -37,17 +37,14 @@ return array(
     'Payum\\ISO4217\\' => array($vendorDir . '/payum/iso4217'),
     'Payum\\Bundle\\PayumBundle\\' => array($vendorDir . '/payum/payum-bundle'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
-<<<<<<< HEAD
     'Mgilet\\NotificationBundle\\' => array($vendorDir . '/mgilet/notification-bundle'),
-    'Knp\\Bundle\\PaginatorBundle\\' => array($vendorDir . '/knplabs/knp-paginator-bundle'),
-=======
     'League\\Uri\\' => array($vendorDir . '/league/uri-components/src', $vendorDir . '/league/uri-hostname-parser/src', $vendorDir . '/league/uri-interfaces/src', $vendorDir . '/league/uri-manipulations/src', $vendorDir . '/league/uri-parser/src', $vendorDir . '/league/uri-schemes/src'),
     'Knp\\Snappy\\' => array($vendorDir . '/knplabs/knp-snappy/src/Knp/Snappy'),
     'Knp\\Bundle\\SnappyBundle\\' => array($vendorDir . '/knplabs/knp-snappy-bundle'),
->>>>>>> 2f80d3a0efbc662ced15ac6df6180f93fc682c9f
+    'Knp\\Bundle\\PaginatorBundle\\' => array($vendorDir . '/knplabs/knp-paginator-bundle'),
     'Incenteev\\ParameterHandler\\' => array($vendorDir . '/incenteev/composer-parameter-handler'),
     'Http\\Promise\\' => array($vendorDir . '/php-http/promise/src'),
-    'Http\\Message\\' => array($vendorDir . '/php-http/message/src', $vendorDir . '/php-http/message-factory/src'),
+    'Http\\Message\\' => array($vendorDir . '/php-http/message/src'),
     'Http\\Client\\' => array($vendorDir . '/php-http/httplug/src'),
     'Http\\Adapter\\Guzzle6\\' => array($vendorDir . '/php-http/guzzle6-adapter/src'),
     'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),

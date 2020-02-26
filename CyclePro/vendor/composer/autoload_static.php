@@ -253,16 +253,15 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
-<<<<<<< HEAD
-        'Mgilet\\NotificationBundle\\' => 
+        'Mgilet\\NotificationBundle\\' =>
         array (
             0 => __DIR__ . '/..' . '/mgilet/notification-bundle',
         ),
         'Knp\\Bundle\\PaginatorBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle',
-=======
-        'League\\Uri\\' => 
+        ),
+        'League\\Uri\\' =>
         array (
             0 => __DIR__ . '/..' . '/league/uri-components/src',
             1 => __DIR__ . '/..' . '/league/uri-hostname-parser/src',
@@ -278,7 +277,6 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
         'Knp\\Bundle\\SnappyBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-snappy-bundle',
->>>>>>> 2f80d3a0efbc662ced15ac6df6180f93fc682c9f
         ),
         'Incenteev\\ParameterHandler\\' => 
         array (
@@ -375,14 +373,13 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
                 0 => __DIR__ . '/..' . '/twig/twig/lib',
             ),
         ),
-<<<<<<< HEAD
-        'K' => 
+        'K' =>
         array (
             'Knp\\Component' => 
             array (
                 0 => __DIR__ . '/..' . '/knplabs/knp-components/src',
-=======
-        'P' => 
+            ),),
+        'P' =>
         array (
             'Payum\\Paypal\\ExpressCheckout\\Nvp' => 
             array (
@@ -398,7 +395,6 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
             'JsonpCallbackValidator' => 
             array (
                 0 => __DIR__ . '/..' . '/willdurand/jsonp-callback-validator/src',
->>>>>>> 2f80d3a0efbc662ced15ac6df6180f93fc682c9f
             ),
         ),
         'D' => 
@@ -451,3 +447,4 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
         }, null, ClassLoader::class);
     }
 }
+

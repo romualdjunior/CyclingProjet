@@ -32,7 +32,7 @@ class VeloType extends AbstractType
             ->add('taille', ChoiceType::class,array(
                 'choices'=> array('petit'=>'petit','moyen'=>'moyen','grand'=>'grand','très grand'=>'très grand')))
             ->add('nbrDePlace')
-            ->add('description')->add('qtEnStock')->add('qtStockSecurite')
+            ->add('description')->add('Caracteristiques')->add('qtEnStock')->add('qtStockSecurite')
             ->add('prixAchat')->add('prixLocH')->add('etat', ChoiceType::class,array(
                 'choices'=> array('disponible'=>'disponible','non disponible'=>'non disponible')))
 

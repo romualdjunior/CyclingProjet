@@ -24,7 +24,23 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
 
+                                <div class="col-sm-9">
+                                    {{ form_row(form.qtEnStock, {'attr':{'class':'form-control'}}) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+
+                                <div class="col-sm-9">
+                                    {{ form_row(form.Caracteristiques, {'attr':{'class':'form-control'}}) }}                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
@@ -62,7 +78,7 @@
                                             </span> <p>Drag and drop a file here or click</p>
                                             <p class="dropify-error">Ooops, something wrong appended.</p></div>
                                         <div class="dropify-loader"></div><div class="dropify-errors-container"><ul></ul></div>
-                                        <input type="file" name="photoV" id="photoV" class="dropify">
+                                        <input type="file" name="photoA" id="photoA" class="dropify">
                                         <button type="button" class="dropify-clear">Remove</button><div class="dropify-preview">
                                             <span class="dropify-render"></span><div class="dropify-infos"><div class="dropify-infos-inner">
                                                     <p class="dropify-filename"><span class="file-icon"></span>

@@ -4,11 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
     "content-hash": "a61928fd99d031d03e86ba884ba4c99e",
-=======
-    "content-hash": "f106df1cfc89a80dd852fb2ebb8351c6",
->>>>>>> 2f80d3a0efbc662ced15ac6df6180f93fc682c9f
+
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -2649,7 +2646,6 @@
             "time": "2019-08-05T06:55:08+00:00"
         },
         {
-<<<<<<< HEAD
             "name": "knplabs/knp-components",
             "version": "v1.3.10",
             "source": {
@@ -2827,10 +2823,6 @@
         {
             "name": "monolog/monolog",
             "version": "1.25.3",
-=======
-            "name": "php-http/message-factory",
-            "version": "v1.0.2",
->>>>>>> 2f80d3a0efbc662ced15ac6df6180f93fc682c9f
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-http/message-factory.git",
@@ -4267,10 +4259,8 @@
             "keywords": [
                 "templating"
             ],
-<<<<<<< HEAD
             "time": "2020-02-11T05:59:23+00:00"
-=======
-            "time": "2019-11-11T16:49:32+00:00"
+
         },
         {
             "name": "willdurand/jsonp-callback-validator",
@@ -4311,7 +4301,6 @@
             ],
             "description": "JSONP callback validator.",
             "time": "2014-01-20T22:35:06+00:00"
->>>>>>> 2f80d3a0efbc662ced15ac6df6180f93fc682c9f
         }
     ],
     "packages-dev": [

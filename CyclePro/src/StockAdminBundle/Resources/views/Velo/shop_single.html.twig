@@ -1,21 +1,12 @@
 {% extends 'home.html.twig' %}
 {% block content %}
-
-<!-- search section -->
-<div class="cy_search_form">
-    <button class="search_close"><i class="fa fa-times"></i></button>
-    <div class="cy_search_input">
-        <input type="search" placeholder="search">
-        <i class="fa fa-search"></i>
-    </div>
-</div>
-<!-- shop section start -->
 <div class="cy_shop_wrapper">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-md-12 push-lg-4">
+            <div class="col-lg-10 col-md-12 push-lg-2">
                 <div class="cy_shop_single_page">
                     <div class="row">
+
                         <div class="col-lg-6 col-md-6">
                             <div class="woocommerce-product-gallery">
                                 <div id="sync1" class="owl-carousel owl-theme">
@@ -24,117 +15,130 @@
                                             <img src="{{ asset('Frontend/images/store/'~velo.photoV) }}" class="img-fluid">
                                         </div>
                                     </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="summary entry-summary">
-                                <h1 class="product_title">{{ velo.marque }}</h1>
-                                <h4 class="product-price-amount">${{ velo.prixAchat }}</h4>
-                                <p class="woocommerce-product-detail">{{ velo.description }}.</p>
-                                <div class="quantity">
-                                    <input type="number" min="0" value="1">
-                                    <a href="cart.html" class="cy_button">Add to Cart</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="woocommerce-tabs">
-                                <ul class="tabs">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="#discription"  data-toggle="tab">Discription</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#review" data-toggle="tab">Reviews(0)</a>
-                                    </li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div role="tabpanel" class="tab-pane fade show active" id="discription">
-                                        <h3>Discription</h3>
-                                        <p>{{ velo.description }}</p>
+                                    <div class="item">
+                                        <div class="cy_product_img">
+                                            <img src="{{ asset('Frontend/images/store/'~velo.photoV1) }}" class="img-fluid">
+                                        </div>
                                     </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="review">
-                                        <div class="woocommerce-Reviews">
-                                            <div class="comments">
-                                                <h2 class="woocommerce-Reviews-title">Reviews</h2>
-                                                <p class="woocommerce-noreviews">There are no reviews yet.</p>
-                                            </div>
-                                            <div class="review_form_wrapper">
-                                                <div class="comment-respond">
-                                                    <span class="comment-reply-title">Be the first to review “Modern Chairs”</span>
-                                                    <form class="comment-form">
-                                                        <p class="review_message">
-                                                            <span>Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
-                                                        </p>
-                                                        <div class="comment-form-rating">
-                                                            <label for="rating">Your rating</label>
-                                                            <p class="stars">
-                                                                <span><i class="fa fa-star-o" href="#"></i><i class="fa fa-star-o" href="#"></i><i class="fa fa-star-o" href="#"></i><i class="fa fa-star-o" href="#"></i><i class="fa fa-star-o" href="#"></i></span>
-                                                            </p>
-                                                        </div>
-                                                        <p>
-                                                            <textarea name="comment" placeholder="Review*"></textarea>
-                                                        </p>
-                                                        <p>
-                                                            <input name="author" type="text" value="" placeholder="Name*">
-                                                        </p>
-                                                        <p>
-                                                            <input  name="email" type="email" value="" placeholder="Email*">
-                                                        </p>
-                                                        <p class="form-submit">
-                                                            <blutton class="cy_button">Submit</blutton>
-                                                        </p>
-                                                    </form>
-                                                </div>
-                                            </div>
+                                    <div class="item">
+                                        <div class="cy_product_img">
+                                            <img src="{{ asset('Frontend/images/store/'~velo.photoV2) }}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="cy_product_img">
+                                            <img src="{{ asset('Frontend/images/store/'~velo.photoV3) }}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="sync2" class="owl-carousel owl-theme">
+                                    <div class="item">
+                                        <div class="cy_product_thumbnail">
+                                            <img src="{{ asset('Frontend/images/store/'~velo.photoV) }}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="cy_product_thumbnail">
+                                            <img src="{{ asset('Frontend/images/store/'~velo.photoV1) }}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="cy_product_thumbnail">
+                                            <img src="{{ asset('Frontend/images/store/'~velo.photoV2) }}" class="img-fluid">
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="cy_product_thumbnail">
+                                            <img src="{{ asset('Frontend/images/store/'~velo.photoV3) }}" class="img-fluid">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="cy_store_wrapper">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="summary entry-summary">
+                                {% if (velo.soldee==0) %}
+                                <h1 class="product_title">{{ velo.marque }}</h1>
+                                <h4 class="product-price-amount">{{ velo.prixAchat }}DT</h4>
+                                <p class="woocommerce-product-detail">{{ velo.description }}.</p>
+                                <div class="quantity">
+                                    <input type="number" min="0" value="1">
+                                    <a href="cart.html" class="cy_button">Ajouter au Panier</a>
+                                </div>
+                                {% else  %}
+                                <h1 class="product_title">{{ velo.marque }}</h1>
+                                <h7 style="background-color: red ; color: white " >{{ (velo.prixAchat - velo.soldee)*100/velo.prixAchat }}%</h7>
+                                <h5 style="color: red"><strike>{{ velo.prixAchat }}DT</strike></h5>
+                                <h4 class="product-price-amount">{{ velo.soldee }}DT</h4>
+                                <p class="woocommerce-product-detail">{{ velo.description }}.</p>
+                                <div class="quantity">
+                                    <input type="number" min="0" value="1">
+                                    <a href="cart.html" class="cy_button">Ajouter au Panier</a>
+                                </div>
+                                {% endif  %}
+                            </div>
+                            </div>
+
+                    </div>
+
+                        <div class="col-lg-12 col-md-12">
+                            <div class="woocommerce-tabs">
+                                <ul class="tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="#description"  data-toggle="tab">Description</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#Caracteristiques"  data-toggle="tab">Caracteristiques</a>
+                                    </li>
+                                </ul>
+                                <div class="tab-content">
+                                     <div role="tabpanel" class="tab-pane fade show active" id="description">
+                                        <h3>Description</h3>
+                                        <p>{{ velo.description }}</p>
+                                     </div>
+                                     <div role="tabpanel" class="tab-pane fade" id="Caracteristiques">
+                                        <h3>Caracteristiques</h3>
+                                        <p>{{ velo.Caracteristiques }}</p>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                         <div class="cy_store_wrapper">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <h1 class="cy_heading">to our store</h1>
-                        </div>
-                    </div>
+                        </div></div>
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <div class="cy_store_slider">
                                 <div class="owl-carousel owl-theme">
                                     {% for i in velos %}
-
                                         <div class="item">
-
                                             <div class="cy_store_box">
-
                                                 <div class="cy_store_img">
-
-                                                    <a href="shop_single.html"><img src="{{ asset('Frontend/images/store/'~i.photoV) }}" alt="store" class="img-fluid"></a>
+                                                    <a href="{{ path('showVelo', {'id': i.id}) }}"><img src="{{ asset('Frontend/images/store/'~i.photoV) }}" alt="store" class="img-fluid"></a>
                                                     <div class="cy_store_img_overlay">
                                                         <p>{{ i.marque }}</p>
-                                                    </div>
-                                                </div>
+                                                    </div></div>
                                                 <div class="cy_store_data">
+                                                    {% if (i.soldee==0) %}
                                                     <div class="cy_store_text">
-                                                        <h3><a href="shop_single.html">{{ i.taille }}</a></h3>
-                                                        <ul>
-                                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                            <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                            <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
-                                                        </ul>
+                                                        <h3><a href="{{ path('showVelo', {'id': i.id}) }}">{{ i.taille }}</a></h3>
                                                     </div>
                                                     <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>{{ i.prixAchat }}</span></a>
-                                                </div>
-
+                                    {% else  %}
+                                        <div class="cy_store_text">
+                                            <h3><a href="{{ path('showVelo', {'id': i.id}) }}">{{ i.taille }}</a></h3>
+                                        </div>
+                                        <h7 style="background-color: red ; color: white " > {{ (i.prixAchat - i.soldee)*100/i.prixAchat }}% </h7>
+                                            <h5 style="color: red"><strike>{{ i.prixAchat }}DT</strike></h5>
+                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>{{ i.soldee }}DT</span></a>
+                                                    {% endif  %}
+                                        </div>
                                             </div>
                                         </div>
                                     {% endfor %}
@@ -146,182 +150,7 @@
                 </div>
             </div>
 
-
-
-
-            <div class="col-lg-4 col-md-12 pull-lg-8">
-                <div class="cy_shop_sidebar">
-                    <div class="widget woocommerce widget_product_search">
-                        <form class="search-form">
-                            <div class="input-group">
-                                <input type="text" value="" name="s" class="form-control" placeholder="Search">
-                                <span class="cy_search_btn">
-                                        <button class="btn btn-search" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                    </span>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="widget woocommerce widget_category">
-                        <h3 class="woocommerce_widget_title">Categories</h3>
-                        <ul>
-                            <li>
-                                <label>Road Bicycles (245)
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>Flat Bar Road Bikes (346)
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>Touring Bicycles (604)
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>Hybrid Bicycles (338)
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>Cross Bikes (130)
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>Freight Bicycles (372)
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>Helmet (742)
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>Bike Bag (810)
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="widget woocommerce widget_price">
-                        <h3 class="woocommerce_widget_title">Price</h3>
-                        <div id="slider-range">
-                        </div>
-                        <div class="cy_range">
-                            <input type="text" id="amount" readonly>
-                        </div>
-                    </div>
-                    <div class="widget woocommerce widget_availability">
-                        <h3 class="woocommerce_widget_title">Availability</h3>
-                        <ul>
-                            <li>
-                                <label>In Stock (2045)
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>All Items (3141)
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="widget woocommerce widget_color">
-                        <h3 class="woocommerce_widget_title">Color</h3>
-                        <ul>
-                            <li>
-                                <label>White
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>Black
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>Red
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>Brown
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>Navy
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>Blue
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>Grey
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>Green
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="widget woocommerce widget_size">
-                        <h3 class="woocommerce_widget_title">Size</h3>
-                        <ul>
-                            <li>
-                                <label>Small (214)
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>Medium (410)
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>Large (874)
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                            <li>
-                                <label>Extra Large (621)
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                 </div>
             </div>
         </div>
     </div>

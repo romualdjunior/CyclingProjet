@@ -20,14 +20,14 @@
 
                                 <div class="cy_store_img">
 
-                                    <a href="shop_single.html"><img src="{{ asset('Frontend/images/store/'~i.photoV) }}" alt="store" class="img-fluid"></a>
+                                    <a href="{{ path('showVelo', {'id': i.id}) }}"><img src="{{ asset('Frontend/images/store/'~i.photoV) }}" alt="store" class="img-fluid"></a>
                                     <div class="cy_store_img_overlay">
                                         <p>{{ i.marque }}</p>
                                     </div>
                                 </div>
                                 <div class="cy_store_data">
                                     <div class="cy_store_text">
-                                        <h3><a href="shop_single.html">{{ i.taille }}</a></h3>
+                                        <h3><a href="{{ path('showVelo', {'id': i.id}) }}">{{ i.taille }}</a></h3>
                                         <ul>
                                             <li><i class="fa fa-star" aria-hidden="true"></i></li>
                                             <li><i class="fa fa-star" aria-hidden="true"></i></li>

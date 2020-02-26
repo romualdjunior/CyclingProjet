@@ -58,6 +58,94 @@ class Velo
      * @ORM\Column(name="photoV", type="string", length=255)
      */
     private $photoV;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photoV1", type="string", length=255)
+     */
+    private $photoV1;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photoV2", type="string", length=255)
+     */
+    private $photoV2;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="photoV3", type="string", length=255)
+     */
+    private $photoV3;
+
+    /**
+     * @return string
+     */
+    public function getPhotoV3()
+    {
+        return $this->photoV3;
+    }
+
+    /**
+     * @param string $photoV3
+     */
+    public function setPhotoV3($photoV3)
+    {
+        $this->photoV3 = $photoV3;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhotoV1()
+    {
+        return $this->photoV1;
+    }
+
+    /**
+     * @param string $photoV1
+     */
+    public function setPhotoV1($photoV1)
+    {
+        $this->photoV1 = $photoV1;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhotoV2()
+    {
+        return $this->photoV2;
+    }
+
+    /**
+     * @param string $photoV2
+     */
+    public function setPhotoV2($photoV2)
+    {
+        $this->photoV2 = $photoV2;
+    }
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Caracteristiques", type="string", length=255)
+     */
+    private $Caracteristiques;
+
+    /**
+     * @return string
+     */
+    public function getCaracteristiques()
+    {
+        return $this->Caracteristiques;
+    }
+
+    /**
+     * @param string $Caracteristiques
+     */
+    public function setCaracteristiques($Caracteristiques)
+    {
+        $this->Caracteristiques = $Caracteristiques;
+    }
 
     /**
      * @var string

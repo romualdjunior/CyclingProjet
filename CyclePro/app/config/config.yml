@@ -2,12 +2,11 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-<<<<<<< HEAD
+
     - { resource: "@StockAdminBundle/Resources/config/services.yml" }
     - { resource: "@StockFrontBundle/Resources/config/services.yml" }
-=======
+
     - { resource: "@CommandeBundle/Resources/config/services.yml" }
->>>>>>> 2f80d3a0efbc662ced15ac6df6180f93fc682c9f
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -85,7 +84,6 @@ fos_user:
     from_email:
         address: "badiaa.bouhdid@esprit.tn"
         sender_name: "badi3a"
-<<<<<<< HEAD
 knp_paginator:
     page_range: 5                       # number of links showed in the pagination menu (e.g: you have 10 pages, a page_range of 3, on the 5th page you'll see links to page 4, 5, 6)
     default_options:
@@ -99,7 +97,7 @@ knp_paginator:
         pagination: '@KnpPaginator/Pagination/twitter_bootstrap_v3_pagination.html.twig'     # sliding pagination controls template
         sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # sort link template
         filtration: '@KnpPaginator/Pagination/filtration.html.twig'  # filters template
-=======
+
 payum:
     security:
         token_storage:
@@ -129,4 +127,3 @@ knp_snappy:
         enabled:    true
         binary:     /usr/local/bin/wkhtmltoimage #"\"C:\\Program Files\\wkhtmltopdf\\bin\\wkhtmltoimage.exe\"" for Windows users
         options:    []
->>>>>>> 2f80d3a0efbc662ced15ac6df6180f93fc682c9f

@@ -8,6 +8,7 @@ use StockAdminBundle\Entity\Velo;
 use StockAdminBundle\Form\VeloType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class VeloController extends Controller
@@ -17,6 +18,9 @@ class VeloController extends Controller
     //1.a creation d'un objet vide
     $velo=new \StockAdminBundle\Entity\Velo();
     $photoV=$request->get('photoV');
+    $photoV1=$request->get('photoV1');
+    $photoV2=$request->get('photoV2');
+    $photoV3=$request->get('photoV3');
     //2.a creation d'un formulaire7
     $form=$this->createForm(\StockAdminBundle\Form\VeloType::class,$velo);
 
@@ -27,6 +31,7 @@ class VeloController extends Controller
     if($form->isSubmitted()){
         $velo->setSoldee(0);
         $velo->setPhotoV($photoV);
+        $velo->setPhotoV1($photoV1); $velo->setPhotoV2($photoV2); $velo->setPhotoV3($photoV3);
         //4.a creation d'un objet doctrine
         $em=$this->getDoctrine()->getManager();
         //4.b persister les données de ORM
@@ -212,6 +217,17 @@ class VeloController extends Controller
             'velos' => $velos
             // ...
         ));
+    }
+    public function filtreAction(Request $request){
+        $tab=$request->get("tab");
+        $em=$this->getDoctrine();
+        $criteres=$em->getRepository(Velo::class )->findVelo($tab);
+        return new JsonResponse(array("criteres"=>$criteres));
+    }
+    public function SearchAction(Request $request)
+    {
+
+
     }
 
 
