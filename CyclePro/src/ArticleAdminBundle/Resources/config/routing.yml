@@ -31,7 +31,7 @@ create_comt:
     defaults: { _controller: ArticleAdminBundle:CommentaireAdmin:create }
 
 read_comt:
-    path:     /CommentaireAdmin/read
+    path:     /CommentaireAdmin/read/{id}
     defaults: { _controller: ArticleAdminBundle:CommentaireAdmin:read }
 
 update_comt:
@@ -41,3 +41,19 @@ update_comt:
 delete_comt:
     path:     /CommentaireAdmin/delete/{id}
     defaults: { _controller: ArticleAdminBundle:CommentaireAdmin:delete }
+    options:
+        expose: true
+
+search_word:
+    path:     /searchword
+    defaults: { _controller: ArticleAdminBundle:ArticleAdmin:search }
+
+search_ligne:
+    path:     /searchligne
+    defaults: { _controller: ArticleAdminBundle:ArticleAdmin:searchligne }
+
+search_comt:
+    path:     /searchcomt
+    defaults: { _controller: ArticleAdminBundle:CommentaireAdmin:searchcomt}
+    options:
+        expose: true

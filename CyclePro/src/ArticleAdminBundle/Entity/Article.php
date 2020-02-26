@@ -3,6 +3,7 @@
 namespace ArticleAdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Article
@@ -27,6 +28,13 @@ class Article
      * @ORM\Column(name="contenue", type="text")
      */
     private $contenue;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="likes", type="integer")
+     */
+    private $likes;
 
     /**
      * @var string
@@ -84,7 +92,7 @@ class Article
     public function setContenue($contenue)
     {
         $this->contenue = $contenue;
-    
+
         return $this;
     }
 
@@ -108,7 +116,7 @@ class Article
     public function setTitre($titre)
     {
         $this->titre = $titre;
-    
+
         return $this;
     }
 
@@ -132,7 +140,7 @@ class Article
     public function setAuteur($auteur)
     {
         $this->auteur = $auteur;
-    
+
         return $this;
     }
 
@@ -156,7 +164,7 @@ class Article
     public function setPhoto($photo)
     {
         $this->photo = $photo;
-    
+
         return $this;
     }
 
@@ -180,7 +188,7 @@ class Article
     public function setDateArt($dateArt)
     {
         $this->dateArt = $dateArt;
-    
+
         return $this;
     }
 
@@ -204,7 +212,7 @@ class Article
     public function setCategory($category)
     {
         $this->category = $category;
-    
+
         return $this;
     }
 
@@ -217,5 +225,28 @@ class Article
     {
         return $this->category;
     }
-}
 
+    /**
+     * Set likes
+     *
+     * @param integer $likes
+     *
+     * @return Article
+     */
+    public function setLikes($likes)
+    {
+        $this->likes = $likes;
+
+        return $this;
+    }
+
+    /**
+     * Get likes
+     *
+     * @return integer
+     */
+    public function getLikes()
+    {
+        return $this->likes;
+    }
+}

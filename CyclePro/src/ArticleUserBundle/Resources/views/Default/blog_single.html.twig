@@ -4,8 +4,7 @@
 
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 
 <head>
@@ -227,6 +226,7 @@
         <i class="fa fa-search"></i>
     </div>
 </div>
+
 <!--Blog section start-->
 <div class="cy_blog_wrapper cy_section_padding  cy_blog_page">
     <div class="container">
@@ -234,14 +234,18 @@
             <div class="col-lg-8 col-md-12">
                 <div class="cy_blog_box">
                     <div class="cy_blog_img">
-
-                        <img src="{{ asset('Frontend/images/blog/blog_single.jpg') }}" alt="introuvable" class="img-fluid" />
+                        {% for i in article %}
+                        <img src="{{ asset('Frontend/images/blog/'~ i.photo) }}" alt="introuvable" class="img-fluid" />
                         <div class="cy_blog_overlay"></div>
                         <div class="cy_blog_links">
                             <ul>
-                                <li><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 15</a></li>
-                                <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 120</a></li>
-                                <li><a href="#" class="cy_relative"><i class="fa fa-share-alt" aria-hidden="true"></i> share</a>
+                                <li><a href="#bas"><i class="fa fa-comments-o" aria-hidden="true"></i> </a></li>
+                                <li><a href="{{ path('aime_plus',{ 'id': i.id }) }}"><i class="fa fa-heart" aria-hidden="true"></i> {{ i.likes }}</a></li>
+
+                                {% if is_granted('ROLE_USER') %}
+                                <li><a href="{{ path('create_favorit',{ 'id': i.id }) }}"><i class="fa fa-star" aria-hidden="true"></i>Favorit</a></li>
+                                {% endif %}
+                                <li><a href="#" class="cy_relative"><i class="fa fa-share-alt" aria-hidden="true"></i> Share</a>
                                     <ul class="cy_so_icons">
                                         <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                         <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -251,7 +255,6 @@
                             </ul>
                         </div>
                     </div>
-                    {% for i in article %}
                         <div class="cy_blog_data">
                         <ul class="cy_blog_info">
                             <li><a href="#">{{ i.auteur }}</a></li>
@@ -268,92 +271,123 @@
                         </div>
                         <p> {{ i.contenue }} </p>
                         </div>
-                    {% endfor %}
                 </div>
+                <br><br><br>
+                <hr>
+                <br>
+                <a name="bas">
+                {% if is_granted('ROLE_USER') %}
+                <div class="comment-respond" id="comment">
+                    <h3 id="reply-title" class="comment-reply-title">leave a comment</h3>
+                    <form action="{{ path('createcomt',{'id':i.id}) }}">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="comment_input_wrapper">
+                                    <textarea id="contenue" name="contenue" placeholder="Comment" required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="comment-form-submit">
+                                    <td><button class="submit cy_button" >
+                                            Comment</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <br>
+                    <br><br><br>
+                </div>
+                {% else %}
+                    <p class="alert alert-danger" id="contenue">Créer votre compte!</p>
+                {% endif %}
+                </a>
+                <br><br>
             </div>
+
             <!--Sidebar Start-->
             <div class="col-lg-4 col-md-12">
                 <div class="sidebar cy_sidebar">
-                    <!--Search-->
-                    <div class="widget widget_search">
-                        <form class="search-form">
-                            <div class="input-group">
-                                <input type="text" value="" name="s" class="form-control" placeholder="Search">
-                                <span class="cy_search_btn">
-										<button class="btn btn-search" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-									</span>
-                            </div>
-                        </form>
-                    </div>
+
                     <!--Categories-->
                     <div class="widget widget_categories">
                         <h3 class="widget-title">Categories</h3>
                         <ul>
-                            <li><a href="#"> Sport</a></li>
-                            <li><a href="#"> Cyclisme</a></li>
-                            <li><a href="#"> Bien être</a></li>
-                            <li><a href="#"> Nutrition</a></li>
+                                <li><a href="{{ path("article_sport")}}"> Sport</a></li>
+                                <li><a href="{{ path("article_cyclisme")}}">Cyclisme</a></li>
+                                <li><a href="{{ path("article_bien")}}">Bien etre</a></li>
+                                <li><a href="{{ path("article_nutrition")}}">Nutrition</a></li>
                         </ul>
                     </div>
+
+                    <div>
+
                     <!--Recent Post-->
                     <div class="widget widget_recent_entries">
                         <h3 class="widget-title">Recent Posts</h3>
                         <ul>
+                            {% for i in recent %}
                             <li>
                                 <div class="recent_cmnt_img">
-                                    <img src="{{ asset('Frontend/images/blog/r_post1.jpg') }}" alt="post" />
+                                    <img  width="80" height="50" src="{{ asset('Frontend/images/blog/'~ i.photo) }}" alt="post" />
                                 </div>
                                 <div class="recent_cmnt_data">
-                                    <h4><a href="#">Selecting The Proper Bicycle</a></h4>
-                                    <span>14 Apr, 2018</span>
+                                    <h4><a href="#">{{ i.titre }}</a></h4>
+                                    <span>{{ i.dateArt | date }}</span>
                                 </div>
                             </li>
-                            <li>
-                                <div class="recent_cmnt_img">
-                                    <img src="{{ asset('Frontend/images/blog/r_post2.jpg') }}" alt="post" />
-                                </div>
-                                <div class="recent_cmnt_data">
-                                    <h4><a href="#">Selecting The Proper Bicycle</a></h4>
-                                    <span>14 Apr, 2018</span>
-                                </div>
-                            </li>
+                            {% endfor %}
                         </ul>
                     </div>
-                    <!--Tag Cloud-->
-                    <div class="widget widget_tag_cloud">
-                        <h3 class="widget-title">Tags</h3>
-                        <ul>
-                            <li><a href="#">Sport</a></li>
-                            <li><a href="#">Cyclisme</a></li>
-                            <li><a href="#"> Bien-être</a></li>
-                            <li><a href="#">Nutrition</a></li>
-                        </ul>
-                    </div>
+
+                        <!favorit---->
+                        <div class="widget widget_recent_entries">
+                            <h3 class="widget-title">Favorit</h3>
+                            <ul>
+                                {% for fav in fav %}
+                                    <li>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+
+
+                        <!--PDF-->
+                        <div class="widget widget_categories">
+                            <a href="{{ path('pdf',{ 'id': i.id }) }}" class="btn btn-outline-primary text-uppercase">
+                                <i class="fa fa-file-pdf-o"></i> PDF </a>
+                        </div>
+
+
+                        <!--CHAT-->
+                        {% if is_granted('ROLE_USER') %}
+                            <div class="widget widget_recent_entries">
+                                <h3 class="widget-title"><a href="{{ path('fos_message_inbox') }}">Chat</a></h3>
+                            </div>
+                        {% endif %}
+
                     <!--Sociallinks-->
                     <div class="widget widget_social_links">
-                        <h3 class="widget-title">Suivez nous</h3>
+                        <h3 class="widget-title">follow us</h3>
                         <ul>
                             <li><a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-
+            </div>
             <div>
 
-                <input type="text" placeholder="Donnez votre avis">
-                <button class="btn btn-primary mr-lg-5" type="submit" >Ajouter</button>
-
+                {% endfor %}
 
             </div>
 
+
         </div>
+
     </div>
 </div>
 
@@ -365,7 +399,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
-                <P>Copyright &copy; 2018, <a href="#">Cyclisme</a>. All Rights Reserved.</P>
+                <P>Copyright &copy; 2020, <a href="#">Cycling</a>. All Rights Reserved.</P>
             </div>
         </div>
     </div>
@@ -388,6 +422,5 @@
 <script src="{{ asset('Frontend/js/jquery.nice-select.min.js') }}"></script>
 <script src="{{ asset('Frontend/js/custom.js') }}"></script>
 </body>
-
 </html>
 {% endblock %}

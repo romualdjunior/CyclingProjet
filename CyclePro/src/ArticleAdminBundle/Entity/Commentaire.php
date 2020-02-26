@@ -48,6 +48,11 @@ class Commentaire
      */
     private  $article;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
+     * @ORM\JoinColumn(name="user",referencedColumnName="id")
+     */
+    private  $user;
 
     /**
      * Get id
@@ -153,5 +158,29 @@ class Commentaire
     public function getArticle()
     {
         return $this->article;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Commentaire
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+    
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

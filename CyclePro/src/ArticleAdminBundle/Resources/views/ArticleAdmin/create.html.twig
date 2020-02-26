@@ -3,20 +3,23 @@
 
     {{ form_start(form) }}
 
+    <div class="container">
     <div class="col-12 grid-margin stretch-card">
+
         <div class="card">
             <div class="card-body">
+                <h4><b><center>Ajouter article</center></b></h4>
 
-            <h4 class="card-title" style="text-align: center">Ajouter article</h4>
                     <div class="form-group">
                             <label class="col-sm-3 col-form-label">Category</label>
+                            <div class="col-sm-9">
                                 <select name="category" id="category" class="form-control">
-                                    <option name="Débutant" value="Débutant">Sport</option>
-                                    <option name="Intermediaire" value="Intermediaire">Cycling</option>
-                                    <option name="Professionnel" value="Professionnel">Bien etre</option>
-                                    <option name="Tous les niveux" value="Tous les niveux">Nutrition</option>
-
+                                    <option name="Sport" value="Sport">Sport</option>
+                                    <option name="Cycling">Cyclisme</option>
+                                    <option name="Bien" value="Bien ">Bien etre</option>
+                                    <option name="Nutrition" value="Nutrition">Nutrition</option>
                                 </select>
+                            </div>
                     </div>
 
                     <div class="form-group">
@@ -33,12 +36,15 @@
                                 </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-sm-3 col-form-label">Date création</label>
-                        <div class="col-sm-9" type="date">
-                            {{ form_widget(form.dateArt,{'attr':{'class':'form-control' }}) }}
+                <div class="form-group ">
+                    <label class="col-sm-3 col-form-label">Date création</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
                         </div>
+                        <input class="form-control" id="datecre" name="datecre" type="date" required />
                     </div>
+                </div>
 
                     <div class="form-group">
                         <label class="col-sm-3 col-form-label">Contenue</label>
@@ -66,13 +72,22 @@
                         </div>
                     </div>
                     <br><br>
-                    <center><button class="btn btn-primary btn-block mr-lg-5" type="submit">Ajouter</button></center></div>
+                    <center><button class="btn btn-primary btn-block mr-lg-5" type="submit" id="aj">Ajouter</button></center></div>
                     <br><br>
 
         </div>
         </div>
-    </div>
-    {{ form_end(form) }}
-    </form>
 
+
+                    {{ form_end(form) }}
+    </form>
+    </div>
+    <script type="text/javascript" src="{{ asset('jquery-min.js') }}"></script>
+    <script>
+        $("#aj").click(function(){
+            if ($("#photo").val().empty()){
+                alert('champ vide');
+            }
+        });
+    </script>
 {% endblock %}

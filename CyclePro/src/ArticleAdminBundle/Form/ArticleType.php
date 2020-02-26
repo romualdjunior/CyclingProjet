@@ -15,8 +15,7 @@ class ArticleType extends AbstractType
     {
         $builder->add('contenue')
             ->add('titre')
-            ->add('auteur')
-            ->add('dateArt');
+            ->add('auteur');
     }/**
      * {@inheritdoc}
      */

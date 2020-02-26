@@ -38,7 +38,7 @@ class Commentaire
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_art", type="date")
+     * @ORM\Column(name="date_comt", type="date")
      */
     private $dateComt;
 
@@ -48,6 +48,11 @@ class Commentaire
      */
     private  $article;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\USer")
+     * @ORM\JoinColumn(name="user",referencedColumnName="id")
+     */
+    private  $user;
 
     /**
      * Get id
@@ -82,5 +87,76 @@ class Commentaire
     {
         return $this->contenue;
     }
-}
 
+    /**
+     * Set likes
+     *
+     * @param integer $likes
+     *
+     * @return Commentaire
+     */
+    public function setLikes($likes)
+    {
+        $this->likes = $likes;
+    
+        return $this;
+    }
+
+    /**
+     * Get likes
+     *
+     * @return integer
+     */
+    public function getLikes()
+    {
+        return $this->likes;
+    }
+
+    /**
+     * Set dateComt
+     *
+     * @param \DateTime $dateComt
+     *
+     * @return Commentaire
+     */
+    public function setDateComt($dateComt)
+    {
+        $this->dateComt = $dateComt;
+    
+        return $this;
+    }
+
+    /**
+     * Get dateComt
+     *
+     * @return \DateTime
+     */
+    public function getDateComt()
+    {
+        return $this->dateComt;
+    }
+
+    /**
+     * Set article
+     *
+     * @param \ArticleAdminBundle\Entity\Article $article
+     *
+     * @return Commentaire
+     */
+    public function setArticle(\ArticleAdminBundle\Entity\Article $article = null)
+    {
+        $this->article = $article;
+    
+        return $this;
+    }
+
+    /**
+     * Get article
+     *
+     * @return \ArticleAdminBundle\Entity\Article
+     */
+    public function getArticle()
+    {
+        return $this->article;
+    }
+}

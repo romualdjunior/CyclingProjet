@@ -53,7 +53,7 @@
                                         <li>
                                             <div class="cart_section">
                                                 <div class="cart_img">
-                                                    <a href="#"><img src="images/cart/1.jpg" alt="cart" class="img-fluid"></a>
+                                                    <a href="#"><img src="{{ asset('Frontend/images/cart/1.jpg')}}" alt="cart" class="img-fluid"></a>
                                                 </div>
                                                 <div class="cart_detail">
                                                     <h4><a href="cart.html">Road Bicycle</a></h4>
@@ -65,7 +65,7 @@
                                         <li>
                                             <div class="cart_section">
                                                 <div class="cart_img">
-                                                    <a href="#"><img src="images/cart/2.jpg" alt="cart" class="img-fluid"></a>
+                                                    <a href="#"><img src=" {{ asset('Frontend/images/cart/2.jpg') }}" alt="cart" class="img-fluid"></a>
                                                 </div>
                                                 <div class="cart_detail">
                                                     <h4><a href="cart.html">Road Bicycle</a></h4>
@@ -98,8 +98,8 @@
     </div>
     <!-- sign icons -->
     <div class="cy_sign_wrapper">
-        <h2 class="signin"><i class="fa fa-sign-in" aria-hidden="true"></i><a href="#signin" data-toggle="modal">Se connecter</a></h2>
-        <h2 class="signup"><i class="fa fa-user-plus" aria-hidden="true"></i><a href="#signup" data-toggle="modal">Déconnexion</a></h2>
+        <h2 class="signin"><i class="fa fa-sign-in" aria-hidden="true"></i><a href="#signin" data-toggle="modal">Sign in</a></h2>
+        <h2 class="signup"><i class="fa fa-user-plus" aria-hidden="true"></i><a href="#signup" data-toggle="modal">Sign out</a></h2>
     </div>
     <!-- sign in modal -->
     <div class="modal" id="signin">
@@ -107,7 +107,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="cy_sign_img">
-                        <img src="images/popup.jpg" alt="popup" class="img-fluid">
+                        <img src="{{ asset('Frontend/images/popup.jpg') }}" alt="popup" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
@@ -115,20 +115,21 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h1>Se connecter</h1>
+                        <h1>Sign in</h1>
                         <input type="text" placeholder="Identifiant" class="form-control">
-                        <input type="password" placeholder="Mot de passe" class="form-control">
+                        <input type="password" placeholder="Password" class="form-control">
                         <div class="forget_password">
                             <div class="remember_checkbox">
-                                <label>Gardez-moi connecté
+                                <label>Keep me signed in
                                     <input type="checkbox">
                                     <span class="checkmark"></span>
                                 </label>
                             </div>
-                            <a href="#">Mot de passe oublié?</a>
+                            <a href="#">
+                                Forgot Password ?</a>
                         </div>
-                        <a href="#" class="cy_button">Se connecter</a>
-                        <p>Dont Have An Account? <a href="#signup" data-toggle="modal" class="cy_modal">Déconnexion</a></p>
+                        <a href="#" class="cy_button">Sign in</a>
+                        <p>Dont Have An Account? <a href="#signup" data-toggle="modal" class="cy_modal">Sign out</a></p>
                     </div>
                 </div>
             </div>
@@ -140,7 +141,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="cy_sign_img">
-                        <img src="images/popup.jpg" alt="popup" class="img-fluid">
+                        <img src="{{ asset('Frontend/images/popup.jpg') }}" alt="popup" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
@@ -149,7 +150,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                         <h1>Sign up</h1>
-                        <input type="text" placeholder="Identifiant" class="form-control">
+                        <input type="text" placeholder="Username" class="form-control">
                         <input type="text" placeholder="Email ou Numéro téléphone" class="form-control">
                         <input type="password" placeholder="Mot de passe" class="form-control">
                         <a href="#" class="cy_button">S'inscrire</a>
@@ -166,7 +167,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="cy_sign_img">
-                            <img src="images/popup.jpg" alt="popup" class="img-fluid">
+                            <img src="{{ asset('Frontend/images/popup.jpg') }}" alt="popup" class="img-fluid">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -196,10 +197,11 @@
             </div>
         </div>
     </div>
+
     <!--Menus Start-->
     <div class="cy_menu_wrapper">
         <div class="cy_logo_box">
-            <a href="index.html"><img src="images/logo.png" alt="logo" class="img-fluid"/></a>
+            <a href="index.html"><img src="{{ asset('Frontend/images/logo.png') }}" alt="logo" class="img-fluid"/></a>
         </div>
         <div class="container">
             <div class="row">
@@ -291,90 +293,23 @@
                     </div>
                 {% endfor %}
             </div>
-        </div>
-    </div>
 
-    <!--Footer section start-->
-    <div class="cy_footer_wrapper cy_section_padding padder_bottom75">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-widget cy_footer_about">
-                        <img src="images/logo.png" alt="logo" class="img-fluid"/>
-                        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-widget">
-                        <h1 class="widget-title">recent blog</h1>
-                        <div class="cy_recent_post">
-                            <div class="cy_post_img">
-                                <a href="#"><img src="images/footer/post1.jpg" alt="post"/></a>
-                            </div>
-                            <div class="cy_post_data">
-                                <h3><a href="#">Selecting The Proper Bicycle</a></h3>
-                                <p>14 Apr, 2018</p>
-                            </div>
-                        </div>
-                        <div class="cy_recent_post">
-                            <div class="cy_post_img">
-                                <a href="#"><img src="images/footer/post2.jpg" alt="post"/></a>
-                            </div>
-                            <div class="cy_post_data">
-                                <h3><a href="#">Selecting The Proper Bicycle</a></h3>
-                                <div class="cy_post_info"><p>14 Apr, 2018</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-widget">
-                        <h1 class="widget-title">contact info</h1>
-                    </div>
-                    <div class="cy_foo_contact">
-                        <span><img src="images/svg/map-mark.svg" alt="map-mark"></span>
-                        <div class="cy_post_info">
-                            <p>10221 Magnolia Grove Dr,  Manassas, VA, 20110</p>
-                        </div>
-                    </div>
-                    <div class="cy_foo_contact">
-                        <span><img src="images/svg/phone.svg" alt="phone"></span>
-                        <div class="cy_post_info">
-                            <p>Office :- +1-512-555-0190</p>
-                            <p>Office :- +1-512-555-0190</p>
-                        </div>
-                    </div>
-                    <div class="cy_foo_contact">
-                        <span><img src="images/svg/email.svg" alt="email"></span>
-                        <div class="cy_post_info">
-                            <p><a href="#">help@yourmail.com</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="footer-widget">
-                        <h1 class="widget-title">flicker widget</h1>
-                        <div class="cy_foo_gallery">
-                            <ul>
-                                <li><a href="#"><img src="images/footer/gal1.jpg" alt="flicker gallery"></a></li>
-                                <li><a href="#"><img src="images/footer/gal2.jpg" alt="flicker gallery"></a></li>
-                                <li><a href="#"><img src="images/footer/gal3.jpg" alt="flicker gallery"></a></li>
-                                <li><a href="#"><img src="images/footer/gal4.jpg" alt="flicker gallery"></a></li>
-                                <li><a href="#"><img src="images/footer/gal5.jpg" alt="flicker gallery"></a></li>
-                                <li><a href="#"><img src="images/footer/gal6.jpg" alt="flicker gallery"></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div class="navigation text-center ">
+                {{ knp_pagination_render(articles) }}
             </div>
-        </div>
+
+            </div>
+
     </div>
+    <!--Footer section start-->
+    <!--???????--->
+
     <!--Bottom footer start-->
     <div class="cy_btm_footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    <P>Copyright &copy; 2018, <a href="#">Cycling</a>. All Rights Reserved.</P>
+                    <P>Copyright &copy; 2020, <a href="#">Cyclisme</a>. All Rights Reserved.</P>
                 </div>
             </div>
         </div>
@@ -382,22 +317,20 @@
     <!--Go to top start-->
     <div class="cy_go_to">
         <div class="cy_go_top">
-            <img src="images/go_to_top.png" alt="back to top">
+            <img src="{{ asset('Frontend/images/go_to_top.png') }}" alt="Back to top">
         </div>
     </div>
     <!--scripts start-->
-    <script src="js/jquery.js"></script>
-    <script src="js/tether.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/wow.js"></script>
-    <script src="js/jquery.countTo.js"></script>
-    <script src="js/appear.js"></script>
-    <script src="js/plugin/owl/owl.carousel.min.js"></script>
-    <script src="js/plugin/magnific/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/custom.js"></script>
-
+    <script src="{{ asset('Frontend/js/jquery.js') }}"></script>
+    <script src="{{ asset('Frontend/js/tether.min.js') }}"></script>
+    <script src="{{ asset('Frontend/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('Frontend/js/wow.js') }}"></script>
+    <script src="{{ asset('Frontend/js/jquery.countTo.js') }}"></script>
+    <script src="{{ asset('Frontend/js/appear.js') }}"></script>
+    <script src="{{ asset('Frontend/js/plugin/owl/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('Frontend/js/plugin/magnific/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('Frontend/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('Frontend/js/custom.js') }}"></script>
     </body>
-
     </html>
 {% endblock %}

@@ -2,8 +2,6 @@
 
 namespace ArticleAdminBundle\Repository;
 
-use ArticleAdminBundle\Entity\Article;
-
 /**
  * ArticleRepository
  *
@@ -13,8 +11,42 @@ use ArticleAdminBundle\Entity\Article;
 class ArticleRepository extends \Doctrine\ORM\EntityRepository
 {
     public function findbyid($id)
-    {          $query=$this->getEntityManager()
+    {   $query=$this->getEntityManager()
         ->createQuery("select c from ArticleAdminBundle:Article c where  c.id='$id'");//affiche la liste des objets
         return $query->getResult();
     }
+
+    public function articleCategory($cat)
+    {   $query=$this->getEntityManager()
+        ->createQuery("select c from ArticleAdminBundle:Article c where  c.category='$cat'");//affiche la liste des objets
+        return $query->getResult();
+    }
+
+    public function searchword($word){
+        $query=$this->getEntityManager()
+            ->createQuery("select c from ArticleAdminBundle:Article c where  c.titre like '%$word%' 
+            or c.category like '%$word% ' or c.auteur like '%$word%' or c.contenue like '%$word%'");
+        return $query->getResult();
+    }
+
+  /*  public function searchnbrl($nbrl){
+        $query=$this->getEntityManager()
+            ->createQuery("select c from ArticleAdminBundle:Article c LIMIT '$nbrl' ");
+        return $query->getResult();
+    }*/
+
+    public function search($contenue){
+        $query=$this->getEntityManager()
+            ->createQuery("select c from ArticleAdminBundle:Article c where  c.contenue like % '$contenue' %");//affiche la liste des objets
+        return $query->getResult();
+    }
+
+
+    public function recentArticle(){
+        $query=$this->getEntityManager()
+            ->createQuery("select c from ArticleAdminBundle:Article c ORDER BY c.dateArt DESC ");
+        $query->setMaxResults(2);
+        return $query->getResult();
+    }
+
 }
