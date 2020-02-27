@@ -60,8 +60,8 @@ class Fournisseur
      * @Assert\Length(
      *      min = 8,
      *      max = 8,
-     *      minMessage = "invalide",
-     *      maxMessage = "invalide"
+     *      minMessage = "INVALIDE",
+     *      maxMessage = "INVALIDE"
      * )
      */
     private $telephone;

@@ -9,6 +9,7 @@ use StockAdminBundle\Form\OffreType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class OffreController extends Controller
 {public function createOAction(Request $request)
 {
@@ -39,7 +40,6 @@ class OffreController extends Controller
         $notif->setMessage('');
 
         $users = $em->getRepository(User::class)->findAll();
-
         foreach ($users as $us)
         {
             $manager->addNotification(array($us), $notif, true);
