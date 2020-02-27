@@ -37,3 +37,11 @@
         </div>
     </div>
 {% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+    <script>
+    toastr.success("Commande validée avec succès. Consulter votre boite mail" );
+    </script>
+
+{% endblock %}

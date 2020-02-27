@@ -1,0 +1,95 @@
+{% extends 'baseAdmin.html.twig' %}
+{% block content %}
+    <div class="content-wrapper">
+
+
+        <h4 >Liste des commentaires</h4>
+        <div class="row">
+            <div class="col-12 table-responsive">
+                <div id="order-listing_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer"><div class="row"><div class="col-sm-12 col-md-6"><div class="dataTables_length" id="order-listing_length"><label>Afficher <select name="order-listing_length" aria-controls="order-listing" class="form-control"><option value="5">5</option><option value="10">10</option><option value="15">15</option>
+                                        <option value="-1">All</option></select> lignes</label></div></div><div class="col-sm-12 col-md-6">
+
+                            <div id="order-listing_filter" class="dataTables_filter">
+                                <label><input type="search" id="search" name="search" class="form-control" placeholder="Search" aria-controls="order-listing"></label>
+                            </div></div></div>
+
+                    <div class="row"><div class="col-sm-12">
+                            <table id="order-listing" class="table dataTable no-footer" role="grid" aria-describedby="order-listing_info">
+
+                                <thead>
+                                <tr role="row">
+                                    <th>Titre de l'article </th>
+                                    <th  >Nom user</th>
+                                    <th  >Contenue</th>
+                                    <th>Date Création</th>
+                                    <th  >likes</th>
+                                    <th  ></th>
+
+                                </tr>
+
+                                </thead>
+                                <tbody>
+                                {% for i in comt %}
+
+                                    <tr role="row" class="odd">
+                                        <td style="color: blue">{{ i.article.titre }}</td>
+                                        <td>{{ i.user.username }}</td>
+                                        <td>{{ i.contenue }}</td>
+                                        <td>{{ i.dateComt | date }}</td>
+                                        <td>{{ i.likes }}</td>
+                                        <td><a href="{{ path("delete_comt",{"id":i.id})}}"> Supprimer</a></td>
+
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+        $(function(){
+            $('#search').keydown(function(key)
+            {  var nada=$('#search').val()
+                $.ajax({
+                    method: "get",
+                    url: '{{ path('search_comt') }}',
+                    data: {input: nada},
+                    success: function(response){
+                        console.log(response.comt);
+                        let content="";
+                        $("tbody").html("");
+                        response.comt.forEach(element=>{
+                            content+='<tr role="row" class="odd">'+
+                                '<td><b>'+element.titre+'</b></td>'+
+                                '<td>'+element.username+'</td>'+
+                                '<td>'+element.contenue+'</td>'+
+                                '<td >'+element.dateComt.date.split(' ')[0]+' </td>'+
+                                '<td><a class=""  href='+Routing.generate("delete_comt",
+                                    {id:element.id})+'>supprimer</a></td>'+
+                                '</tr>';
+                        })
+                        $("tbody").html(content);
+
+                    }
+                });
+            });
+        })
+
+
+
+
+
+
+    </script>
+{% endblock %}
+
+

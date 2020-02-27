@@ -1,0 +1,76 @@
+reclamation_user_homepage:
+    path:     /
+    defaults: { _controller: ReclamationUserBundle:Default:index }
+
+
+reclamation_ajoutRec:
+    path:     /ajoutRec
+    defaults: { _controller: ReclamationUserBundle:ReclamationBack:Ajout }
+
+
+
+reclamation_listerRec:
+    path:     /listerRec
+    defaults: { _controller: ReclamationUserBundle:ReclamationBack:Lister }
+
+
+reclamation_updateRec:
+    path:     /updateRec/{idReclamation}
+    defaults: { _controller: ReclamationUserBundle:ReclamationBack:Update }
+
+
+
+reclamation_deleteRec:
+    path:     /deleteRec/{idReclamation}
+    defaults: { _controller: ReclamationUserBundle:ReclamationBack:Delete }
+
+
+reclamation_remerc:
+    path:     /Remerc
+    defaults: { _controller: ReclamationUserBundle:ReclamationBack:Remerc }
+
+
+reclamation_ajoutResp:
+    path:     /ajoutResp
+    defaults: { _controller: ReclamationUserBundle:ReclamationAdmin:AjoutResp }
+
+
+reclamation_listerResp:
+    path:     /listerResp
+    defaults: { _controller: ReclamationUserBundle:ReclamationAdmin:ListerResp }
+
+
+reclamation_deleteResp:
+    path:     /deleteResp/{idResponsable}
+    defaults: { _controller: ReclamationUserBundle:ReclamationAdmin:DeleteResp }
+
+
+reclamation_updateResp:
+    path:     /updateResp/{idResponsable}
+    defaults: { _controller: ReclamationUserBundle:ReclamationAdmin:UpdateResp }
+
+
+reclamation_traitement:
+    path:     /traitement/{idResponsable}
+    defaults: { _controller: ReclamationUserBundle:ReclamationAdmin:Traitement }
+
+
+reclamation_ajoutTrait:
+    path:     /ajoutTrait
+    defaults: { _controller: ReclamationUserBundle:ReclamationAdmin:AjoutTrait }
+
+
+reclamation_sendMail:
+    path:     /SendMail
+    defaults: { _controller: ReclamationUserBundle:Mail:SendMail }
+
+
+reclamation_SearchName:
+    path:     /SearchName
+    defaults: { _controller: ReclamationUserBundle:ReclamationBack:Search }
+
+
+reclamation_SearchType:
+    path:     /SearchType
+    defaults: { _controller: ReclamationUserBundle:ReclamationBack:SearchType }
+

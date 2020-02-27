@@ -1,0 +1,63 @@
+article_user_homepage:
+    path:     /readArticle
+    defaults: { _controller: ArticleUserBundle:Default:read }
+single_article_user:
+    path:     /singleArticle/{id}
+    defaults: { _controller: ArticleUserBundle:Default:readsingle }
+
+single_article_commentaire:
+    path:     /createCommentaire
+    defaults: { _controller: ArticleUserBundle:Default:create }
+
+article_sport:
+    path:     /articleSport
+    defaults: { _controller: ArticleUserBundle:Default:readSport }
+
+article_cyclisme:
+    path:     /articleCyclisme
+    defaults: { _controller: ArticleUserBundle:Default:readCyclisme }
+
+article_bien:
+    path:     /articleBien
+    defaults: { _controller: ArticleUserBundle:Default:readBien }
+
+article_nutrition:
+    path:     /articleNutrition
+    defaults: { _controller: ArticleUserBundle:Default:readNutrition }
+
+search_word:
+    path:     /searchWord
+    defaults: { _controller: ArticleUserBundle:Default:searchWord }
+
+createcomt:
+    path:     /createcomt/{id}
+    defaults: { _controller: ArticleUserBundle:Default:createcomt }
+
+pdf:
+    path:     /pdf/{id}
+    defaults: { _controller: ArticleUserBundle:Default:pdfArticle }
+    methods:  [GET, POST]
+
+search_word_user:
+    path:     /searchuser
+    defaults: { _controller: ArticleUserBundle:Default:searchuser }
+
+verifiercomt:
+    path:     /verifiercomt/{id}
+    defaults: { _controller: ArticleUserBundle:Default:verifiercomt }
+
+aime_plus:
+    path:     /aimeplus/{id}
+    defaults: { _controller: ArticleUserBundle:Default:aimeplus }
+
+create_favorit:
+    path:     /createfavorit/{id}
+    defaults: { _controller: ArticleUserBundle:Default:createfavorit }
+
+read_favorit:
+    path:     /readfavorit
+    defaults: { _controller: ArticleUserBundle:Default:readfavorit }
+
+delete_favorit:
+    path:     /deletefavorit/{id}
+    defaults: { _controller: ArticleUserBundle:Default:deletefavorit }

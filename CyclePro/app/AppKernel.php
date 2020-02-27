@@ -17,15 +17,20 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AppBundle\AppBundle(),
+            new ArticleAdminBundle\ArticleAdminBundle(),
+            new ArticleUserBundle\ArticleUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+            new FOS\MessageBundle\FOSMessageBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new ReclamationUserBundle\ReclamationUserBundle(),
+            new ReclamationAdminBundle\ReclamationAdminBundle(),
             new StockAdminBundle\StockAdminBundle(),
             new StockFrontBundle\StockFrontBundle(),
             new Mgilet\NotificationBundle\MgiletNotificationBundle(),
-            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             new CommandeBundle\CommandeBundle(),
-            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new Payum\Bundle\PayumBundle\PayumBundle(),
-            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

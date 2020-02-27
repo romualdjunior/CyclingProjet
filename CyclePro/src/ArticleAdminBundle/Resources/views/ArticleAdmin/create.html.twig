@@ -1,0 +1,93 @@
+{%extends "baseAdmin.html.twig" %}
+{% block content %}
+
+    {{ form_start(form) }}
+
+    <div class="container">
+    <div class="col-12 grid-margin stretch-card">
+
+        <div class="card">
+            <div class="card-body">
+                <h4><b><center>Ajouter article</center></b></h4>
+
+                    <div class="form-group">
+                            <label class="col-sm-3 col-form-label">Category</label>
+                            <div class="col-sm-9">
+                                <select name="category" id="category" class="form-control">
+                                    <option name="Sport" value="Sport">Sport</option>
+                                    <option name="Cycling">Cyclisme</option>
+                                    <option name="Bien" value="Bien ">Bien etre</option>
+                                    <option name="Nutrition" value="Nutrition">Nutrition</option>
+                                </select>
+                            </div>
+                    </div>
+
+                    <div class="form-group">
+                                <label class="col-sm-3 col-form-label">Titre</label>
+                                <div class="col-sm-9">
+                                    {{ form_widget(form.titre,{'attr':{'class':'form-control' }}) }}
+                                </div>
+                    </div>
+
+                    <div class="form-group">
+                    <label class="col-sm-3 col-form-label">Auteur</label>
+                                <div class="col-sm-9">
+                                    {{ form_widget(form.auteur,{'attr':{'class':'form-control' }}) }}
+                                </div>
+                    </div>
+
+                <div class="form-group ">
+                    <label class="col-sm-3 col-form-label">Date création</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </div>
+                        <input class="form-control" id="datecre" name="datecre" type="date" required />
+                    </div>
+                </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-3 col-form-label">Contenue</label>
+                        <div class="col-sm-9">
+                        {{ form_widget(form.contenue,{'attr':{'class':'form-control' }}) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                        <div class="dropify-wrapper">
+                            <div class="dropify-message"><span class="file-icon"></span>
+                                <p>Ajouter photo</p>
+                                <p class="dropify-error">Erreur!!</p>
+                            </div>
+                            <div class="dropify-loader">
+                            </div>
+                            <div class="dropify-errors-container">
+                                <ul></ul></div><input type="file" name="photo" id="photo" class="dropify">
+                            <button type="button" class="dropify-clear">Supprimer</button>
+                            <div class="dropify-preview">
+                                <span class="dropify-render"></span><div class="dropify-infos"><div class="dropify-infos-inner">
+                                        <p class="dropify-filename"><span class="file-icon"></span> <span class="dropify-filename-inner"></span>
+                                        </p><p class="dropify-infos-message">Drag and drop or click to replace</p></div></div></div></div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <center><button class="btn btn-primary btn-block mr-lg-5" type="submit" id="aj">Ajouter</button></center></div>
+                    <br><br>
+
+        </div>
+        </div>
+
+
+                    {{ form_end(form) }}
+    </form>
+    </div>
+    <script type="text/javascript" src="{{ asset('jquery-min.js') }}"></script>
+    <script>
+        $("#aj").click(function(){
+            if ($("#photo").val().empty()){
+                alert('champ vide');
+            }
+        });
+    </script>
+{% endblock %}

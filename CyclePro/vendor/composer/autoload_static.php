@@ -88,6 +88,12 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
             'Knp\\Snappy\\' => 11,
             'Knp\\Bundle\\SnappyBundle\\' => 24,
         ),
+        'K' => 
+        array (
+            'Knp\\Snappy\\' => 11,
+            'Knp\\Bundle\\SnappyBundle\\' => 24,
+            'Knp\\Bundle\\PaginatorBundle\\' => 27,
+        ),
         'I' => 
         array (
             'Incenteev\\ParameterHandler\\' => 27,
@@ -109,6 +115,7 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
         array (
             'Fig\\Link\\' => 9,
             'FOS\\UserBundle\\' => 15,
+            'FOS\\MessageBundle\\' => 18,
             'FOS\\JsRoutingBundle\\' => 20,
         ),
         'D' => 
@@ -270,7 +277,7 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
             4 => __DIR__ . '/..' . '/league/uri-parser/src',
             5 => __DIR__ . '/..' . '/league/uri-schemes/src',
         ),
-        'Knp\\Snappy\\' => 
+        'Knp\\Snappy\\' =>
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-snappy/src/Knp/Snappy',
         ),
@@ -278,7 +285,8 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-snappy-bundle',
         ),
-        'Incenteev\\ParameterHandler\\' => 
+
+        'Incenteev\\ParameterHandler\\' =>
         array (
             0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
         ),
@@ -319,7 +327,11 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/user-bundle',
         ),
-        'FOS\\JsRoutingBundle\\' => 
+        'FOS\\MessageBundle\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/friendsofsymfony/message-bundle',
+        ),
+        'FOS\\JsRoutingBundle\\' =>
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/jsrouting-bundle',
         ),

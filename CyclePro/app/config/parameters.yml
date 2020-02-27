@@ -1,12 +1,17 @@
 # This file is auto-generated during the composer install
 parameters:
     database_host: 127.0.0.1
-    database_port: 3306
-    database_name: PIDEV
+
+    database_port: null
+    database_name: cyclepro
     database_user: root
     database_password: null
-    mailer_transport: smtp
-    mailer_host: 127.0.0.1
-    mailer_user: null
-    mailer_password: null
+    mailer_transport: gmail
+    mailer_host: smtp.gmail.com
+    mailer_user: wiem.saddem@esprit.tn
+    mailer_password: waoumajomhouria1997*
+    #mailer_user: romuald.motchehokamguia@esprit.tn
+    #mailer_password: MON amour00?
+    mailer_port: 465
+    mailer_encryption: ssl
     secret: ThisTokenIsNotSoSecretChangeIt

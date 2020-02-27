@@ -1,0 +1,21 @@
+<head>
+    <title>Article</title>
+</head>
+<body>
+<center><h1 style="color: red">{{ SingleArticle.category }}</h1></center>
+<center><h2 style="color: #0f3e68">{{ SingleArticle.titre }}</h2></center>
+<br>
+<hr>
+<br>
+<br>
+<p style="size: 25px">{{ SingleArticle.contenue }}
+</p>
+<img src="{{ asset('Frontend/images/blog/'~ SingleArticle.photo) }}"
+     width="400"
+     height="341">
+<footer> {{ SingleArticle.auteur }}</footer>
+
+</body>
+
+
+

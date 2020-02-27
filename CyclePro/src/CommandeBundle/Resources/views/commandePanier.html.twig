@@ -59,6 +59,9 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    <div class="navigation">
+                                        {{ knp_pagination_render(lignePaniers) }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -68,6 +71,7 @@
             </div>
 
         </div>
+
     </div>
 {% endblock %}
 {% block javascripts  %}
@@ -100,7 +104,6 @@ $(function(){
                         "</tr>"
                 });
                 $("tbody").html(content);
-
             }
         });
         });

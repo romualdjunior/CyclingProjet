@@ -65,8 +65,8 @@ class DefaultController extends Controller
          return $this->redirectToRoute("afficherPanier");
      }
 
-     public function afficherProduitAction(){
-        return $this->render("@Commande\shopSingle.html.twig");
+     public function afficherProduitAction($quantite){
+        return $this->render("@Commande\shopSingle.html.twig",array("quantite"=>$quantite));
      }
 
 

@@ -15,6 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use ReclamationUserBundle\Entity\Mail;
 
 class CommandeController extends Controller
 {
@@ -88,10 +89,17 @@ class CommandeController extends Controller
 
     }
 
-    public function afficherCommandePanierAction(){
+    public function afficherCommandePanierAction(Request $request){
         $em=$this->getDoctrine();
         $tab=$em->getRepository(Commande::class)->findAllCommandePanier();
-        return $this->render("@Commande/commandePanier.html.twig",array("lignePaniers"=>$tab));
+        $paginator=$this->get('knp_paginator');
+        $result=$paginator->paginate(
+            $tab,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',8)
+
+        );
+        return $this->render("@Commande/commandePanier.html.twig",array("lignePaniers"=>$result));
 
     }
     public function supprimerAdresseAction($id){
@@ -159,6 +167,15 @@ class CommandeController extends Controller
        return new JsonResponse(array("lignePanier"=>$tab));
     }
 
+    public function UtilisateurBloqueAction(Request $request){
+        $id=$request->get("id");
+        $em=$this->getDoctrine();
+        $locations=$em->getRepository(Penalite::class)->findPenaliteClient($id);
+        if(count($locations)>0)
+            return new JsonResponse("true");
+        else  return new JsonResponse("false");
+    }
+
     public function imprimerFactureAction($id){
         $em=$this->getDoctrine()->getManager();
         $commande=$em->getRepository(Commande::class)->find($id);
@@ -182,8 +199,22 @@ class CommandeController extends Controller
         );
     }
 public function afficherReceiptAction(){
-        return $this->render("@Commande/receipt.html.twig");
+        return $this->redirectToRoute("sendMail");
 }
+
+public function sendMailAction(){
+        $mail=new Mail();
+        $objet="Commande de produits";
+        $username="romuald.motchehokamguia@esprit.tn";
+        $message=\Swift_Message::newInstance()
+            ->setSubject("Validation de commande")
+            ->setFrom($username)
+            ->setTo($username)
+            ->setBody("votre comamnde a été validée avec succès");
+        $this->get("mailer")->send($message);
+    return $this->render("@Commande/receipt.html.twig");
+}
+
 
 
 }

@@ -1,0 +1,96 @@
+{% extends 'baseAdmin.html.twig' %}
+{% block content %}
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+    <div class="content-wrapper">
+        <h4><b><center>Liste des articles</center></b></h4>
+        <br><br>
+        <div class="row">
+            <div class="col-12 table-responsive">
+                <div id="order-listing_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
+                    <div class="row">
+
+                        <div>
+                                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                                <form class="example" action="{{path('search_word') }}">
+                                    <div class="input-group">
+                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                        <input type="text" placeholder="Search.." name="search">
+                                    </div>
+                                </form>
+                        </div>
+                    </div>
+               </div>
+            </div><div class="row"><div class="col-sm-12"><table id="order-listing" class="table dataTable no-footer" role="grid" aria-describedby="order-listing_info">
+
+
+                        <br>
+                        <div class="row"><div class="col-sm-12">
+                            <table id="order-listing" class="table dataTable no-footer" role="grid" aria-describedby="order-listing_info">
+
+                                <thead>
+                                <tr role="row">
+                                    <th> </th>
+                                    <th  >Categorie</th>
+                                    <th  >Titre</th>
+                                    <th>Date Création</th>
+                                    <th >Auteur</th>
+                                    <th>Contenue</th>
+                                    <th  ></th>
+                                </tr>
+
+                                </thead>
+                                <tbody>
+                                {% for i in articles %}
+
+                                    <tr role="row" class="odd">
+                                        <td><img style="width: 80px"    src="{{ asset('Backoffice/images/'~ i.photo) }}" alt="introuvable" class="img-fluid" />
+                                        </td>
+                                        <td style="color: red">{{ i.category }}</td>
+                                        <td style="color: blue">{{ i.titre }}</td>
+                                        <td>{{i.dateArt |date('d/m/Y') }}</td>
+                                        <td>{{ i.auteur }}</td>
+                                        <td>{{ i.contenue }}</td>
+
+                                        <td>
+                                            <a class="btn btn-outline-primary btn-sm" href="{{ path('read_comt',{'id':i.id}) }}">
+                                                View</a>
+                                        </td>
+
+                                        <td><a class="btn btn-success btn-sm" href="{{ path('update_article',{'id':i.id}) }}">
+                                                Modifier</a>
+                                        </td>
+                                        <td><a class="btn btn-danger btn-sm"  href="{{ path('delete_article',{'id':i.id}) }}">
+                                                Supprimer</a>
+
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                    </table>
+                    </div>
+
+                <div class="navigation text-center">
+                    {{ knp_pagination_render(articles) }}
+                </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    </div>
+
+{% endblock %}
+
