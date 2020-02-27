@@ -16,4 +16,9 @@ class PenaliteRepository extends \Doctrine\ORM\EntityRepository
 
         return $query->getResult();
     }
+    public function findPenaliteClient($id){
+        $query=$this->getEntityManager()->createQuery("select u.id,p.duree,p.prix,l.dateDebut,l.dateFin from CommandeBundle\Entity\Location l left join AppBundle\Entity\User u with l.user=u.id left join
+         CommandeBundle\Entity\Penalite p with l.id=p.location where  u.id like :key ")->setParameter("key","%".$id."%");
+        return $query->getArrayResult();
+    }
 }

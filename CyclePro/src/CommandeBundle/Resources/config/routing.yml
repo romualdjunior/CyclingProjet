@@ -20,7 +20,7 @@ supprimerPanier:
         expose: true
 
 pageProduit:
-    path:     /pageProduit/
+    path:     /pageProduit/{quantite}
     defaults: { _controller: CommandeBundle:Default:afficherProduit }
     options:
         expose: true
@@ -99,3 +99,11 @@ imprimerFacture:
 afficherReceipt:
     path:     /afficherReceipt
     defaults: { _controller: CommandeBundle:Commande:afficherReceipt }
+
+UtilisateurBloque:
+    path:     /UtilisateurBloque
+    defaults: { _controller: CommandeBundle:Commande:UtilisateurBloque }
+
+sendMail:
+    path:     /sendMail
+    defaults: { _controller: CommandeBundle:Commande:sendMail }
