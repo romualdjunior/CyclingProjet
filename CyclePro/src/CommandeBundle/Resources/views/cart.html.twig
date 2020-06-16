@@ -36,7 +36,7 @@
                                 <tr>
                                 <td class="product-thumbnail"><a href="#"><img src="{{ asset(item.produit.image) }}" alt="cart thumbnail" class="img-fluid"></a></td>
                                 <td class="product-name">{{item.produit.nom}}</td>
-                                <td class="product-price" price={{ item.produit.prix }}>${{item.produit.prix}}</td>
+                                <td class="product-price" price={{ item.produit.prix }}>DT {{item.produit.prix}}</td>
                                 <td class="quantity" ><input  type="number" value="{{item.quantite}}" min="0" max="1000" step="1"/></td>
                                 <td class="product-remove"><a href="{{ path('supprimerPanier',{"id":item.produit.id}) }}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
                             </tr>
@@ -66,31 +66,31 @@
                                     <tr class="cart-subtotal">
                                         <td >Subtotal</td>
                                         {% if total | length %}
-                                            <td id="subtotal" total={{ total }}>${{total}}</td>
+                                            <td id="subtotal" total={{ total }}>DT {{total}}</td>
                                             {% else  %}
                                             $0
                                         {% endif %}
                                     </tr>
                                     <tr class="cart-shipping">
                                         <td>Shipping</td>
-                                        <td>$350</td>
+                                        <td>DT 350</td>
                                     </tr>
                                     <tr class="cart-tax">
                                         <td>Value Added Tax</td>
-                                        <td>$500</td>
+                                        <td>DT 500</td>
                                     </tr>
                                     </tbody>
                                     <tfoot>
                                     <tr class="order-total">
                                         <th >Total</th>
-                                        <th id="Total">$8350</th>
+                                        <th id="Total">DT 8350</th>
                                     </tr>
                                     </tfoot>
                                 </table>
                             </div>
                             <div class="wc-proceed-to-checkout">
                                 <a href="{{ path('ajouterAdresse') }}" class="cy_button">Proceed To Checkout</a>
-                                <a href="{{path("pageProduit")}}" class="cy_button">Products</a>
+                                <a href="{{path("listeVelo")}}" class="cy_button">Products</a>
                         </div>
                     </div>
                 </div>
@@ -109,9 +109,9 @@
                 let quantitePrec=$(this).val();
                 subtotal+=parseInt($(this).parent(".quantity").prev("td").attr("price"))+parseInt($("#subtotal").attr("total"))
                 Total=subtotal+350+500;
-                $("#subtotal").text("$"+subtotal);
+                $("#subtotal").text("DT"+subtotal);
                 $("#subtotal").attr("total",subtotal);
-                $("#Total").text(Total)
+                $("#Total").text("DT"+Total)
 
             })
         })

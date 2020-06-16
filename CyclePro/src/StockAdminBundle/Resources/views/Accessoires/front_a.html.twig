@@ -1,0 +1,47 @@
+{% extends 'home.html.twig' %}
+{% block content %}
+    <!--Store section start-->
+    <div class="cy_store_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h1 class="cy_heading">to our store</h1>
+                </div></div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="cy_store_slider">
+                        <div class="owl-carousel owl-theme">
+                            {% for i in ACs %}
+                                <div class="item">
+                                    <div class="cy_store_box">
+                                        <div class="cy_store_img">
+                                            <a href="{{ path('ShowAC', {'id': i.id}) }}"><img src="{{ asset('Frontend/images/store/'~i.photoA) }}" alt="store" class="img-fluid"></a>
+                                            <div class="cy_store_img_overlay">
+                                                <p>{{ i.nom }}</p>
+                                            </div></div>
+                                        <div class="cy_store_data">
+                                            {% if (i.soldee==0) %}
+                                                <div class="cy_store_text">
+                                                    <h3><a href="{{ path('ShowAC', {'id': i.id}) }}">{{ i.marque }}</a></h3>
+                                                </div>
+                                                <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>{{ i.prix }}</span></a>
+                                            {% else  %}
+                                                <div class="cy_store_text">
+                                                    <h3><a href="{{ path('ShowAC', {'id': i.id}) }}">{{ i.marque }}</a></h3>
+
+                                                    <h7 style="background-color: red ; color: white " > {{ (i.prix - i.soldee)*100/i.prix }}% </h7></div>
+                                                <h5 style="color: red"><strike>{{ i.prix }}DT</strike></h5>
+                                                <a href="cart.html" class="cy_button" data-hover="Add to Cart" style="background-color: red ; color: white "><span>{{ i.soldee }}DT</span></a>
+                                            {% endif  %}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

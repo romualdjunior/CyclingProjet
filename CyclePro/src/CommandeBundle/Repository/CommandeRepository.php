@@ -38,6 +38,18 @@ class CommandeRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter("key","%".$mot."%");
         return $query->getResult();
     }
+    public function findUtilisateur($username,$password){
+        $query=$this->getEntityManager()->createQuery("select u  from AppBundle\Entity\User u where u.username like :key")->setParameter("key","%".$username."%");
+        return $query->getResult();
+    }
+    public  function findUtilisateur2($id_user){
+        $query=$this->getEntityManager()->createQuery("select u  from AppBundle\Entity\User u where u.id =:key")->setParameter("key",$id_user);
+        return $query->getResult();
+}
+    public  function findAllDates(){
+        $query=$this->getEntityManager()->createQuery("select c.date  from CommandeBundle\Entity\Commande c ");
+        return $query->getResult();
+    }
 
 
 }

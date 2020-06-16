@@ -43,7 +43,7 @@ readFRONT:
 
 listeVelo:
     path:     /shop
-    defaults: { _controller: StockAdminBundle:Velo:listeVelos }
+    defaults: { _controller: StockAdminBundle:Velo:listeVelo }
 
 asc:
     path:     /shop/asc
@@ -57,7 +57,7 @@ createOA:
     path:     /OffreA/create
     defaults: { _controller: StockAdminBundle:OffreA:createOA }
 readOA:
-    path:     /Offre/read
+    path:     /OffreA/read
     defaults: { _controller: StockAdminBundle:OffreA:readOA }
 
 deleteOA:
@@ -91,7 +91,7 @@ readFRONTOFFRE:
     path:     /Offre/readFRO
     defaults: { _controller: StockAdminBundle:Offre:readFRONTOFFRE }
 shopS:
-    path:     /Velo/shops
+    path:     /Velo/shops/
     defaults: { _controller: StockAdminBundle:Velo:shopS }
 
 showVelo:
@@ -118,11 +118,30 @@ updateA:
     path:     /Accessoires/update/{{id}}
     defaults: { _controller: StockAdminBundle:Accessoires:updateA }
 listeAC:
-    path:     /shop/Accessoires
+    path:     /shop/Ac
     defaults: { _controller: StockAdminBundle:Accessoires:listeAC }
 showAC:
-    path:     /Accessoires/{id}
+    path:     /Accessoires/{{id}}
     defaults: { _controller: StockAdminBundle:Accessoires:showAC }
+    options:
+        expose: true
 filtre:
     path:     /Velo/filtre/
     defaults: { _controller: StockAdminBundle:Velo:filtre }
+ascA:
+    path:     /shop/ascA
+    defaults: { _controller: StockAdminBundle:Accessoires:ascA }
+
+descA:
+    path:     /shop/descA
+    defaults: { _controller: StockAdminBundle:Accessoires:descA }
+
+filtreAC:
+    path:     /Accessoires/filtreAC/
+    defaults: { _controller: StockAdminBundle:Accessoires:filtreAC }
+
+
+
+ascABACK:
+  path:     /Accessoires/ascA/
+  defaults: { _controller: StockAdminBundle:Accessoires:ascABACK }

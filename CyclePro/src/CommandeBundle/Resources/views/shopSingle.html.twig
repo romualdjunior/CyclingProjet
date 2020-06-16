@@ -60,7 +60,7 @@
                             <div class="col-lg-6 col-md-6">
                                 <div class="summary entry-summary">
                                     <h1 class="product_title">Road Bicycle</h1>
-                                    <h4 class="product-price-amount">$2500</h4>
+                                    <h4 class="product-price-amount">{{quantite}} DT</h4>
                                     <p class="woocommerce-product-detail">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                                     <div class="quantity">
                                         <input type="number" min="0" value="1">
@@ -155,7 +155,7 @@
                                                 <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
                                             </ul>
                                         </div>
-                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>$2500</span></a>
+                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>2500 DT</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -175,7 +175,7 @@
                                                 <li><i class="fa fa-star" aria-hidden="true"></i></li>
                                             </ul>
                                         </div>
-                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>$2500</span></a>
+                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>2500 DT</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -195,7 +195,7 @@
                                                 <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
                                             </ul>
                                         </div>
-                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>$2500</span></a>
+                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>2500 DT</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -218,7 +218,7 @@
                                                 <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
                                             </ul>
                                         </div>
-                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>$2500</span></a>
+                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>2500DT</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -238,7 +238,7 @@
                                                 <li><i class="fa fa-star" aria-hidden="true"></i></li>
                                             </ul>
                                         </div>
-                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>$2500</span></a>
+                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>2500DT</span></a>
                                     </div>
                                 </div>
                             </div>
@@ -459,7 +459,6 @@
 
         }
         $("#panier").click(function(){
-            alert("clique");
             quantite=$(".quantity").children("input").val();
             if(louer==true) {
                 if (controlDeSaisi())
@@ -498,11 +497,40 @@
         $("#location").click(function () {
             $("#locationForm").show("slow");
         })
-    </script>
-    <script>
-        {% if connexion is defined and connexion=="true" %}
-        toastr.success("Bienvenue {{ app.user.username }}. Comment vous portez vous aujourd'hui?" );
-        {% endif %}
+
+
+        var bloque=false;
+        $.ajax({
+            type: "get",
+            url: "{{path("UtilisateurBloque")}}",
+            data: {
+                id:{{app.user.id}}
+            },
+            async: false,
+            cache: false,
+            success:function(response){
+               console.log(response);
+               if(response=="false"){
+                   toastr.success("Bienvenue {{ app.user.username }}. Comment vous portez vous aujourd'hui?" );
+               }
+               else {
+                   toastr.error(" {{ app.user.username }}.Vous avez depasse le delai de location et vous devez actuellement de l'argent. Vous êtres actuellement bloque.Contacter le service client" );
+                   bloque=true;
+               }
+            }
+        })
+
+        if(bloque){
+            alert("oui");
+            $("#location").attr("disabled", true);
+            $(".cy_product_thumbnail").attr("disabled", true);
+            $("#panier").attr("disabled", true);
+        }
+        else {
+            $("#location").attr("disabled", false);
+            $(".cy_product_thumbnail").attr("disabled", false);
+            $("#panier").attr("disabled", false);
+        }
     </script>
 {% endblock %}
 

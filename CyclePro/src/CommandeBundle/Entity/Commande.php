@@ -58,6 +58,24 @@ class Commande
      * @ORM\JoinColumn(name="adresse_id",referencedColumnName="id")
      */
     private  $adresse;
+
+    /**
+     * Commande constructor.
+     * @param int $total
+     * @param string $etat
+     * @param string $date
+     * @param $user
+     * @param $adresse
+     */
+    public function __construct($total, $etat, $date, $user, $adresse)
+    {
+        $this->total = $total;
+        $this->etat = $etat;
+        $this->date = $date;
+        $this->user = $user;
+        $this->adresse = $adresse;
+    }
+
     /**
      * Get id
      *

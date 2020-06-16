@@ -37,16 +37,10 @@
 
                                         <div class="cy_store_text">
                                             <h3><a href="{{ path('showVelo', {'id': i.id}) }}">{{ i.marque }}</a></h3>
-                                            <ul>
-                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                <li><i class="fa fa-star" aria-hidden="true"></i></li>
-                                                <li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
-                                            </ul>
+
                                         </div>
                                             <p> {{ i.description }} </p>
-                                        <a href="cart.html" class="cy_button"  data-hover="Add to Cart"><span > {{ i.prixAchat }}DT </span></a>
+                                        <a href="{{path('pageProduit',{'quantite':i.qtEnStock})}}" class="cy_button"  data-hover="Add to Cart"><span > {{ i.prixAchat }}DT </span></a>
                                           {% else  %}
 
                                               <div class="cy_store_text">
@@ -59,7 +53,7 @@
 
                                               </div>
                                               <p> {{ i.description }} </p>
-                                              <a href="cart.html" class="cy_button" style="background-color:red" data-hover="Add to Cart"><span >
+                                              <a href="{{path('pageProduit',{'quantite':i.qtEnStock})}}" class="cy_button" style="background-color:red" data-hover="Add to Cart"><span >
                                                       <STRONG>{{ i.soldee }}DT</STRONG> </span></a>
 
                                         {% endif  %}
@@ -89,16 +83,7 @@
                 </div>
                 <div class="col-lg-4 col-md-12 pull-lg-8">
                     <div class="cy_shop_sidebar">
-                        <div class="widget woocommerce widget_product_search">
-                            <form class="search-form">
-                                <div class="input-group">
-                                    <input type="text" value="" name="s" class="form-control" placeholder="Search">
-                                    <span class="cy_search_btn">
-                                        <button class="btn btn-search" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                                    </span>
-                                </div>
-                            </form>
-                        </div>
+
                         <div class="widget woocommerce widget_category">
                             <h3 class="woocommerce_widget_title">Categories</h3>
                             <ul>
@@ -147,14 +132,22 @@
 
                             </ul>
                         </div>
-                        <div class="widget woocommerce widget_price">
+                        <div class="widget woocommerce widget_category">
                             <h3 class="woocommerce_widget_title">Prix</h3>
-                            <div id="slider-range">  <div class="col-lg-3 col-md-3 col-sm-4">
-                                    <div class="cy_shorting">
-                                        <input type="checkbox">
-                                        <span class="checkmark"><a href="{{ path('asc') }}">asc</a></span>
-                                        <input type="checkbox">
-                                        <span class="checkmark"> <a href="{{ path('desc') }}">desc</a></span>
+<ul>
+                            <li>
+                                <label class="categorie" contenu="Prix"><a href="{{ path('asc') }}">asc</a>
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="categorie" contenu="Prix"><a href="{{ path('desc') }}">desc</a>
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </li>
+</ul>
 
                                         {# <select>
                                              <option selected>Short by</option>
@@ -162,30 +155,12 @@
                                              <option value="2">Ascending</option>
                                              <option value="3">Decending</option>
                                          </select>#}
-                                    </div>
-                                </div>
+
+
                             </div>
-                            <div class="cy_range">
-                                <input type="text" id="amount" readonly>
-                            </div>
+
                         </div>
-                        <div class="widget woocommerce widget_availability">
-                            <h3 class="woocommerce_widget_title">Disponibilité</h3>
-                            <ul>
-                                <li>
-                                    <label>Disponible
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label>Non disponiple
-                                        <input type="checkbox">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
+
                         <div class="widget woocommerce widget_color">
                             <h3 class="woocommerce_widget_title">Couleur</h3>
                             <ul>
@@ -311,19 +286,13 @@
                           '</div>'+
                           '<div class="cy_store_data">';
 
-                      if (element.solde == 0) {
+                      if (element.soldee == 0) {
                       content+= '<div class="cy_store_text">'+
                               '<h3><a href="'+Routing.generate('showVelo',{id:element.id})+'">'+element.marque+'</a></h3>'+
-                          '<ul>'+
-                          '<li><i class="fa fa-star" aria-hidden="true"></i></li>'+
-                          '<li><i class="fa fa-star" aria-hidden="true"></i></li>'+
-                          '<li><i class="fa fa-star" aria-hidden="true"></i></li>'+
-                          '<li><i class="fa fa-star" aria-hidden="true"></i></li>'+
-                          '<li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>'+
-                          '</ul>'+
+
                           '</div>'+
                           '<p> '+element.description+'</p>'+
-                          '<a href="cart.html" class="cy_button"  data-hover="Add to Cart"><span > '+element.prixAchat+'DT </span></a>';
+                          '<a href="'+Routing.generate('pageProduit',{'quantite':element.qtEnStock})+'" class="cy_button"  data-hover="Add to Cart"><span > '+element.prixAchat+'DT </span></a>';
                       }
 
 
@@ -339,7 +308,7 @@
 
                           '</div>'+
                           '<p> '+element.description+' </p>'+
-                          '<a href="cart.html" class="cy_button" style="background-color:red" data-hover="Add to Cart"><span >'+
+                          '<a href="'+Routing.generate('pageProduit',{'quantite':element.qtEnStock})+'" class="cy_button" style="background-color:red" data-hover="Add to Cart"><span >'+
                               '<STRONG>'+element.soldee+'DT</STRONG> </span></a>';
                       }
                       content+='</div> </div> </div>';

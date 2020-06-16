@@ -24,9 +24,8 @@ class DefaultController extends Controller
 
         //moi je veux travailler rapidemnt que dire merci infiniment 
 
-        return $this->render('@Commande\shopSingle.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        return $this->redirectToRoute("listeVelo");
+
     }
     /**
      * @Route("/redirection", name="redirection")
@@ -34,11 +33,12 @@ class DefaultController extends Controller
     public function redirectAction(){
         $authChecker=$this->container->get("security.authorization_checker");
         if ($authChecker->isGranted("ROLE_ADMIN"))
+
         {
             return $this->render("homeAdmin.html.twig",array("connexion"=>"true"));
         }
         else if($authChecker->isGranted("ROLE_USER")){
-            return $this->render("@Commande/shopSingle.html.twig",array("connexion"=>"true"));
+            return $this->redirectToRoute("listeVelo");
         }
         else {
             return $this->render("@FOSUser/Security/login.html.twig");

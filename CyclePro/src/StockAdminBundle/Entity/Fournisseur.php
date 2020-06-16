@@ -3,7 +3,8 @@
 namespace StockAdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * Fournisseur
  *
@@ -46,6 +47,9 @@ class Fournisseur
      * @var string
      *
      * @ORM\Column(name="mail", type="string", length=255)
+     *@Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email."
+     * )
      */
     private $mail;
 
@@ -53,6 +57,12 @@ class Fournisseur
      * @var string
      *
      * @ORM\Column(name="telephone", type="string", length=255)
+     * @Assert\Length(
+     *      min = 8,
+     *      max = 8,
+     *      minMessage = "INVALIDE",
+     *      maxMessage = "INVALIDE"
+     * )
      */
     private $telephone;
 

@@ -122,21 +122,21 @@
                                                 <div class="cy_store_img">
                                                     <a href="{{ path('showVelo', {'id': i.id}) }}"><img src="{{ asset('Frontend/images/store/'~i.photoV) }}" alt="store" class="img-fluid"></a>
                                                     <div class="cy_store_img_overlay">
-                                                        <p>{{ i.marque }}</p>
+                                                        <p>{{ i.type }}</p>
                                                     </div></div>
                                                 <div class="cy_store_data">
                                                     {% if (i.soldee==0) %}
                                                     <div class="cy_store_text">
-                                                        <h3><a href="{{ path('showVelo', {'id': i.id}) }}">{{ i.taille }}</a></h3>
+                                                        <h3><a href="{{ path('showVelo', {'id': i.id}) }}">{{ i.marque }}</a></h3>
                                                     </div>
                                                     <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>{{ i.prixAchat }}</span></a>
                                     {% else  %}
                                         <div class="cy_store_text">
-                                            <h3><a href="{{ path('showVelo', {'id': i.id}) }}">{{ i.taille }}</a></h3>
-                                        </div>
-                                        <h7 style="background-color: red ; color: white " > {{ (i.prixAchat - i.soldee)*100/i.prixAchat }}% </h7>
+                                            <h3><a href="{{ path('showVelo', {'id': i.id}) }}">{{ i.marque }}</a></h3>
+
+                                        <h7 style="background-color: red ; color: white " > {{ (i.prixAchat - i.soldee)*100/i.prixAchat }}% </h7>  </div>
                                             <h5 style="color: red"><strike>{{ i.prixAchat }}DT</strike></h5>
-                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"><span>{{ i.soldee }}DT</span></a>
+                                        <a href="cart.html" class="cy_button" data-hover="Add to Cart"  style="background-color: red ; color: white "><span>{{ i.soldee }}DT</span></a>
                                                     {% endif  %}
                                         </div>
                                             </div>

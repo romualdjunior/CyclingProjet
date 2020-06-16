@@ -9,6 +9,7 @@ use StockAdminBundle\Form\OffreType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+
 class OffreController extends Controller
 {public function createOAction(Request $request)
 {
@@ -36,10 +37,9 @@ class OffreController extends Controller
 
         $manager = $this->get('mgilet.notification');
         $notif = $manager->createNotification('consulter la liste de promotion');
-        $notif->setMessage('This a notification.');
+        $notif->setMessage('');
 
         $users = $em->getRepository(User::class)->findAll();
-
         foreach ($users as $us)
         {
             $manager->addNotification(array($us), $notif, true);
@@ -67,6 +67,7 @@ class OffreController extends Controller
 
         $offre=$em->getRepository(Offre::class)->findAll();
         $velo=$em->getRepository(Velo::class)->findAll();
+
 
         return $this->render('@StockAdmin/Offre/read_o.html.twig', array('offres'=>$offre, 'velos'=>$velo
             // ...
