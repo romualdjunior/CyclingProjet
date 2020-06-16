@@ -38,7 +38,7 @@ class ArticleAdminController extends Controller
     public function readAction(Request $request)
     {
         $em=$this->getDoctrine();
-        $tab=$em->getRepository(Article::class)->FindAll();
+        $tab=$em->getRepository(Article::class)->trie();
         /**
          * @var $paginator \Knp\Component\Pager\Paginator
          */
@@ -72,6 +72,11 @@ class ArticleAdminController extends Controller
             "form"=>$form->createView()  ));
     }
 
+
+
+
+
+
     public function deleteAction($id)
     {
         $em=$this->getDoctrine()->getManager();
@@ -81,6 +86,15 @@ class ArticleAdminController extends Controller
         $this->addFlash('success', 'Article suprimé!');
         return $this->redirectToRoute("read_article");
     }
+
+
+
+
+
+
+
+
+
 
     public function searchAction(Request $request){
         $em = $this->getDoctrine();

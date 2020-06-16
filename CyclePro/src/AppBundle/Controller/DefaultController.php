@@ -2,9 +2,13 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class DefaultController extends Controller
 {
@@ -61,6 +65,25 @@ class DefaultController extends Controller
 
             return $this->redirectToRoute('homepage');
         }
+
+    /**
+     * @Route("/connexionMobile/{username}/{password}", name="connexionMobile")
+     */
+    public function connexionMobileAction($username,$password){
+        $em=$this->getDoctrine();
+        $user_in_store=$em->getRepository(User::class)->findUtilisateur($username,$password);
+        $encoderService=$this->container->get("security.password_encoder");
+
+        foreach ($user_in_store as $user_in_store){
+            if($encoderService->isPasswordValid($user_in_store, $password))
+            { $serializer = new Serializer([new ObjectNormalizer()]);
+                $formatted = $serializer->normalize($user_in_store);
+                return new JsonResponse($formatted);}
+
+
+        }
+        return new JsonResponse("non existant",200);
+    }
 
 
 }

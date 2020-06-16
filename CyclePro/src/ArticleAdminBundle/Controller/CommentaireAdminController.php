@@ -43,7 +43,7 @@ class CommentaireAdminController extends Controller
 
         $input=$request->get("input");
         $em=$this->getDoctrine()->getManager();
-        $comt=$em->getRepository(Commentaire::class)->mysearch("gaba");
+        $comt=$em->getRepository(Commentaire::class)->mysearch($input);
         return new JsonResponse(array("comt"=>$comt));
 
     }

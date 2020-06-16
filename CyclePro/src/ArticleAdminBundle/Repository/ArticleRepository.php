@@ -49,4 +49,11 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
         return $query->getResult();
     }
 
+    public function trie(){
+        $query=$this->getEntityManager()
+            ->createQuery("select c from ArticleAdminBundle:Article c ORDER BY c.likes DESC ");
+        return $query->getResult();
+    }
+
+
 }

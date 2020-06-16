@@ -57,3 +57,4 @@ search_comt:
     defaults: { _controller: ArticleAdminBundle:CommentaireAdmin:searchcomt}
     options:
         expose: true
+

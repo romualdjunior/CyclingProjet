@@ -44,7 +44,7 @@ class Commentaire
 
     /**
      * @ORM\ManyToOne(targetEntity="ArticleAdminBundle\Entity\Article")
-     * @ORM\JoinColumn(name="article",referencedColumnName="id")
+     * @ORM\JoinColumn(name="article",referencedColumnName="id",onDelete="SET NULL")
      */
     private  $article;
 

@@ -35,13 +35,6 @@ class Favorie
      */
     private  $article;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_ajout", type="date")
-     */
-    private $dateAjout;
-
 
     /**
      * Get id
@@ -102,27 +95,4 @@ class Favorie
         return $this->article;
     }
 
-    /**
-     * Set dateAjout
-     *
-     * @param \DateTime $dateAjout
-     *
-     * @return Favorie
-     */
-    public function setDateAjout($dateAjout)
-    {
-        $this->dateAjout = $dateAjout;
-    
-        return $this;
     }
-
-    /**
-     * Get dateAjout
-     *
-     * @return \DateTime
-     */
-    public function getDateAjout()
-    {
-        return $this->dateAjout;
-    }
-}

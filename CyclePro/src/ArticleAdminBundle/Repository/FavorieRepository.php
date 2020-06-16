@@ -10,14 +10,20 @@ namespace ArticleAdminBundle\Repository;
  */
 class FavorieRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findfav($user)
-    {   $query=$this->getEntityManager()
-        ->createQuery("select c from ArticleAdminBundle:Favorie c where  c.user='$user'");//affiche la liste des objets
-        return $query->getResult();
-    }
+
     public function favarticle()
     {   $query=$this->getEntityManager()
         ->createQuery("select c from ArticleAdminBundle:Favorie c ORDER BY c.dateAjout DESC ");
         $query->setMaxResults(2);
     }
+
+    public function findfav($user)
+    {   $query=$this->getEntityManager()
+        ->createQuery("select a.id,a.category,a.titre,a.auteur,a.contenue,a.likes,a.photo
+        from ArticleAdminBundle:Article a
+        left join ArticleAdminBundle:Favorie f with f.article=a.id where f.user='$user'");
+        return $query->getResult();
+    }
+
+
 }

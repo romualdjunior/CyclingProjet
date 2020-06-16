@@ -26,6 +26,12 @@ class Article
      * @var string
      *
      * @ORM\Column(name="contenue", type="text")
+     *      @Assert\Length(
+     *      min = 100,
+     *      max = 250,
+     *      minMessage = "Your first name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     * )
      */
     private $contenue;
 
@@ -40,6 +46,7 @@ class Article
      * @var string
      *
      * @ORM\Column(name="titre", type="string", length=255)
+     * @Assert\NotBlank(message =" Le titre est obligatoire ")
      */
     private $titre;
 
@@ -47,6 +54,12 @@ class Article
      * @var string
      *
      * @ORM\Column(name="auteur", type="string", length=255)
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 20,
+     *      minMessage = "Your first name must be at least {{ limit }} characters long",
+     *      maxMessage = "Your first name cannot be longer than {{ limit }} characters"
+     * )
      */
     private $auteur;
 

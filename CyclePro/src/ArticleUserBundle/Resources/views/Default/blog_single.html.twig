@@ -240,11 +240,13 @@
                         <div class="cy_blog_links">
                             <ul>
                                 <li><a href="#bas"><i class="fa fa-comments-o" aria-hidden="true"></i> </a></li>
-                                <li><a href="{{ path('aime_plus',{ 'id': i.id }) }}"><i class="fa fa-heart" aria-hidden="true"></i> {{ i.likes }}</a></li>
-
                                 {% if is_granted('ROLE_USER') %}
+                                    <li><a href="{{ path('aime_plus',{ 'id': i.id }) }}" id="heartt">
+                                            <i class="fa fa-heart" aria-hidden="true">
+                                        </i> {{ i.likes }}</a></li>
                                 <li><a href="{{ path('create_favorit',{ 'id': i.id }) }}"><i class="fa fa-star" aria-hidden="true"></i>Favorit</a></li>
                                 {% endif %}
+
                                 <li><a href="#" class="cy_relative"><i class="fa fa-share-alt" aria-hidden="true"></i> Share</a>
                                     <ul class="cy_so_icons">
                                         <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -339,16 +341,12 @@
                         </ul>
                     </div>
 
-                        <!favorit---->
-                        <div class="widget widget_recent_entries">
-                            <h3 class="widget-title">Favorit</h3>
-                            <ul>
-                                {% for fav in fav %}
-                                    <li>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
+                        <!--Favorit-->
+                        {% if is_granted('ROLE_USER') %}
+                            <div class="widget widget_recent_entries">
+                                <h3 class="widget-title"><a href="{{ path('read_favorit') }}">Favorit</a></h3>
+                            </div>
+                        {% endif %}
 
 
 
@@ -423,4 +421,22 @@
 <script src="{{ asset('Frontend/js/custom.js') }}"></script>
 </body>
 </html>
+{% endblock %}
+{% block jquery %}
+<script type="text/javascript" src="{{ asset('jquery-min.js') }}"></script>
+<!--<script>
+    $( "#heartt" ).click(function() {
+        $("#heartt").prop('disabled', true);
+    });
+
+</script>-->
+    <script>
+        $("#heartt").click(function (event) {
+            if ($(this).hasClass("disabled")) {
+                event.preventDefault();
+            }
+            $(this).addClass("disabled");
+        });
+    </script>
+
 {% endblock %}

@@ -39,6 +39,7 @@
                                     <th>Date Création</th>
                                     <th >Auteur</th>
                                     <th>Contenue</th>
+                                    <th>Likes</th>
                                     <th  ></th>
                                 </tr>
 
@@ -54,6 +55,7 @@
                                         <td>{{i.dateArt |date('d/m/Y') }}</td>
                                         <td>{{ i.auteur }}</td>
                                         <td>{{ i.contenue }}</td>
+                                        <td>{{ i.likes }}</td>
 
                                         <td>
                                             <a class="btn btn-outline-primary btn-sm" href="{{ path('read_comt',{'id':i.id}) }}">

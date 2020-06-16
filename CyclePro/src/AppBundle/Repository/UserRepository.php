@@ -10,4 +10,13 @@ namespace AppBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findUser($user)
+    {   $query=$this->getEntityManager()
+        ->createQuery("select c from ArticleAdminBundle:Favorie c where  c.user='$user'");//affiche la liste des objets
+        return $query->getResult();
+    }
+    public function findUtilisateur($username,$password){
+        $query=$this->getEntityManager()->createQuery("select u  from AppBundle\Entity\User u where u.username like :key")->setParameter("key","%".$username."%");
+        return $query->getResult();
+    }
 }
