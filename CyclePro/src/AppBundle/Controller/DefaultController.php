@@ -29,6 +29,7 @@ class DefaultController extends Controller
     public function redirectAction(){
         $authChecker=$this->container->get("security.authorization_checker");
         if ($authChecker->isGranted("ROLE_ADMIN"))
+
         {
             return $this->render("homeAdmin.html.twig",array("connexion"=>"true"));
         }

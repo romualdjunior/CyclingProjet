@@ -87,6 +87,13 @@ afficherPenalite:
     defaults: { _controller: CommandeBundle:Commande:afficherPenalite }
     options:
         expose: true
+
+filtrePenalite:
+    path:     /filtrePenalite
+    defaults: { _controller: CommandeBundle:Commande:filtrePenalite }
+    options:
+        expose: true
+
 filtreCommandePanier:
     path:     /filtreCommandePanier
     defaults: { _controller: CommandeBundle:Commande:filtreCommandePanier }
@@ -107,3 +114,22 @@ UtilisateurBloque:
 sendMail:
     path:     /sendMail
     defaults: { _controller: CommandeBundle:Commande:sendMail }
+
+connexionMobile:
+    path:     /connexionMobile/{username}/{password}
+    defaults: { _controller: CommandeBundle:Commande:connexionMobile }
+
+ajoutAdresseMobile:
+    path:     /ajoutAdresseMobile/{nom}/{prenom}/{phone}/{email}/{pays}/{ville}/{etat}/{pincode}/{adresseLivraison}
+    defaults: { _controller: CommandeBundle:Commande:ajoutAdresseMobile }
+
+ajoutCommandeMobile:
+    path:     /ajoutCommandeMobile/{total}/{etat}/{user}
+    defaults: { _controller: CommandeBundle:Commande:ajoutCommandeMobile }
+
+afficherStatistiquesMobile:
+    path:     /afficherStatistiquesMobile
+    defaults: { _controller: CommandeBundle:Commande:afficherStatistiquesMobile }
+
+
+

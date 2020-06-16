@@ -10,4 +10,8 @@ namespace CommandeBundle\Repository;
  */
 class AdresseRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findLastAdresse(){
+        $query=$this->getEntityManager()->createQuery("select  a from CommandeBundle:adresse a where a.id = (select max(b.id) from CommandeBundle:adresse b)");
+        return $query->getResult();
+    }
 }

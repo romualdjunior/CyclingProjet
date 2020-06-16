@@ -83,6 +83,7 @@ $(function(){
             type: "get",
             url: "{{path("filtreCommandePanier")}}",
             data: {
+
                 mot:$(this).val()
             },
             success: function (response) {
