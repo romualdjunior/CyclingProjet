@@ -9,10 +9,10 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
     public static $files = array (
         '92c8763cd6170fce6fcfe7e26b4e8c10' => __DIR__ . '/..' . '/symfony/phpunit-bridge/bootstrap.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '20f378a8a84881cf108b4428c19cf452' => __DIR__ . '/..' . '/league/uri-hostname-parser/src/functions_include.php',
         'e1e8b49c332434256b5df11b0f0c2a62' => __DIR__ . '/..' . '/league/uri-parser/src/functions_include.php',
-        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '48197193621c5ab80fbc196827e806d1' => __DIR__ . '/..' . '/league/uri-components/src/functions_include.php',
         '244240de28ad61783068aef6c6b63aea' => __DIR__ . '/..' . '/league/uri-schemes/src/functions_include.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
@@ -75,10 +75,6 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
             'Monolog\\' => 8,
             'Mgilet\\NotificationBundle\\' => 26,
         ),
-        'K' => 
-        array (
-            'Knp\\Bundle\\PaginatorBundle\\' => 27,
-        ),
         'L' => 
         array (
             'League\\Uri\\' => 11,
@@ -87,6 +83,7 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
         array (
             'Knp\\Snappy\\' => 11,
             'Knp\\Bundle\\SnappyBundle\\' => 24,
+            'Knp\\Bundle\\PaginatorBundle\\' => 27,
         ),
         'I' => 
         array (
@@ -109,6 +106,7 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
         array (
             'Fig\\Link\\' => 9,
             'FOS\\UserBundle\\' => 15,
+            'FOS\\MessageBundle\\' => 18,
             'FOS\\JsRoutingBundle\\' => 20,
         ),
         'D' => 
@@ -253,15 +251,11 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
-        'Mgilet\\NotificationBundle\\' =>
+        'Mgilet\\NotificationBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/mgilet/notification-bundle',
         ),
-        'Knp\\Bundle\\PaginatorBundle\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle',
-        ),
-        'League\\Uri\\' =>
+        'League\\Uri\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/uri-components/src',
             1 => __DIR__ . '/..' . '/league/uri-hostname-parser/src',
@@ -278,6 +272,10 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-snappy-bundle',
         ),
+        'Knp\\Bundle\\PaginatorBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/knplabs/knp-paginator-bundle',
+        ),
         'Incenteev\\ParameterHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
@@ -289,7 +287,6 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
         'Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/php-http/message/src',
-            1 => __DIR__ . '/..' . '/php-http/message-factory/src',
         ),
         'Http\\Client\\' => 
         array (
@@ -318,6 +315,10 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
         'FOS\\UserBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/user-bundle',
+        ),
+        'FOS\\MessageBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/friendsofsymfony/message-bundle',
         ),
         'FOS\\JsRoutingBundle\\' => 
         array (
@@ -373,13 +374,7 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
                 0 => __DIR__ . '/..' . '/twig/twig/lib',
             ),
         ),
-        'K' =>
-        array (
-            'Knp\\Component' => 
-            array (
-                0 => __DIR__ . '/..' . '/knplabs/knp-components/src',
-            ),),
-        'P' =>
+        'P' => 
         array (
             'Payum\\Paypal\\ExpressCheckout\\Nvp' => 
             array (
@@ -388,6 +383,13 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
             'Payum\\Core\\' => 
             array (
                 0 => __DIR__ . '/..' . '/payum/core',
+            ),
+        ),
+        'K' => 
+        array (
+            'Knp\\Component' => 
+            array (
+                0 => __DIR__ . '/..' . '/knplabs/knp-components/src',
             ),
         ),
         'J' => 
@@ -447,4 +449,3 @@ class ComposerStaticInit36eeac95b1aa1c67ca3e5ce13708f4da
         }, null, ClassLoader::class);
     }
 }
-

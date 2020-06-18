@@ -1,6 +1,7 @@
 <?php
 
 namespace CommandeBundle\Controller;
+use AppBundle\Entity\User;
 use CommandeBundle\Entity\Payment;
 use CommandeBundle\Entity\Produit;
 use CommandeBundle\Entity\Penalite;
@@ -15,6 +16,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use ReclamationUserBundle\Entity\Mail;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class CommandeController extends Controller
 {
@@ -88,10 +92,17 @@ class CommandeController extends Controller
 
     }
 
-    public function afficherCommandePanierAction(){
+    public function afficherCommandePanierAction(Request $request){
         $em=$this->getDoctrine();
         $tab=$em->getRepository(Commande::class)->findAllCommandePanier();
-        return $this->render("@Commande/commandePanier.html.twig",array("lignePaniers"=>$tab));
+        $paginator=$this->get('knp_paginator');
+        $result=$paginator->paginate(
+            $tab,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',8)
+
+        );
+        return $this->render("@Commande/commandePanier.html.twig",array("lignePaniers"=>$result));
 
     }
     public function supprimerAdresseAction($id){
@@ -159,6 +170,15 @@ class CommandeController extends Controller
        return new JsonResponse(array("lignePanier"=>$tab));
     }
 
+    public function UtilisateurBloqueAction(Request $request){
+        $id=$request->get("id");
+        $em=$this->getDoctrine();
+        $locations=$em->getRepository(Penalite::class)->findPenaliteClient($id);
+        if(count($locations)>0)
+            return new JsonResponse("true");
+        else  return new JsonResponse("false");
+    }
+
     public function imprimerFactureAction($id){
         $em=$this->getDoctrine()->getManager();
         $commande=$em->getRepository(Commande::class)->find($id);
@@ -182,8 +202,74 @@ class CommandeController extends Controller
         );
     }
 public function afficherReceiptAction(){
-        return $this->render("@Commande/receipt.html.twig");
+        return $this->redirectToRoute("sendMail");
 }
 
+public function sendMailAction(){
+        $mail=new Mail();
+        $objet="Commande de produits";
+        $username="romuald.motchehokamguia@esprit.tn";
+        $message=\Swift_Message::newInstance()
+            ->setSubject("Validation de commande")
+            ->setFrom($username)
+            ->setTo($username)
+            ->setBody("votre comamnde a été validée avec succès");
+        $this->get("mailer")->send($message);
+    return $this->render("@Commande/receipt.html.twig");
+}
+
+
+    public function filtrePenaliteAction(Request $request){
+        $user=$request->get("user");
+        $em=$this->getDoctrine();
+        $tab=$em->getRepository(Penalite::class)->findAll();
+        return $this->render("@Commande/penalite.html.twig",array("penalites"=>$tab));
+
+    }
+    public function connexionMobileAction($username,$password){
+        $em=$this->getDoctrine();
+
+        $user_in_store=$em->getRepository(Commande::class)->findUtilisateur($username,$password);
+        $encoderService=$this->container->get("security.password_encoder");
+
+
+        foreach ($user_in_store as $user_in_store){
+            if($encoderService->isPasswordValid($user_in_store, $password))
+                {
+                    $serializer = new Serializer([new ObjectNormalizer()]);
+                    $formatted = $serializer->normalize($user_in_store);
+                    return new JsonResponse($formatted);}
+                }
+
+        return new JsonResponse("non existant",200);
+    }
+    public function ajoutAdresseMobileAction($nom,$prenom,$phone,$email,$pays,$ville,$etat,$pincode,$adresseLivraison){
+        $Adresse=new Adresse($nom,$prenom,$phone,$email,$pays,$ville,$etat,$pincode,$adresseLivraison);
+            $em=$this->getDoctrine()->getManager();
+            $em->persist($Adresse);
+            $em->flush();
+            
+           return new JsonResponse("adresse ajoutée avec succès",200);
+    }
+
+    public function ajoutCommandeMobileAction($total,$etat,$user){
+        $em=$this->getDoctrine();
+        $adresse=$em->getRepository(Adresse::class)->findLastAdresse()[0];
+        if ($etat=="nonpaye") $etat="non paye";
+        else $etat="paye";
+        $user_in_store=$em->getRepository(Commande::class)->findUtilisateur2($user)[0];
+        $Commande=new Commande($total,$etat,date("Y-m-d"),$user_in_store,$adresse);
+        $em=$this->getDoctrine()->getManager();
+        $em->persist($Commande);
+        $em->flush();
+        return new JsonResponse("commande ajoutée avec succès",200);
+    }
+ public function afficherStatistiquesMobileAction(){
+     $em=$this->getDoctrine();
+     $Date=$em->getRepository(Commande::class)->findAllDates();
+     $serializer = new Serializer([new ObjectNormalizer()]);
+     $formatted = $serializer->normalize($Date);
+     return new JsonResponse($formatted);
+ }
 
 }

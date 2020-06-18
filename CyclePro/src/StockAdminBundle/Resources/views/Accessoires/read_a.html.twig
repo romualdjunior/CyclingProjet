@@ -16,23 +16,9 @@
                     <div id="order-listing_wrapper"
                          class="dataTables_wrapper container-fluid dt-bootstrap4 no-footer">
                         <div class="row"><div class="col-sm-12 col-md-6">
-                                <div class="dataTables_length" id="order-listing_length">
-                                    <label>Afficher
-                                        <select name="order-listing_length" aria-controls="order-listing" class="form-control">
-                                            <option value="5">5</option>
-                                            <option value="10">10</option>
-                                            <option value="15">15</option>
-                                            <option value="-1">All</option>
-                                        </select>lignes
-                                    </label>
-                                </div></div>
-                            <div class="col-sm-12 col-md-6">
-                                <div id="order-listing_filter" class="dataTables_filter">
-                                    <label>
-                                        <input type="search" class="form-control" placeholder="Search" aria-controls="order-listing">
-                                    </label>
-                                </div>
+
                             </div>
+
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
@@ -45,8 +31,10 @@
                                         <th  >nom</th>
                                         <th  >marque</th>
                                         <th  >categorie</th>
-                                        <th  >prix</th>
+                                        <th  ><a  href="{{ path('ascABACK') }}">prix</a></th>
+                                        <th  >qtEnStock</th>
                                         <th  >description</th>
+                                        <th  >Caracteristiques</th>
                                         <th  >Option</th>
                                     </tr>
                                     </thead>
@@ -62,8 +50,9 @@
                                                 <td>{{ i.marque }}</td>
                                                 <td>{{ i.categorie }}</td>
                                                 <td>{{ i.prix }}</td>
+                                                <td>{{ i.qtEnStock }}</td>
                                                 <td>{{ i.description }}</td>
-
+                                                <td>{{ i.Caracteristiques }}</td>
 
                                                 <td><a  class="badge badge-success" href="{{ path('updateA',{'id':i.id}) }}">Modifier</a></td>
                                                 <td><a class="badge badge-danger"  href="{{ path('deleteA',{'id':i.id}) }}">supprimer</a></td>

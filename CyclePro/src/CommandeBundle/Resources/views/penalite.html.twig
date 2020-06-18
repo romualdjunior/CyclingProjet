@@ -21,6 +21,9 @@
                             <div class="card-body">
                                 <h4 class="card-title">Basic Sortable Table</h4>
                                 <div class="row">
+                                    <div id="order-listing_filter" class="dataTables_filter"><label><input id="search" type="search" class="form-control" placeholder="Search" aria-controls="order-listing"></label>
+                                        <a href="" id="chercher" class="badge badge-info">chercher</a>
+                                    </div>
                                     <div class="table-sorter-wrapper col-lg-12 table-responsive">
                                         <table id="sortable-table-1" class="table">
                                             <thead>
@@ -69,9 +72,15 @@
         </div>
     </div>
 {% endblock %}
-{% block javascript  %}
+{% block javascripts  %}
 {{ parent() }}
-<scrip>
+<script>
 
-</scrip>
+
+$("#chercher").click(function(e){
+    e.preventDefault();
+    alert($("#search").val());
+    window.location.href=Routing.generate("filtrePenalite",{user:$("#search").val()});
+})
+</script>
 {%  endblock   %}

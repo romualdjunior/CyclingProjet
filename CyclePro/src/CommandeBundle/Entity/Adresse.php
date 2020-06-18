@@ -84,6 +84,30 @@ class Adresse
      */
     private $adresseLivraison;
 
+    /**
+     * Adresse constructor.
+     * @param string $nom
+     * @param string $prenom
+     * @param int $phone
+     * @param string $email
+     * @param string $pays
+     * @param string $ville
+     * @param string $etat
+     * @param int $pincode
+     * @param string $adresseLivraison
+     */
+    public function __construct($nom, $prenom, $phone, $email, $pays, $ville, $etat, $pincode, $adresseLivraison)
+    {
+        $this->nom = $nom;
+        $this->prenom = $prenom;
+        $this->phone = $phone;
+        $this->email = $email;
+        $this->pays = $pays;
+        $this->ville = $ville;
+        $this->etat = $etat;
+        $this->pincode = $pincode;
+        $this->adresseLivraison = $adresseLivraison;
+    }
 
 
     /**

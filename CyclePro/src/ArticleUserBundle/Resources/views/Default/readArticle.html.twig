@@ -1,0 +1,336 @@
+{%extends "base.html.twig" %}
+{% block content %}
+    <!DOCTYPE html>
+     <html lang="en" class="ie8 no-js">
+     <html lang="en" class="ie9 no-js">
+    <html lang="en">
+
+    <head>
+        <title>CyclePro</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="Hsoft">
+        <meta name="MobileOptimized" content="320">
+        <!-- favicon links-->
+        <link rel="icon" type="image/icon" href="favicon.png">
+        <!-- main css -->
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/fonts.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link rel="stylesheet" href="js/plugin/owl/owl.carousel.min.css">
+        <link rel="stylesheet" href="js/plugin/owl/owl.theme.css">
+        <link rel="stylesheet" href="js/plugin/magnific/magnific-popup.css">
+        <link rel="stylesheet" href="css/custom-animation.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+    <!--Top bar start-->
+    <div class="cy_top_wrapper">
+        <div class="cy_top_info">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="cy_top_detail">
+                            <ul>
+                                <li><a href="#">EMAIL: Info@yourmail.com</a></li>
+                                <li>PHONE: 18009001010</li>
+                                <li>
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-tumblr" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </li>
+                                <li class="cart"><a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                        <span>2</span></a>
+                                    <ul class="cart_box">
+                                        <li>
+                                            <div class="cart_section">
+                                                <div class="cart_img">
+                                                    <a href="#"><img src="{{ asset('Frontend/images/cart/1.jpg')}}" alt="cart" class="img-fluid"></a>
+                                                </div>
+                                                <div class="cart_detail">
+                                                    <h4><a href="cart.html">Road Bicycle</a></h4>
+                                                    <h5>$2200</h5>
+                                                </div>
+                                                <a class="cart_delete"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="cart_section">
+                                                <div class="cart_img">
+                                                    <a href="#"><img src=" {{ asset('Frontend/images/cart/2.jpg') }}" alt="cart" class="img-fluid"></a>
+                                                </div>
+                                                <div class="cart_detail">
+                                                    <h4><a href="cart.html">Road Bicycle</a></h4>
+                                                    <h5>$2500</h5>
+                                                </div>
+                                                <a class="cart_delete"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="cart_section">
+                                                <div class="cart_total">
+                                                    <h4>Total<span>$4700</span></h4>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="cart_section">
+                                                <a href="cart.html" class="cy_button">view cart</a>
+                                                <a href="checkout.html" class="cy_button">Checkout</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- sign icons -->
+    <div class="cy_sign_wrapper">
+        <h2 class="signin"><i class="fa fa-sign-in" aria-hidden="true"></i><a href="#signin" data-toggle="modal">Sign in</a></h2>
+        <h2 class="signup"><i class="fa fa-user-plus" aria-hidden="true"></i><a href="#signup" data-toggle="modal">Sign out</a></h2>
+    </div>
+    <!-- sign in modal -->
+    <div class="modal" id="signin">
+        <div class="cy_signin">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="cy_sign_img">
+                        <img src="{{ asset('Frontend/images/popup.jpg') }}" alt="popup" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="cy_sign_form">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h1>Sign in</h1>
+                        <input type="text" placeholder="Identifiant" class="form-control">
+                        <input type="password" placeholder="Password" class="form-control">
+                        <div class="forget_password">
+                            <div class="remember_checkbox">
+                                <label>Keep me signed in
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                            <a href="#">
+                                Forgot Password ?</a>
+                        </div>
+                        <a href="#" class="cy_button">Sign in</a>
+                        <p>Dont Have An Account? <a href="#signup" data-toggle="modal" class="cy_modal">Sign out</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- sign up modal -->
+    <div class="modal" id="signup">
+        <div class="cy_signup">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="cy_sign_img">
+                        <img src="{{ asset('Frontend/images/popup.jpg') }}" alt="popup" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="cy_sign_form">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h1>Sign up</h1>
+                        <input type="text" placeholder="Username" class="form-control">
+                        <input type="text" placeholder="Email ou Numéro téléphone" class="form-control">
+                        <input type="password" placeholder="Mot de passe" class="form-control">
+                        <a href="#" class="cy_button">S'inscrire</a>
+                        <p>Already Have An Account? <a href="#">Se connecter</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- sign up modal -->
+    <div class="modal" id="signup">
+        <div class="modal-dialog">
+            <div class="cy_signup">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="cy_sign_img">
+                            <img src="{{ asset('Frontend/images/popup.jpg') }}" alt="popup" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="cy_sign_form">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h1>Sign up</h1>
+                            <input type="text" placeholder="Identifiant" class="form-control">
+                            <input type="text" placeholder="Email ou Mot de passe" class="form-control">
+                            <input type="password" placeholder="Mot de passe" class="form-control">
+                            <a href="#" class="cy_button">S'inscrire</a>
+                            <p>Vous avez un compte ? <a href="#" data-dismiss="modal">Se connecter</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Banner section start-->
+    <div class="cy_bread_wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <h1>blog</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Menus Start-->
+    <div class="cy_menu_wrapper">
+        <div class="cy_logo_box">
+            <a href="index.html"><img src="{{ asset('Frontend/images/logo.png') }}" alt="logo" class="img-fluid"/></a>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <button class="cy_menu_btn">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button>
+                    <div class="cy_menu">
+                        <nav>
+                            <ul>
+                                <li><a href="index.html">home</a></li>
+                                <li><a href="about.html">about</a></li>
+                                <li class="dropdown"><a href="javascript:;">event</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="event.html">event</a></li>
+                                        <li><a href="event_single.html">event single</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="javascript:;" class="active">blog</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="blog.html">blog</a></li>
+                                        <li><a href="blog_single.html">blog unique</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="javascript:;">pages</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="shop.html">shop</a></li>
+                                        <li><a href="shop_single.html">shop single</a></li>
+                                        <li><a href="cart.html">cart</a></li>
+                                        <li><a href="checkout.html">checkout</a></li>
+                                        <li><a href="404.html">404</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="gallery.html">gallery</a></li>
+                                <li><a href="contact.html">contact us</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="cy_search">
+                        <a href="#" class="search_open"><i class="fa fa-search"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- search section -->
+    <div class="cy_search_form">
+        <button class="search_close"><i class="fa fa-times"></i></button>
+        <div class="cy_search_input">
+            <input type="search" placeholder="Chercher">
+            <i class="fa fa-search"></i>
+        </div>
+    </div>
+    <!--Blog section start-->
+    <div class="cy_blog_wrapper cy_section_padding  cy_blog_page">
+        <div class="container">
+            <div class="row">
+                {% for i in articles %}
+                    <div class="col-lg-6 col-md-12">
+                        <div class="cy_blog_box wow fadeInUp">
+                            <div class="cy_blog_img">
+                                <img src="{{ asset('Frontend/images/blog/'~ i.photo) }}" alt="introuvable" class="img-fluid" />
+                                <div class="cy_blog_overlay"></div>
+                                <div class="cy_blog_links">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i> 15</a></li>
+                                        <li><a href="#"><i class="fa fa-heart" aria-hidden="true"></i> 120</a></li>
+                                        <li><a href="#" class="cy_relative"><i class="fa fa-share-alt" aria-hidden="true"></i> share</a>
+                                            <ul class="cy_so_icons">
+                                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-tumblr" aria-hidden="true"></i></a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cy_blog_data">
+                                <ul class="cy_blog_info">
+                                    <li><a href="#">{{ i.auteur }}</a></li>
+                                    <li><a href="#">{{ i.dateArt | date ('d/m/Y') }}</a></li>
+                                    <li><a href="#">{{ i.category }}</a></li>
+                                </ul>
+                                <h2><a href="{{ path("single_article_user",{"id":i.id})}}">{{ i.titre }}</a></h2>
+                                <p>{{ i.contenue }}</p>
+                                <a href="{{ path("single_article_user",{"id":i.id})}}" class="cy_button">Voir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="navigation text-center ">
+                {{ knp_pagination_render(articles) }}
+            </div>
+
+            </div>
+
+    </div>
+    <!--Footer section start-->
+    <!--???????--->
+
+    <!--Bottom footer start-->
+    <div class="cy_btm_footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <P>Copyright &copy; 2020, <a href="#">Cyclisme</a>. All Rights Reserved.</P>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Go to top start-->
+    <div class="cy_go_to">
+        <div class="cy_go_top">
+            <img src="{{ asset('Frontend/images/go_to_top.png') }}" alt="Back to top">
+        </div>
+    </div>
+    <!--scripts start-->
+    <script src="{{ asset('Frontend/js/jquery.js') }}"></script>
+    <script src="{{ asset('Frontend/js/tether.min.js') }}"></script>
+    <script src="{{ asset('Frontend/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('Frontend/js/wow.js') }}"></script>
+    <script src="{{ asset('Frontend/js/jquery.countTo.js') }}"></script>
+    <script src="{{ asset('Frontend/js/appear.js') }}"></script>
+    <script src="{{ asset('Frontend/js/plugin/owl/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('Frontend/js/plugin/magnific/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('Frontend/js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('Frontend/js/custom.js') }}"></script>
+    </body>
+    </html>
+{% endblock %}

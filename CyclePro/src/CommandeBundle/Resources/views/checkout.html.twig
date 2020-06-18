@@ -124,8 +124,8 @@
                             /[a-z]/i.test(value);
                     }, '6 caractères au moins avec au moins 1 chiffre');
 
+                    var regex = new RegExp("^[a-zA-Z0-9éèà]+$");
                     $.validator.addMethod("specialChars", function(value, element) {
-                        var regex = new RegExp("^[a-zA-Z0-9éèà]+$");
                         var key = value;
 
                         if (!regex.test(key)) {

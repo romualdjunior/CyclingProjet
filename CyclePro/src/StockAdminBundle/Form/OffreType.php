@@ -19,7 +19,8 @@ class OffreType extends AbstractType
             ->add('velo', EntityType::class , array('class'=>Velo::class,
                 'choice_label'=>'marque',
                 'multiple'=>false));
-    }/**
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

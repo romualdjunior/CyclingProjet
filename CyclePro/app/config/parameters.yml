@@ -10,6 +10,8 @@ parameters:
     mailer_host: smtp.gmail.com
     mailer_user: wiem.saddem@esprit.tn
     mailer_password: waoumajomhouria1997*
+    #mailer_user: romuald.motchehokamguia@esprit.tn
+    #mailer_password: MON amour00?
     mailer_port: 465
     mailer_encryption: ssl
     secret: ThisTokenIsNotSoSecretChangeIt

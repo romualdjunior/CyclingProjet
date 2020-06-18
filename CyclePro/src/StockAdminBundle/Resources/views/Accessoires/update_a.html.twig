@@ -5,7 +5,7 @@
     <div class="col-12 grid-margin">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title" style="text-align: center">Modifier Accessoires</h4>
+                <h4 class="card-title" style="text-align: center">Modifier des Accessoires</h4>
                 <form class="form-sample">
                     <div class="row">
                         <div class="col-md-6">
@@ -24,7 +24,23 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group row">
 
+                                <div class="col-sm-9">
+                                    {{ form_row(form.qtEnStock, {'attr':{'class':'form-control'}}) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+
+                                <div class="col-sm-9">
+                                    {{ form_row(form.Caracteristiques, {'attr':{'class':'form-control'}}) }}                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group row">
@@ -52,41 +68,59 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group row">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group row">
 
-                                <div class="col-sm-9">
-                                    <div class="dropify-wrapper">
-                                        <div class="dropify-message"><span class="file-icon">
+                                    <div class="col-sm-5">
+                                        <div class="dropify-wrapper"><div class="dropify-message"><span class="file-icon"></span> <p>Drag and drop a file here or click</p><p class="dropify-error">Ooops, something wrong appended.</p></div><div class="dropify-loader"></div><div class="dropify-errors-container"><ul></ul></div><input type="file" name="photoA" id="photoA" class="dropify"><button type="button" class="dropify-clear">Remove</button><div class="dropify-preview"><span class="dropify-render"></span><div class="dropify-infos"><div class="dropify-infos-inner"><p class="dropify-filename"><span class="file-icon"></span> <span class="dropify-filename-inner"></span></p><p class="dropify-infos-message">Drag and drop or click to replace</p></div></div></div></div>
 
-                                            </span> <p>Drag and drop a file here or click</p>
-                                            <p class="dropify-error">Ooops, something wrong appended.</p></div>
-                                        <div class="dropify-loader"></div><div class="dropify-errors-container"><ul></ul></div>
-                                        <input type="file" name="photoA" id="photoA" class="dropify">
-                                        <button type="button" class="dropify-clear">Remove</button><div class="dropify-preview">
-                                            <span class="dropify-render"></span><div class="dropify-infos"><div class="dropify-infos-inner">
-                                                    <p class="dropify-filename"><span class="file-icon"></span>
-                                                        <span class="dropify-filename-inner"></span></p>
-                                                    <p class="dropify-infos-message">Drag and drop or click to replace</p>
-                                                </div></div></div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group row">
+
+                                    <div class="col-sm-5">
+                                        <div class="dropify-wrapper"><div class="dropify-message"><span class="file-icon"></span> <p>Drag and drop a file here or click</p><p class="dropify-error">Ooops, something wrong appended.</p></div><div class="dropify-loader"></div><div class="dropify-errors-container"><ul></ul></div><input type="file" name="photoA1" id="photoA1" class="dropify"><button type="button" class="dropify-clear">Remove</button><div class="dropify-preview"><span class="dropify-render"></span><div class="dropify-infos"><div class="dropify-infos-inner"><p class="dropify-filename"><span class="file-icon"></span> <span class="dropify-filename-inner"></span></p><p class="dropify-infos-message">Drag and drop or click to replace</p></div></div></div></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group row">
+
+                                    <div class="col-sm-5">
+                                        <div class="dropify-wrapper"><div class="dropify-message"><span class="file-icon"></span> <p>Drag and drop a file here or click</p><p class="dropify-error">Ooops, something wrong appended.</p></div><div class="dropify-loader"></div><div class="dropify-errors-container"><ul></ul></div><input type="file" name="photoA2" id="photoA2" class="dropify"><button type="button" class="dropify-clear">Remove</button><div class="dropify-preview"><span class="dropify-render"></span><div class="dropify-infos"><div class="dropify-infos-inner"><p class="dropify-filename"><span class="file-icon"></span> <span class="dropify-filename-inner"></span></p><p class="dropify-infos-message">Drag and drop or click to replace</p></div></div></div></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group row">
+
+                                    <div class="col-sm-5">
+                                        <div class="dropify-wrapper"><div class="dropify-message"><span class="file-icon"></span> <p>Drag and drop a file here or click</p><p class="dropify-error">Ooops, something wrong appended.</p></div><div class="dropify-loader"></div><div class="dropify-errors-container"><ul></ul></div><input type="file" name="photoA3" id="photoA3" class="dropify"><button type="button" class="dropify-clear">Remove</button><div class="dropify-preview"><span class="dropify-render"></span><div class="dropify-infos"><div class="dropify-infos-inner"><p class="dropify-filename"><span class="file-icon"></span> <span class="dropify-filename-inner"></span></p><p class="dropify-infos-message">Drag and drop or click to replace</p></div></div></div></div>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
 
-                        <div class="col-md-6">
-                            <div class="form-group row">
+                        <div class="row">
 
-                                <div class="col-sm-9">
-                                    <button type="submit" class="btn btn-primary mr-2">Modifier</button>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+
+                                    <div class="col-sm-9">
+                                        <button type="submit" class="btn btn-primary mr-2">modifier</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    {{ form_end(form) }}
+                        {{ form_end(form) }}
 
                 </form>
             </div>

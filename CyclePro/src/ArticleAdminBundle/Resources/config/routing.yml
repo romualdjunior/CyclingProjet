@@ -1,0 +1,60 @@
+article_admin_homepage:
+    path:     /accueilArticleAdmin
+    defaults: { _controller: ArticleAdminBundle:Default:index }
+
+article_admin_ajouter:
+    path:     /ajouterArticle
+    defaults: { _controller: ArticleAdminBundle:Default:ajouter }
+
+article_admin_delete:
+    path:     /deleteArticleAdmin
+    defaults: { _controller: ArticleAdminBundle:Default:delete }
+
+create_article:
+    path:     /create
+    defaults: { _controller: ArticleAdminBundle:ArticleAdmin:create }
+
+read_article:
+    path:     /read
+    defaults: { _controller: ArticleAdminBundle:ArticleAdmin:read }
+
+update_article:
+    path:     /update/{id}
+    defaults: { _controller: ArticleAdminBundle:ArticleAdmin:update }
+
+delete_article:
+    path:     /delete/{id}
+    defaults: { _controller: ArticleAdminBundle:ArticleAdmin:delete }
+
+create_comt:
+    path:     /create
+    defaults: { _controller: ArticleAdminBundle:CommentaireAdmin:create }
+
+read_comt:
+    path:     /CommentaireAdmin/read/{id}
+    defaults: { _controller: ArticleAdminBundle:CommentaireAdmin:read }
+
+update_comt:
+    path:     /CommentaireAdmin/update/{id}
+    defaults: { _controller: ArticleAdminBundle:CommentaireAdmin:update }
+
+delete_comt:
+    path:     /CommentaireAdmin/delete/{id}
+    defaults: { _controller: ArticleAdminBundle:CommentaireAdmin:delete }
+    options:
+        expose: true
+
+search_word:
+    path:     /searchword
+    defaults: { _controller: ArticleAdminBundle:ArticleAdmin:search }
+
+search_ligne:
+    path:     /searchligne
+    defaults: { _controller: ArticleAdminBundle:ArticleAdmin:searchligne }
+
+search_comt:
+    path:     /searchcomt
+    defaults: { _controller: ArticleAdminBundle:CommentaireAdmin:searchcomt}
+    options:
+        expose: true
+

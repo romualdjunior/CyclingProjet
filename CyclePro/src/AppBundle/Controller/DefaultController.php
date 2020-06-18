@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
+
 use CommandeBundle\Entity\Adresse;
 use ReclamationUserBundle\Entity\Reclamation;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -26,9 +27,8 @@ class DefaultController extends Controller
 
         //moi je veux travailler rapidemnt que dire merci infiniment 
 
-        return $this->render('@Commande\shopSingle.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        return $this->redirectToRoute("listeVelo");
+
     }
     /**
      * @Route("/redirection", name="redirection")
@@ -36,11 +36,12 @@ class DefaultController extends Controller
     public function redirectAction(){
         $authChecker=$this->container->get("security.authorization_checker");
         if ($authChecker->isGranted("ROLE_ADMIN"))
+
         {
             return $this->render("homeAdmin.html.twig",array("connexion"=>"true"));
         }
         else if($authChecker->isGranted("ROLE_USER")){
-            return $this->render("@Commande/shopSingle.html.twig",array("connexion"=>"true"));
+            return $this->redirectToRoute("listeVelo");
         }
         else {
             return $this->render("@FOSUser/Security/login.html.twig");
@@ -68,34 +69,23 @@ class DefaultController extends Controller
             return $this->redirectToRoute('homepage');
         }
     /**
-     * @Route("/connexionMobile/{username}/{password}", name="redirection")
+     * @Route("/connexionMobile/{username}/{password}", name="connexionMobile")
      */
+    public function connexionMobileAction($username,$password){
+        $em=$this->getDoctrine();
+        $user_in_store=$em->getRepository(User::class)->findUtilisateur($username,$password);
+        $encoderService=$this->container->get("security.password_encoder");
 
-public function connexionMobileAction($username,$password){
-$em=$this->getDoctrine();
-$user_in_store=$em->getRepository(User::class)->findUtilisateur($username,$password);
-$encoderService=$this->container->get("security.password_encoder");
-
-foreach ($user_in_store as $user_in_store){
-if($encoderService->isPasswordValid($user_in_store, $password))
-{ $serializer = new Serializer([new ObjectNormalizer()]);
-$formatted = $serializer->normalize($user_in_store);
-return new JsonResponse($formatted);}
-
-
-}
-return new JsonResponse("non existant",200);
-}
+        foreach ($user_in_store as $user_in_store){
+            if($encoderService->isPasswordValid($user_in_store, $password))
+            { $serializer = new Serializer([new ObjectNormalizer()]);
+                $formatted = $serializer->normalize($user_in_store);
+                return new JsonResponse($formatted);}
 
 
-
-
-
-
-
-
-
-
+        }
+        return new JsonResponse("non existant",200);
+    }
 
 
 }

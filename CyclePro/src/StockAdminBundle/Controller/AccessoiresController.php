@@ -7,6 +7,7 @@ use StockAdminBundle\Entity\Accessoires;
 use StockAdminBundle\Entity\OffreA;
 use StockAdminBundle\Form\AccessoiresType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -28,11 +29,11 @@ class AccessoiresController extends Controller
         //3.a test sur les données
 
         if($form->isSubmitted()){
-
+            $AC->setSoldee(0);
             $AC->setPhotoA($photoA);
-            $AC->setPhotoA($photoA1);
-            $AC->setPhotoA($photoA2);
-            $AC->setPhotoA($photoA3);
+            $AC->setPhotoA1($photoA1);
+            $AC->setPhotoA2($photoA2);
+            $AC->setPhotoA3($photoA3);
             //4.a creation d'un objet doctrine
             $em=$this->getDoctrine()->getManager();
             //4.b persister les données de ORM
@@ -53,6 +54,7 @@ class AccessoiresController extends Controller
     {
         $em=$this->getDoctrine();
         $AC=$em->getRepository(Accessoires::class)->findAll();
+
         return $this->render('@StockAdmin/Accessoires/read_a.html.twig', array('ACs'=>$AC
             // ...
         ));
@@ -115,7 +117,7 @@ class AccessoiresController extends Controller
             // ...
         ));}
 
-    public function ShowACAction($id)
+    public function showACAction($id)
     {
         $em=$this->getDoctrine()->getManager();;
 
@@ -125,6 +127,60 @@ class AccessoiresController extends Controller
 
         return $this->render('@StockAdmin/Accessoires/shop_single_a.html.twig', array('AC'=>$AC,
             'ACs' => $ACs
+            // ...
+        ));
+    }
+    public function descAAction(Request $request)
+    {
+        $em=$this->getDoctrine();
+
+
+        $AC=$em->getRepository(Accessoires::class)->findDESCA();
+
+        $paginator=$this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $AC,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',6)
+        );
+        return $this->render('@StockAdmin/Accessoires/liste_a.html.twig', array('ACs'=>$result
+            // ...
+        ));
+
+
+
+    }
+
+    public function ascAAction(Request $request)
+    {
+        $em=$this->getDoctrine();
+
+
+        $AC=$em->getRepository(Accessoires::class)->findASCA();
+
+        $paginator=$this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $AC,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',6)
+        );
+        return $this->render('@StockAdmin/Accessoires/liste_a.html.twig', array('ACs'=>$result
+            // ...
+        ));
+    }
+    public function filtreACAction(Request $request){
+        $tab=$request->get("tab");
+        $em=$this->getDoctrine();
+        $criteres=$em->getRepository(Accessoires::class )->findAC($tab);
+        return new JsonResponse(array("criteres"=>$criteres));
+    }
+
+    public function ascABACKAction(Request $request)
+    {
+        $em=$this->getDoctrine();
+        $AC=$em->getRepository(Accessoires::class)->findASCA();
+
+        return $this->render('@StockAdmin/Accessoires/read_a.html.twig', array('ACs'=>$AC
             // ...
         ));
     }

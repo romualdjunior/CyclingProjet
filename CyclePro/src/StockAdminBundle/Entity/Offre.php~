@@ -3,6 +3,7 @@
 namespace StockAdminBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Offre
@@ -50,16 +51,17 @@ class Offre
         return $this->Velo;
     }
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="dateDebut", type="date")
+     * @Assert\Date()
+     * @Assert\GreaterThan("today")
      */
     private $dateDebut;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="dateFin", type="date")
+     * @Assert\Date()
+     * @Assert\Expression(
+     *     "this.getDateDebut() < this.getDateFin()",
+     *     message="La date fin ne doit pas être antérieure à la date début"
+     * )
      */
     private $dateFin;
 
@@ -103,23 +105,7 @@ class Offre
     }
 
     /**
-     * Set dateDebut
-     *
-     * @param \DateTime $dateDebut
-     *
-     * @return Offre
-     */
-    public function setDateDebut($dateDebut)
-    {
-        $this->dateDebut = $dateDebut;
-    
-        return $this;
-    }
-
-    /**
-     * Get dateDebut
-     *
-     * @return \DateTime
+     * @return mixed
      */
     public function getDateDebut()
     {
@@ -127,28 +113,36 @@ class Offre
     }
 
     /**
-     * Set dateFin
-     *
-     * @param \DateTime $dateFin
-     *
-     * @return Offre
+     * @param mixed $dateDebut
      */
-    public function setDateFin($dateFin)
+    public function setDateDebut($dateDebut)
     {
-        $this->dateFin = $dateFin;
-    
-        return $this;
+        $this->dateDebut = $dateDebut;
     }
 
     /**
-     * Get dateFin
-     *
-     * @return \DateTime
+     * @return mixed
      */
     public function getDateFin()
     {
         return $this->dateFin;
     }
+
+    /**
+     * @param mixed $dateFin
+     */
+    public function setDateFin($dateFin)
+    {
+        $this->dateFin = $dateFin;
+    }
+
+
+
+
+
+
+
+
 
     /**
      * Set pourcentage

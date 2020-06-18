@@ -1,3 +1,14 @@
+article_user:
+    resource: "@ArticleUserBundle/Resources/config/routing.yml"
+    prefix:   /ArticleUser
+
+article_admin:
+    resource: "@ArticleAdminBundle/Resources/config/routing.yml"
+    prefix:   /ArticleAdmin
+
+fos_message:
+    resource: "@FOSMessageBundle/Resources/config/routing.xml"
+    prefix: /message
 reclamation_admin:
     resource: "@ReclamationAdminBundle/Resources/config/routing.yml"
     prefix:   /
@@ -34,3 +45,4 @@ app:
 mgilet_notification:
     resource: "@MgiletNotificationBundle/Controller/"
     prefix: /notifications
+

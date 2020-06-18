@@ -86,7 +86,7 @@ class VeloController extends Controller
         $em->remove($velo);
         $manager = $this->get('mgilet.notification');
         $notif = $manager->createNotification('un velo a été suprimé');
-        $notif->setMessage('This a notification.');
+        $notif->setMessage('');
 
 
         $manager->addNotification(array($this->getUser()), $notif, true);
@@ -138,7 +138,7 @@ class VeloController extends Controller
             // ...
         ));}
 
-    public function listeVelosAction(Request $request)
+    public function listeVeloAction(Request $request)
     {
         $em=$this->getDoctrine();
 
@@ -224,6 +224,11 @@ class VeloController extends Controller
         $criteres=$em->getRepository(Velo::class )->findVelo($tab);
         return new JsonResponse(array("criteres"=>$criteres));
     }
+
+
+
+
+
     public function SearchAction(Request $request)
     {
 

@@ -59,6 +59,9 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    <div class="navigation">
+                                        {{ knp_pagination_render(lignePaniers) }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -68,6 +71,7 @@
             </div>
 
         </div>
+
     </div>
 {% endblock %}
 {% block javascripts  %}
@@ -79,6 +83,7 @@ $(function(){
             type: "get",
             url: "{{path("filtreCommandePanier")}}",
             data: {
+
                 mot:$(this).val()
             },
             success: function (response) {
@@ -100,7 +105,6 @@ $(function(){
                         "</tr>"
                 });
                 $("tbody").html(content);
-
             }
         });
         });
