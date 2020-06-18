@@ -3,6 +3,7 @@
 namespace ReclamationUserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Mgilet\NotificationBundle\NotifiableInterface;
 use Symfony\Component\Validator\Constraints\Date;
 use Symfony\Component\Validator\Constraints  as Assert ;
 
@@ -24,6 +25,13 @@ class Reclamation
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+
+
+
+
+
+
 
     /**
      * @var int
@@ -102,6 +110,22 @@ class Reclamation
      * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
+
+    /**
+     * Reclamation constructor.
+     * @param int $idClient
+     * @param string $nomClient
+     * @param string $prenomClient
+     * @param int $refVelo
+     * @param string $tel
+     * @param string $adresse
+     * @param Date $date
+     * @param string $raison
+     * @param string $Details
+     * @param string $email
+     * @param string $type
+     */
+
 
 
     /**
@@ -265,9 +289,9 @@ class Reclamation
      *
      * @return Reclamation
      */
-    public function setDate($date)
+    public function setDate()
     {
-        $this->date = $date;
+        $this->date = new \DateTime('now') ;
     
         return $this;
     }
@@ -377,4 +401,28 @@ class Reclamation
     {
         return $this->type;
     }
+
+    public function Reclamation ($id, $nom , $prenom , $tel  ,$adresse , $date, $raison , $details , $refVelo , $idClient , $email , $type) {
+     $this->id = $id ;
+     $this->nomClient = $nom  ;
+     $this->prenomClient = $prenom ;
+     $this->tel = $tel ;
+     $this->adresse = $adresse ;
+     $this->date = $date ;
+        $this->raison = $raison ;
+        $this->Details =$details ;
+        $this->refVelo=$refVelo ;
+        $this-> idClient = $idClient ;
+        $this->email = $email ;
+        $this-> type = $type ;
+
+
+
+
+
+    }
+
+
+
+
 }

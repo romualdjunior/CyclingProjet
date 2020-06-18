@@ -1,0 +1,30 @@
+<html>
+
+<head>
+<title> Envoi d'un message </title>
+</head>
+<body>
+
+<h1> Message</h1>
+<form action="{{ path('reclamation_SendSms')  }}" method="post" >
+    <table>
+
+        <tr>
+            <td><label>Entrer le numéro de mobile</label></td>
+            <td><input type="text" name="mobile"/></td>
+        </tr>
+
+        <tr>
+            <td><label>Entrer le message</label></td>
+            <td><textarea name="message" rows="5" cols="22"></textarea></td>
+        </tr>
+
+
+        <tr>
+            <td><input type="submit" value="Send Message"></td>
+        </tr>
+    </table>
+</form>
+</body>
+
+</html>

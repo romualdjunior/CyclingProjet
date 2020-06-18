@@ -74,3 +74,15 @@ reclamation_SearchType:
     path:     /SearchType
     defaults: { _controller: ReclamationUserBundle:ReclamationBack:SearchType }
 
+
+reclamation_SendSms:
+    path:     /SendSms
+    defaults: { _controller: ReclamationUserBundle:Message:SendSms}
+
+ajoutReclamationMobile:
+    path:     /ajoutReclamationMobile/{nom}/{prenom}/{tel}/{adresse}/{date}/{raison}/{details}/{refVelo}/{idClient}/{email}/{type}
+    defaults: { _controller: ReclamationUserBundle:Default:ajoutReclamationMobile }
+
+AfficherReclamationMobile:
+    path:   /AfficherReclamationMobile/{id}
+    defaults: { _controller: ReclamationUserBundle:Default:AfficherReclamationMobile}
